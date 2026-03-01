@@ -1153,7 +1153,7 @@
 
           <div class="pricing-card-price-wrap">
             <span class="price-currency">₪</span>
-            <span class="pricing-card-price">29</span>
+            <span class="pricing-card-price" id="parent-price">29</span>
             <span class="price-period">/ חודש</span>
           </div>
           <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
@@ -1186,7 +1186,7 @@
 
           <div class="pricing-card-price-wrap">
             <span class="price-currency">₪</span>
-            <span class="pricing-card-price">19</span>
+            <span class="pricing-card-price" id="sitter-price">19</span>
             <span class="price-period">/ חודש</span>
           </div>
           <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
@@ -1323,7 +1323,50 @@
 
   <div id="footer-root"></div>
   <script src="/_shared.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
   <script>
+    // Fetch prices from app_config
+    (function() {
+      var SUPABASE_URL = 'https://yvrceukiwbbswrqrakek.supabase.co';
+      var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2cmNldWtpd2Jic3dycXJha2VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjMzODgsImV4cCI6MjA3ODE5OTM4OH0.td2IX7WT5p9vTQjpDK_x45F-X_ihxLU7sSVcf8RZkvs';
+      var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      sb.from('app_config')
+        .select('key, value')
+        .in('key', ['parent_monthly_price', 'sitter_monthly_price'])
+        .then(function(res) {
+          if (res.data) {
+            res.data.forEach(function(row) {
+              var price = parseFloat(row.value);
+              var display = price % 1 === 0 ? String(Math.floor(price)) : price.toFixed(1);
+              if (row.key === 'parent_monthly_price') {
+                var el = document.getElementById('parent-price');
+                if (el) el.textContent = display;
+              } else if (row.key === 'sitter_monthly_price') {
+                var el2 = document.getElementById('sitter-price');
+                if (el2) el2.textContent = display;
+              }
+            });
+            // Update FAQ text
+            var parentPrice = res.data.find(function(r) { return r.key === 'parent_monthly_price'; });
+            var sitterPrice = res.data.find(function(r) { return r.key === 'sitter_monthly_price'; });
+            if (parentPrice && sitterPrice) {
+              var pp = parseFloat(parentPrice.value);
+              var sp = parseFloat(sitterPrice.value);
+              var ppDisplay = pp % 1 === 0 ? Math.floor(pp) : pp.toFixed(1);
+              var spDisplay = sp % 1 === 0 ? Math.floor(sp) : sp.toFixed(1);
+              var faqItems = document.querySelectorAll('.faq-body-inner');
+              faqItems.forEach(function(el) {
+                if (el.textContent.indexOf('₪29/חודש') !== -1 || el.textContent.indexOf('₪19/חודש') !== -1) {
+                  el.innerHTML = el.innerHTML
+                    .replace('₪29/חודש', '₪' + ppDisplay + '/חודש')
+                    .replace('₪19/חודש', '₪' + spDisplay + '/חודש');
+                }
+              });
+            }
+          }
+        });
+    })();
+
     // FAQ accordion
     document.querySelectorAll('.faq-trigger').forEach(function(btn) {
       btn.addEventListener('click', function() {
