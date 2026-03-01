@@ -2,7 +2,7 @@
   'use strict';
 
   var path = window.location.pathname;
-  var isHome = (path === '/newlanding.html' || path === '/' || path === '/index.html');
+  var isHome = (path === '/newlanding' || path === '/newlanding.html' || path === '/' || path === '/index.html');
 
   /* ── Load navbar + footer partials ── */
   var navbarEl = document.getElementById('navbar-root');
@@ -29,18 +29,18 @@
 
     /* On home page: mobile links use local anchors */
     if (isHome) {
-      var homeLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding.html"]');
+      var homeLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding"]');
       if (homeLink) homeLink.setAttribute('href', '#home');
-      var howLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding.html#how-it-works"]');
+      var howLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding#how-it-works"]');
       if (howLink) howLink.setAttribute('href', '#how-it-works');
-      var featLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding.html#features"]');
+      var featLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding#features"]');
       if (featLink) featLink.setAttribute('href', '#features');
-      var aboutLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding.html#about"]');
+      var aboutLink = document.querySelector('#mobile-menu .mobile-links-list a[href="/newlanding#about"]');
       if (aboutLink) aboutLink.setAttribute('href', '#about');
     }
 
     /* Highlight active nav item */
-    if (path.indexOf('/pricing.html') !== -1) {
+    if (path === '/pricing' || path === '/pricing.html') {
       var pricingLink = document.getElementById('nav-pricing');
       if (pricingLink) pricingLink.classList.add('active');
       var mobPricing = document.getElementById('mob-pricing');
@@ -131,7 +131,7 @@
       if (href.charAt(0) === '#') {
         hash = href;
       } else {
-        /* Absolute/relative path on same page: /newlanding.html#section */
+        /* Absolute/relative path on same page */
         try {
           var url = new URL(href, window.location.href);
           if (url.pathname === window.location.pathname && url.hash) {
