@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מחירון | FindSiter</title>
+  <meta name="description" content="מחירון FindSiter - תוכניות מנוי להורים ולבייביסיטרים. בחרו את התוכנית המתאימה לכם." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/_shared.css" />
+  <style>
+    .pricing-section {
+      background: #f7f1ec;
+      min-height: calc(100vh - 80px);
+      padding: 4rem 2.5rem 6rem;
+    }
+
+    .pricing-inner {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pricing-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-header h1 {
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-header p {
+      font-size: 1.05rem;
+      color: var(--muted);
+    }
+
+    /* Tab toggle */
+    .pricing-tabs {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+
+    .pricing-tabs-inner {
+      display: inline-flex;
+      background: #ede6df;
+      border-radius: 50px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .pricing-tab {
+      border: none;
+      background: transparent;
+      padding: 0.6rem 2rem;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+
+    .pricing-tab.active {
+      background: var(--pink);
+      color: #fff;
+      box-shadow: 0 2px 12px rgba(249, 87, 154, 0.25);
+    }
+
+    .pricing-tab:hover:not(.active) {
+      color: var(--dark);
+    }
+
+    /* Cards grid */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 2.5rem 2rem;
+      border: 2px solid transparent;
+      transition: box-shadow 0.3s, border-color 0.3s;
+      position: relative;
+    }
+
+    .pricing-card:hover {
+      box-shadow: 0 8px 32px rgba(49, 47, 55, 0.08);
+    }
+
+    .pricing-card.featured {
+      border-color: var(--pink);
+    }
+
+    .pricing-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.3rem 1.2rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .pricing-card h3 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 0.25rem;
+    }
+
+    .pricing-card .plan-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-amount {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-amount .price {
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--dark);
+    }
+
+    .pricing-amount .currency {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .pricing-amount .period {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .pricing-per-month {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .pricing-features {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .pricing-features li {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .pricing-features li .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: #fde8ef;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .pricing-features li .check svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* Loading */
+    .pricing-loading {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 300px;
+    }
+
+    .pricing-spinner {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ede6df;
+      border-top-color: var(--pink);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    @media (max-width: 640px) {
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .pricing-section {
+        padding: 3rem 1.25rem 4rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="navbar-root"></div>
+
+  <section class="pricing-section">
+    <div class="pricing-inner">
+      <div class="pricing-header">
+        <h1>מחירון</h1>
+        <p>בחרו את התוכנית המתאימה לכם</p>
+      </div>
+
+      <div class="pricing-tabs">
+        <div class="pricing-tabs-inner">
+          <button class="pricing-tab active" data-tab="parent">הורים</button>
+          <button class="pricing-tab" data-tab="sitter">בייביסיטרים</button>
+        </div>
+      </div>
+
+      <div id="pricing-content">
+        <div class="pricing-loading">
+          <div class="pricing-spinner"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-root"></div>
+  <script src="/_shared.js"></script>
+
+  <script>
+    (function () {
+      var SUPABASE_URL = 'https://yvrceukiwbbswrqrakek.supabase.co';
+      var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2cmNldWtpd2Jic3dycXJha2VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjMzODgsImV4cCI6MjA3ODE5OTM4OH0.td2IX7WT5p9vTQjpDK_x45F-X_ihxLU7sSVcf8RZkvs';
+
+      var features = {
+        parent: [
+          'חיפוש בייביסיטרים באזורך',
+          'צ\'אט ישיר עם בייביסיטרים',
+          'הזמנת שמרטפות בקליק',
+          'ניהול ילדים והזמנות',
+          'דירוגים וביקורות',
+          'התראות בזמן אמת'
+        ],
+        sitter: [
+          'פרופיל מקצועי מותאם אישית',
+          'קבלת הזמנות מהורים',
+          'צ\'אט ישיר עם הורים',
+          'ניהול זמינות ולוח שנה',
+          'פרסום משרות שמרטפות',
+          'חשיפה למאות הורים'
+        ]
+      };
+
+      var prices = {};
+      var activeTab = 'parent';
+
+      function checkIcon() {
+        return '<svg viewBox="0 0 24 24" fill="none" stroke="#f9579a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>';
+      }
+
+      function renderCards() {
+        var monthly = activeTab === 'parent' ? prices.parent_monthly_price : prices.sitter_monthly_price;
+        var yearly = activeTab === 'parent' ? prices.parent_yearly_price : prices.sitter_yearly_price;
+        var perMonth = yearly ? (parseFloat(yearly) / 12).toFixed(1) : '0';
+        var featureList = features[activeTab];
+
+        var featHtml = featureList.map(function (f) {
+          return '<li><span class="check">' + checkIcon() + '</span>' + f + '</li>';
+        }).join('');
+
+        var html = '<div class="pricing-cards">' +
+          '<div class="pricing-card">' +
+            '<h3>חודשי</h3>' +
+            '<p class="plan-sub">ללא התחייבות</p>' +
+            '<div class="pricing-amount">' +
+              '<span class="currency">₪</span>' +
+              '<span class="price">' + (monthly || '—') + '</span>' +
+              '<span class="period">/ חודש</span>' +
+            '</div>' +
+            '<p class="pricing-per-month">&nbsp;</p>' +
+            '<ul class="pricing-features">' + featHtml + '</ul>' +
+          '</div>' +
+          '<div class="pricing-card featured">' +
+            '<div class="pricing-badge">הכי משתלם</div>' +
+            '<h3>שנתי</h3>' +
+            '<p class="plan-sub">חסכון משמעותי</p>' +
+            '<div class="pricing-amount">' +
+              '<span class="currency">₪</span>' +
+              '<span class="price">' + (yearly || '—') + '</span>' +
+              '<span class="period">/ שנה</span>' +
+            '</div>' +
+            '<p class="pricing-per-month">₪' + perMonth + ' לחודש</p>' +
+            '<ul class="pricing-features">' + featHtml + '</ul>' +
+          '</div>' +
+        '</div>';
+
+        document.getElementById('pricing-content').innerHTML = html;
+      }
+
+      // Fetch prices from Supabase
+      var url = SUPABASE_URL + '/rest/v1/app_config?select=key,value&key=in.(parent_monthly_price,parent_yearly_price,sitter_monthly_price,sitter_yearly_price)';
+      fetch(url, {
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY
+        }
+      })
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          data.forEach(function (row) {
+            prices[row.key] = row.value;
+          });
+          renderCards();
+        })
+        .catch(function () {
+          document.getElementById('pricing-content').innerHTML = '<p style="text-align:center;color:var(--muted);">שגיאה בטעינת המחירים</p>';
+        });
+
+      // Tab switching
+      document.querySelectorAll('.pricing-tab').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          document.querySelectorAll('.pricing-tab').forEach(function (b) { b.classList.remove('active'); });
+          btn.classList.add('active');
+          activeTab = btn.getAttribute('data-tab');
+          renderCards();
+        });
+      });
+    })();
+  </script>
+</body>
+
+</html>
