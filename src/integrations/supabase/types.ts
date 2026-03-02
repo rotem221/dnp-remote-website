@@ -68,6 +68,7 @@ export type Database = {
           is_active: boolean | null
           last_login: string | null
           name: string
+          notification_preferences: Json | null
           permissions: Json | null
           role: string
           updated_at: string | null
@@ -80,6 +81,7 @@ export type Database = {
           is_active?: boolean | null
           last_login?: string | null
           name: string
+          notification_preferences?: Json | null
           permissions?: Json | null
           role?: string
           updated_at?: string | null
@@ -92,6 +94,7 @@ export type Database = {
           is_active?: boolean | null
           last_login?: string | null
           name?: string
+          notification_preferences?: Json | null
           permissions?: Json | null
           role?: string
           updated_at?: string | null
