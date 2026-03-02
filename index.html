@@ -4,16 +4,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script>
-    // Clean URL redirect — runs before anything renders
-    (function() {
-      var p = window.location.pathname.replace(/\/+$/, '');
-      var pages = ['/about', '/pricing', '/privacy', '/terms', '/accessibility', '/newlanding'];
-      if (pages.indexOf(p) !== -1) {
-        window.location.replace(p + '.html' + window.location.search + window.location.hash);
-      }
-    })();
-  </script>
   <title>FindSiter | חיפוש פשוט בין בייביסיטר להורים</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
