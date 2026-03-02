@@ -45,15 +45,6 @@
     initShared();
     wrapPageContent();
     setupSPANavigation();
-
-    /* If SPA fallback served index.html for a known page, load correct content */
-    if (!isHome) {
-      var knownPages = ['/about', '/pricing', '/privacy', '/terms', '/accessibility'];
-      var cleanPath = path.replace('.html', '').replace('/index', '');
-      if (knownPages.indexOf(cleanPath) !== -1) {
-        navigateToPage(cleanPath, window.location.hash, true);
-      }
-    }
   }
 
   function updateActiveNav() {
