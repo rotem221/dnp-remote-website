@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>מחירון – FindSiter</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="/_shared.css" />
+  <style>
+    /* ── PRICING HERO ── */
+    .pricing-hero {
+      background: #f7f1ec;
+      padding: 5rem 2.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-hero-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #ffd6ea;
+      color: var(--pink-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 1.1rem;
+    }
+
+    .pricing-hero h1 em {
+      font-style: normal;
+      color: var(--pink);
+    }
+
+    .pricing-hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── PRICING SECTION ── */
+    .pricing-section {
+      background: #f7f1ec;
+      padding: 3rem 2.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    /* ── CARD ── */
+    .pricing-card {
+      background: #fff;
+      border-radius: 28px;
+      padding: 2.5rem 2.25rem;
+      position: relative;
+      transition: transform 0.25s ease;
+    }
+
+    .pricing-card:hover {
+      transform: none;
+    }
+
+    /* featured card */
+    .pricing-card.featured {
+      background: #fff;
+      color: var(--dark);
+    }
+
+    .pricing-card.featured .pricing-card-muted {
+      color: var(--muted);
+    }
+
+    .pricing-card.featured .pricing-card-title {
+      color: var(--dark);
+    }
+
+    .pricing-card.featured .pricing-card-price {
+      color: var(--dark);
+    }
+
+    .pricing-card.featured .feature-item {
+      color: var(--text);
+    }
+
+    .pricing-card.featured .pricing-divider {
+      background: #f0ebe4;
+    }
+
+    .pricing-card.featured .pricing-cta-btn {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    .pricing-card.featured .pricing-cta-btn:hover {
+      background: var(--pink-dark);
+    }
+
+    /* popular badge */
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    /* card type icon */
+    .pricing-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pricing-card-icon.parents-icon {
+      background: #ffd6ea;
+    }
+
+    .pricing-card-icon.sitter-icon {
+      background: #d8f5e8;
+    }
+
+    .pricing-card.featured .pricing-card-icon.sitter-icon {
+      background: rgba(106,212,164,0.18);
+    }
+
+    /* card header */
+    .pricing-card-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-card-title {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .pricing-card-muted {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    /* price */
+    .pricing-card-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-card-price {
+      font-size: 2.8rem;
+      font-weight: 900;
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .price-currency {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--muted);
+      align-self: flex-start;
+      padding-top: 0.35rem;
+    }
+
+    .price-period {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .pricing-card.featured .price-currency,
+    .pricing-card.featured .price-period {
+      color: var(--muted);
+    }
+
+    .pricing-trial {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .pricing-card.featured .pricing-trial {
+      color: var(--muted);
+    }
+
+    /* CTA button */
+    .pricing-cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
+      border-radius: 14px;
+      font-size: 0.97rem;
+      font-weight: 800;
+      background: #f0ebe4;
+      color: #312f37;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 2rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .pricing-cta-btn:hover {
+      background: #e5ddd4;
+      transform: scale(1.015);
+    }
+
+    /* divider */
+    .pricing-divider {
+      height: 1px;
+      background: #f0ebe4;
+      margin-bottom: 1.75rem;
+    }
+
+    /* features list */
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .feature-icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      border-radius: 50%;
+      background: #ff96d4;
+      border: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg {
+      width: 11px;
+      height: 11px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .feature-icon.green {
+      background: #ff96d4;
+    }
+
+    .pricing-card.featured .feature-icon,
+    .pricing-card.featured .feature-icon.green {
+      background: #ff96d4;
+      color: #fff;
+      border: none;
+    }
+
+    /* ── BOTTOM CTA STRIP ── */
+    .pricing-cta-strip {
+      background: #f7f1ec;
+      padding: 0 2.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-cta-strip-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 24px;
+      padding: 3rem 3.5rem;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      text-align: right;
+    }
+
+    .pricing-cta-strip-text {
+      flex: 1;
+    }
+
+    .pricing-cta-strip-text h2 {
+      text-align: right;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-cta-strip-text p {
+      text-align: right;
+      margin-bottom: 0;
+    }
+
+    .pricing-cta-strip h2 {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 900;
+      color: var(--dark);
+      margin-bottom: 0.55rem;
+      line-height: 1.25;
+    }
+
+    .pricing-cta-strip h2 em {
+      font-style: normal;
+      color: var(--pink);
+    }
+
+    .pricing-cta-strip p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    .pricing-store-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-store {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #312f37;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.9rem 1.75rem;
+      border-radius: 50px;
+      width: 210px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-store:hover {
+      background: #3f3c48;
+      transform: scale(1.04);
+    }
+
+    .store-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #f3c860;
+      direction: rtl;
+      padding: 3.5rem 2.5rem 1.5rem;
+      border-radius: 32px 32px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-mascot {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -4%;
+      width: 420px;
+      opacity: 0.2;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      gap: 4rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      height: 52px;
+      width: auto;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: #312f37;
+      line-height: 1.7;
+      opacity: 0.65;
+      max-width: 260px;
+    }
+
+    .footer-brand { flex: 1; min-width: 180px; }
+    .footer-col { min-width: 120px; }
+
+    .footer-col-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #312f37;
+      opacity: 0.55;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #312f37;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-social-col { min-width: 200px; }
+
+    .footer-social-text {
+      font-size: 0.82rem;
+      color: #312f37;
+      opacity: 0.7;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.65rem;
+    }
+
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(49, 47, 55, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #312f37;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .footer-socials a:hover { background: rgba(49, 47, 55, 0.22); }
+
+    .footer-divider {
+      height: 1px;
+      background: rgba(49, 47, 55, 0.15);
+      margin: 2.5rem 0 1.25rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #312f37;
+      opacity: 0.6;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-a11y-link {
+      display: none;
+      background: rgba(49,47,55,0.1);
+      border: none; border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.78rem; font-weight: 700;
+      color: #312f37; cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .footer-a11y-link:hover { background: rgba(49,47,55,0.18); }
+    @media (max-width: 768px) {
+      .footer-a11y-link { display: inline-flex; align-items: center; gap: 0.3rem; }
+    }
+
+    .footer-mobile-links { display: none; }
+    .footer-mobile-links a {
+      text-decoration: none;
+      color: #312f37;
+      opacity: 0.65;
+      font-size: 0.72rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .footer-mobile-links a:hover { opacity: 1; }
+    .footer-mobile-sep { opacity: 0.35; font-size: 0.72rem; }
+
+    /* ── DECORATIVE BG ── */
+    .decorative-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .decorative-bg svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── ACCESSIBILITY WIDGET ── */
+    #a11y-fab {
+      position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 56px;
+      background: #312f37; color: #f7f1ec;
+      border: none; border-radius: 0 14px 14px 0;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 9999;
+      box-shadow: 2px 4px 20px rgba(49,47,55,0.22);
+      transition: background 0.2s, width 0.25s ease; overflow: hidden;
+    }
+    #a11y-fab:hover { background: #1a1820; }
+    #a11y-fab.collapsed { width: 20px; }
+    #a11y-fab .a11y-arrow { display: none; font-size: 0.9rem; }
+    #a11y-fab.collapsed .a11y-arrow { display: flex; }
+    #a11y-fab.collapsed .a11y-icon  { display: none; }
+    #a11y-fab .a11y-dot {
+      position: absolute; top: 7px; right: 7px;
+      width: 10px; height: 10px; background: #4ade80;
+      border-radius: 50%; border: 2px solid #312f37; display: none;
+    }
+    #a11y-fab .a11y-dot.show { display: block; }
+
+    #a11y-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 10000; opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    #a11y-backdrop.show { opacity: 1; pointer-events: auto; }
+
+    #a11y-panel {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: 100%; max-width: 420px;
+      background: #fff; z-index: 10001;
+      display: flex; flex-direction: column; direction: rtl;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+      box-shadow: 4px 0 40px rgba(49,47,55,0.18);
+    }
+    #a11y-panel.open { transform: translateX(0); }
+
+    .a11y-header {
+      flex-shrink: 0; background: #312f37; color: #f7f1ec;
+      padding: 1.1rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .a11y-header-info { display: flex; align-items: center; gap: 0.75rem; }
+    .a11y-header h2 { font-size: 1.05rem; font-weight: 800; margin: 0; color: #f7f1ec; }
+    .a11y-header p  { font-size: 0.78rem; opacity: 0.75; margin: 0.1rem 0 0; color: #f7f1ec; }
+    .a11y-close-btn {
+      width: 38px; height: 38px; background: rgba(255,255,255,0.12);
+      border: none; border-radius: 50%; color: #f7f1ec;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; transition: background 0.15s;
+    }
+    .a11y-close-btn:hover { background: rgba(255,255,255,0.25); }
+
+    .a11y-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .a11y-font-card {
+      background: #f7f4f1; border-radius: 14px; border: 1.5px solid #e8e0d8; padding: 1rem;
+    }
+    .a11y-font-card-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
+    .a11y-icon-box {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(49,47,55,0.08);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 1.1rem;
+    }
+    .a11y-font-card h3 { font-size: 0.9rem; font-weight: 700; color: #312f37; margin: 0; }
+    .a11y-font-card .sub { font-size: 0.75rem; color: #6b7280; margin: 0.1rem 0 0; }
+    .a11y-font-btns { display: flex; gap: 0.4rem; }
+    .a11y-font-btns button {
+      flex: 1; padding: 0.55rem 0.2rem;
+      background: #e8e0d8; border: none; border-radius: 9px;
+      color: #312f37; font-weight: 700; cursor: pointer;
+      transition: background 0.15s, color 0.15s; font-family: inherit;
+    }
+    .a11y-font-btns button.fs-active,
+    .a11y-font-btns button:hover:not(:disabled) { background: #312f37; color: #f7f1ec; }
+    .a11y-font-btns button:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .a11y-toggle {
+      width: 100%; display: flex; align-items: center; gap: 0.85rem;
+      padding: 0.85rem 1rem; background: #f7f4f1; border-radius: 14px;
+      border: 1.5px solid #e8e0d8; cursor: pointer; text-align: right;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .a11y-toggle.on { background: rgba(49,47,55,0.05); border-color: #312f37; }
+    .a11y-toggle:hover { border-color: rgba(49,47,55,0.4); }
+    .a11y-toggle-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(49,47,55,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+    .a11y-toggle.on .a11y-toggle-icon { background: #312f37; }
+    .a11y-toggle-text { flex: 1; }
+    .a11y-toggle-text h3 { font-size: 0.88rem; font-weight: 700; color: #312f37; margin: 0; }
+    .a11y-toggle-text p  { font-size: 0.74rem; color: #6b7280; margin: 0.1rem 0 0; }
+    .a11y-switch {
+      position: relative; width: 46px; height: 26px; border-radius: 999px;
+      flex-shrink: 0; background: #d1c9bf; transition: background 0.2s;
+    }
+    .a11y-switch.on { background: #312f37; }
+    .a11y-switch-knob {
+      position: absolute; top: 3px; width: 20px; height: 20px;
+      border-radius: 50%; background: #fff;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15); transition: left 0.2s;
+      left: calc(100% - 23px);
+    }
+    .a11y-switch.on .a11y-switch-knob { left: 3px; }
+
+    .a11y-reset-btn {
+      width: 100%; padding: 0.75rem; background: #f0ebe4;
+      border: none; border-radius: 12px;
+      font-size: 0.85rem; font-weight: 700; color: #312f37;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: background 0.15s; font-family: inherit; margin-top: 0.25rem;
+    }
+    .a11y-reset-btn:hover { background: #e5ddd4; }
+
+    .a11y-statement {
+      padding: 1rem; background: #f7f4f1; border-radius: 12px; text-align: center;
+    }
+    .a11y-statement p { font-size: 0.76rem; color: #6b7280; margin: 0 0 0.3rem; line-height: 1.6; }
+    .a11y-statement small { font-size: 0.7rem; color: #9ca3af; }
+
+    #a11y-reading-guide {
+      position: fixed; left: 0; right: 0; height: 48px; pointer-events: none;
+      z-index: 9998; border-top: 2px solid rgba(49,47,55,0.2);
+      border-bottom: 2px solid rgba(49,47,55,0.2); background: rgba(49,47,55,0.04); display: none;
+    }
+    #a11y-reading-guide.show { display: block; }
+
+    .accessibility-high-contrast       { filter: contrast(1.4) !important; }
+    .accessibility-high-contrast *     { border-color: currentColor !important; }
+    .accessibility-grayscale           { filter: grayscale(100%) !important; }
+    .accessibility-high-contrast.accessibility-grayscale { filter: contrast(1.4) grayscale(100%) !important; }
+    .accessibility-highlight-links a   { background: yellow !important; color: #000 !important; text-decoration: underline !important; padding: 2px 4px !important; }
+    .accessibility-readable-font,
+    .accessibility-readable-font *     { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: 0.02em !important; }
+    .accessibility-text-spacing        { letter-spacing: 0.12em !important; word-spacing: 0.32em !important; }
+    .accessibility-text-spacing p, .accessibility-text-spacing li,
+    .accessibility-text-spacing span, .accessibility-text-spacing div { line-height: 2 !important; }
+    .accessibility-stop-animations *, .accessibility-stop-animations *::before,
+    .accessibility-stop-animations *::after { animation: none !important; transition: none !important; }
+    .accessibility-large-cursor, .accessibility-large-cursor * {
+      cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="black" stroke="white" stroke-width="1" d="M5.5 3.21V20.8l4.86-4.86h8.43L5.5 3.21z"/></svg>') 0 0, auto !important;
+    }
+    #a11y-fab, #a11y-panel, #a11y-panel * { font-size: 1rem !important; }
+
+    /* ── BACK TO TOP ── */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 46px;
+      height: 46px;
+      background: #312f37;
+      color: #f7f1ec;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, bottom 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 4px 16px rgba(49,47,55,0.18);
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #back-to-top:hover {
+      background: #1a1820;
+      transform: translateY(-3px);
+    }
+
+    #back-to-top.lift-for-footer {
+      bottom: 5.5rem;
+    }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px; height: 40px;
+      background: none; border: none; cursor: pointer;
+      padding: 6px; border-radius: 10px;
+      transition: background 0.15s; flex-shrink: 0;
+    }
+    .hamburger:hover { background: rgba(49,47,55,0.07); }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #312f37; border-radius: 2px;
+      transition: transform 0.28s cubic-bezier(.4,0,.2,1), opacity 0.2s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 200;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s, visibility 0.28s;
+    }
+    .mobile-menu.open {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(49,47,55,0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .mobile-menu-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: 78vw; max-width: 320px;
+      height: 100%;
+      background: #fff;
+      box-shadow: -8px 0 40px rgba(49,47,55,0.18);
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+      overflow-y: auto;
+    }
+    .mobile-menu.open .mobile-menu-panel { transform: translateX(0); }
+    .mobile-menu-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid rgba(49,47,55,0.08);
+    }
+    .mobile-menu-head img { height: 44px; width: auto; }
+    .mobile-menu-close {
+      width: 36px; height: 36px;
+      background: rgba(49,47,55,0.06); border: none;
+      border-radius: 50%; cursor: pointer; font-size: 1.1rem;
+      color: #312f37; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .mobile-menu-close:hover { background: rgba(49,47,55,0.12); }
+
+    .mobile-links-list {
+      display: flex; flex-direction: column; padding: 0.75rem 0;
+      flex: 1;
+    }
+    .mobile-link {
+      padding: 1rem 1.5rem;
+      font-size: 1.05rem; font-weight: 600;
+      color: #312f37; text-decoration: none;
+      border-bottom: 1px solid rgba(49,47,55,0.06);
+      transition: background 0.15s, color 0.15s;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .mobile-link:last-of-type { border-bottom: none; }
+    .mobile-link:hover { background: rgba(49,47,55,0.04); color: var(--pink); }
+    .mobile-link::after { content: '‹'; color: rgba(49,47,55,0.25); font-size: 1.2rem; }
+    .mobile-menu-dl {
+      margin: 1rem 1.25rem;
+      padding: 0.9rem 1.5rem;
+      background: #312f37; color: #f7f1ec !important;
+      border-radius: 14px; text-align: center;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; display: block;
+      transition: background 0.2s;
+    }
+    .mobile-menu-dl:hover { background: #1a1820; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hamburger    { display: flex; }
+      .navbar-links { display: none; }
+      .navbar       { overflow: visible; }
+      .navbar-inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0.6rem 1rem;
+        min-height: 64px;
+      }
+      .navbar-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navbar-logo img { top: 0; height: 50px; }
+      .hamburger { position: relative; z-index: 1; }
+      #navbar-root { z-index: 300; }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: auto;
+        z-index: 200;
+        pointer-events: none; opacity: 1;
+      }
+      .mobile-menu.open { pointer-events: auto; }
+
+      .mobile-menu-backdrop {
+        position: fixed;
+        top: 64px; left: 0; right: 0; bottom: 0;
+        background: rgba(49,47,55,0.18);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        opacity: 0; transition: opacity 0.25s;
+      }
+      .mobile-menu.open .mobile-menu-backdrop { opacity: 1; }
+
+      .mobile-menu-panel {
+        position: relative;
+        right: auto; top: auto; bottom: auto; left: auto;
+        width: 100%; max-width: 100%; height: auto;
+        margin-top: 64px;
+        background: rgba(247,241,236,0.90);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 0 0 22px 22px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-12px) !important;
+        transition: max-height 0.36s cubic-bezier(.4,0,.2,1),
+                    opacity 0.28s ease,
+                    transform 0.3s cubic-bezier(.4,0,.2,1);
+        box-shadow: 0 10px 30px rgba(49,47,55,0.13);
+      }
+      .mobile-menu.open .mobile-menu-panel {
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0) !important;
+      }
+
+      .mobile-menu-head { display: none; }
+
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-hero { padding: 3.5rem 1.5rem 2rem; }
+      .pricing-section { padding: 2rem 1.5rem 5rem; }
+      .pricing-cta-strip { padding: 0 1.5rem 4rem; }
+      .pricing-cta-strip-inner { padding: 2rem 1.5rem; }
+
+      .footer { padding: 3rem 2rem 1.5rem; }
+      .footer-mascot { display: none; }
+      .footer-brand  { display: none; }
+      .footer-col    { display: none; }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem 1.5rem;
+      }
+      .footer-social-col { grid-column: 1 / -1; text-align: center; }
+      .footer-col-label  { text-align: center; }
+      .footer-social-text { text-align: center; }
+      .footer-socials { gap: 0.5rem; justify-content: center; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 0.3rem; font-size: 0.72rem; align-items: center; }
+      .footer-mobile-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .footer-mobile-links .footer-a11y-link {
+        background: none;
+        border-radius: 0;
+        padding: 0;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: #312f37;
+        opacity: 0.65;
+        transition: opacity 0.2s;
+      }
+      .footer-mobile-links .footer-a11y-link:hover { background: none; opacity: 1; }
+      .footer-made-by { display: none; }
+      .footer-a11y-desktop { display: none !important; }
+
+      #a11y-fab { display: none; }
+
+      .pricing-store-btns { flex-direction: column; align-items: center; }
+      .btn-store { width: 260px; }
+
+      .pricing-cta-strip-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      .pricing-cta-strip-text h2,
+      .pricing-cta-strip-text p { text-align: center; }
+
+      .faq-section { padding: 0 1.5rem 4rem; }
+    }
+
+    @media (max-width: 560px) {
+      .pricing-card { padding: 2rem 1.5rem; }
+      .footer { padding: 2.5rem 1rem 1.5rem; border-radius: 20px 20px 0 0; }
+    }
+
+    /* ── FAQ SECTION ── */
+    .faq-section {
+      background: #f7f1ec;
+      padding: 0 2.5rem 6rem;
+      position: relative;
+    }
+
+    .faq-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .faq-heading {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 900;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-heading em {
+      font-style: normal;
+      color: var(--pink);
+    }
+
+    .faq-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-align: right;
+      transition: background 0.15s;
+    }
+
+    .faq-trigger:hover {
+      background: rgba(255, 150, 212, 0.06);
+    }
+
+    .faq-arrow {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: #f7f1ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1), background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-arrow svg {
+      width: 14px;
+      height: 14px;
+      transition: stroke 0.2s;
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      background: #ff96d4;
+    }
+
+    .faq-item.open .faq-arrow svg path {
+      stroke: #fff;
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(.4,0,.2,1), padding 0.25s ease;
+    }
+
+    .faq-item.open .faq-body {
+      max-height: 300px;
+    }
+
+    .faq-body-inner {
+      padding: 0 1.5rem 1.4rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      border-top: 1px solid #f0ebe4;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-root"></div>
+
+    <!-- ══ PRICING HERO ══ -->
+  <section class="pricing-hero">
+    <div class="decorative-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 150 0 C 80 140, 350 240, 600 300 S 920 380, 1050 500"
+              fill="none" stroke="#312f37" stroke-opacity="0.13" stroke-width="1.8"
+              stroke-linecap="round" stroke-dasharray="10 14"/>
+        <path d="M 1100 0 C 1050 130, 820 240, 600 300 S 320 400, 200 500"
+              fill="none" stroke="#312f37" stroke-opacity="0.08" stroke-width="1.4"
+              stroke-linecap="round" stroke-dasharray="6 16"/>
+        <circle cx="600" cy="300" r="2.5" fill="#312f37" opacity="0.12"/>
+        <circle cx="300" cy="180" r="2"   fill="#312f37" opacity="0.09"/>
+        <circle cx="900" cy="360" r="2"   fill="#312f37" opacity="0.09"/>
+      </svg>
+    </div>
+
+    <div class="pricing-hero-inner">
+      <h1>מחירון <em>פשוט</em> ושקוף</h1>
+      <p>שתי חבילות — אחת להורים ואחת לבייביסיטרים. ללא הפתעות, ללא עמלות נסתרות.</p>
+    </div>
+  </section>
+
+  <!-- ══ PRICING CARDS ══ -->
+  <section class="pricing-section">
+
+    <div class="decorative-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 1050 0 C 1100 200, 850 360, 600 450 S 310 580, 200 800"
+              fill="none" stroke="#312f37" stroke-opacity="0.08" stroke-width="1.4"
+              stroke-linecap="round" stroke-dasharray="6 16"/>
+        <circle cx="850" cy="210" r="2" fill="#312f37" opacity="0.09"/>
+        <circle cx="350" cy="560" r="2" fill="#312f37" opacity="0.09"/>
+      </svg>
+    </div>
+
+    <div class="pricing-inner">
+      <div class="pricing-grid">
+
+        <!-- ── PARENTS CARD ── -->
+        <div class="pricing-card">
+          <div class="pricing-card-label">להורים</div>
+          <h2 class="pricing-card-title">חבילת הורים</h2>
+          <p class="pricing-card-muted">כל מה שצריך כדי למצוא את הבייביסיטר המושלם — בקלות ובמהירות.</p>
+
+          <div class="pricing-card-price-wrap">
+            <span class="price-currency">₪</span>
+            <span class="pricing-card-price" id="parent-price" style="min-width:60px;display:inline-block">―</span>
+            <span class="price-period">/ חודש</span>
+          </div>
+          <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
+
+          <ul class="features-list">
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>תיאומים ללא הגבלה עם בייביסיטרים</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>קבלת התראות על בייביסיטר חדש שנרשם באזור שלכם</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>התראות על בייביסיטר שזמין באזורכם לפי הגדרה אישית</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>פרסום חיפוש בייביסיטר — התראה נשלחת אוטומטית לבייביסיטרים בסביבה</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ── BABYSITTER CARD (featured) ── -->
+        <div class="pricing-card featured">
+          <div class="pricing-card-label">לבייביסיטרים</div>
+          <h2 class="pricing-card-title">חבילת בייביסיטר</h2>
+          <p class="pricing-card-muted">כלים מקצועיים לניהול ההכנסות, הזמינות והלקוחות שלכם.</p>
+
+          <div class="pricing-card-price-wrap">
+            <span class="price-currency">₪</span>
+            <span class="pricing-card-price" id="sitter-price" style="min-width:60px;display:inline-block">―</span>
+            <span class="price-period">/ חודש</span>
+          </div>
+          <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
+
+          <ul class="features-list">
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>תיאומים ללא הגבלה עם הורים</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>קבלת התראות על הורים המחפשים בייביסיטר באזורכם</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>פרסום זמינות מיידית — התראה תיפול ישירות להורים בסביבה</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>צפייה במי שמר אתכם כמועדפים</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>נתוני הכנסות מפורטים — כולל הורדת סיכום כ-PDF או CSV לנוחיותכם</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BOTTOM CTA STRIP ══ -->
+  <section class="pricing-cta-strip">
+
+    <div class="decorative-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 200 0 C 150 160, 420 260, 600 320 S 870 420, 950 500"
+              fill="none" stroke="#312f37" stroke-opacity="0.10" stroke-width="1.6"
+              stroke-linecap="round" stroke-dasharray="10 14"/>
+        <circle cx="600" cy="320" r="2.5" fill="#312f37" opacity="0.12"/>
+      </svg>
+    </div>
+
+    <div class="pricing-cta-strip-inner">
+      <div class="pricing-cta-strip-text">
+        <h2>מוכנים להתחיל?<br /><em>הורידו את האפליקציה</em></h2>
+        <p>זמין עכשיו ב-App Store ולאנדרואיד — חודש ראשון חינם לגמרי.</p>
+      </div>
+      <div class="pricing-store-btns">
+        <a href="https://apps.apple.com/il/app/findsiter/id6758737943" class="btn-store" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+          <span class="store-name">הורדה לאייפון</span>
+        </a>
+        <a href="https://drive.google.com/file/d/1yVwcP7g4gWueD8OH_wwTQVb0d2nCGYUf/view?usp=sharing" class="btn-store" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>
+          <span class="store-name">הורדה לאנדרואיד</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <h2 class="faq-heading">שאלות <em>נפוצות</em></h2>
+      <p class="faq-sub">כל מה שרציתם לדעת על המחירים ואופן הפעולה</p>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>האם יש ניסיון חינם?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">כן! כל משתמש חדש — הן הורה והן בייביסיטר — מקבל חודש ראשון חינם לגמרי, ללא צורך בכרטיס אשראי. אחרי תקופת הניסיון תוכלו לבחור אם להמשיך עם המנוי.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>איך עובד התשלום?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">התשלום מתבצע חודשי ישירות דרך ה-App Store (אייפון) או ב-Google Play (אנדרואיד). החיוב מתבצע באופן אוטומטי בכל חודש ולא כולל הפתעות — המחיר קבוע וידוע מראש.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>האם אפשר לבטל את המנוי בכל עת?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">כן, אפשר לבטל בכל עת דרך הגדרות ה-App Store או Google Play. לאחר הביטול תוכלו להמשיך להשתמש באפליקציה עד סוף תקופת המנוי ששילמתם עליה.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>מה ההבדל בין חבילת הורים לחבילת בייביסיטר?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">חבילת הורים (₪29/חודש) מאפשרת לחפש בייביסיטרים, לתאם ולפרסם בקשות. חבילת הבייביסיטר (₪19/חודש) מאפשרת לפרסם זמינות, לקבל התראות על הורים, לצפות במועדפים ולנהל הכנסות. כל אחד רוכש את החבילה המתאימה לתפקידו.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>האם האפליקציה זמינה לאנדרואיד?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">כן! FindSiter זמינה גם לאנדרואיד להורדה ישירה. האפליקציה תעלה בקרוב גם ל-Google Play Store הרשמי. כרגע ניתן להוריד את גרסת האנדרואיד דרך הלינק המצוין בעמוד.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>האם יש עמלה על תיאומים או תשלומים?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">לא. FindSiter גובה רק את דמי המנוי החודשי הקבועים — ללא עמלות על תיאומים, ללא אחוזים מהתשלום לבייביסיטר, וללא עלויות נסתרות. מה שרואים זה מה שמשלמים.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-root"></div>
+  <script src="/_shared.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script>
+    // Fetch prices from app_config
+    (function() {
+      var SUPABASE_URL = 'https://yvrceukiwbbswrqrakek.supabase.co';
+      var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2cmNldWtpd2Jic3dycXJha2VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjMzODgsImV4cCI6MjA3ODE5OTM4OH0.td2IX7WT5p9vTQjpDK_x45F-X_ihxLU7sSVcf8RZkvs';
+      var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+      sb.from('app_config')
+        .select('key, value')
+        .in('key', ['parent_monthly_price', 'sitter_monthly_price'])
+        .then(function(res) {
+          if (res.data) {
+            res.data.forEach(function(row) {
+              var price = parseFloat(row.value);
+              var display = price % 1 === 0 ? String(Math.floor(price)) : price.toFixed(1);
+              if (row.key === 'parent_monthly_price') {
+                var el = document.getElementById('parent-price');
+                if (el) el.textContent = display;
+              } else if (row.key === 'sitter_monthly_price') {
+                var el2 = document.getElementById('sitter-price');
+                if (el2) el2.textContent = display;
+              }
+            });
+            // Update FAQ text
+            var parentPrice = res.data.find(function(r) { return r.key === 'parent_monthly_price'; });
+            var sitterPrice = res.data.find(function(r) { return r.key === 'sitter_monthly_price'; });
+            if (parentPrice && sitterPrice) {
+              var pp = parseFloat(parentPrice.value);
+              var sp = parseFloat(sitterPrice.value);
+              var ppDisplay = pp % 1 === 0 ? Math.floor(pp) : pp.toFixed(1);
+              var spDisplay = sp % 1 === 0 ? Math.floor(sp) : sp.toFixed(1);
+              var faqItems = document.querySelectorAll('.faq-body-inner');
+              faqItems.forEach(function(el) {
+                if (el.textContent.indexOf('₪29/חודש') !== -1 || el.textContent.indexOf('₪19/חודש') !== -1) {
+                  el.innerHTML = el.innerHTML
+                    .replace('₪29/חודש', '₪' + ppDisplay + '/חודש')
+                    .replace('₪19/חודש', '₪' + spDisplay + '/חודש');
+                }
+              });
+            }
+          }
+        });
+    })();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        // close all
+        document.querySelectorAll('.faq-item.open').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
+        // open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

@@ -10,7 +10,8 @@ function cleanUrlsPlugin(): any {
     const url = req.url || '';
     const pathname = url.split('?')[0].split('#')[0];
     if (pathname !== '/' && !pathname.includes('.') && !pathname.startsWith('/@') && !pathname.startsWith('/src') && !pathname.startsWith('/node_modules')) {
-      req.url = pathname + '.html' + url.slice(pathname.length);
+      // Rewrite /about → /about/index.html (directory-based clean URLs)
+      req.url = pathname + '/index.html' + url.slice(pathname.length);
     }
     next();
   };
@@ -34,19 +35,6 @@ export default defineConfig(({ mode }) => ({
     },
   },
   plugins: [cleanUrlsPlugin(), react(), mode === "development" && componentTagger()].filter(Boolean),
-  build: {
-    rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-        newlanding: path.resolve(__dirname, 'newlanding.html'),
-        about: path.resolve(__dirname, 'about.html'),
-        pricing: path.resolve(__dirname, 'pricing.html'),
-        privacy: path.resolve(__dirname, 'privacy.html'),
-        terms: path.resolve(__dirname, 'terms.html'),
-        accessibility: path.resolve(__dirname, 'accessibility.html'),
-      },
-    },
-  },
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
