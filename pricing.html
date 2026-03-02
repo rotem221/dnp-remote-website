@@ -732,57 +732,57 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
       margin-bottom: 2.5rem;
+      position: relative;
     }
-    .billing-toggle-label {
-      font-size: 0.95rem;
+    .billing-pill {
+      display: flex;
+      background: #e8e0d8;
+      border-radius: 50px;
+      padding: 4px;
+      position: relative;
+    }
+    .billing-pill-btn {
+      position: relative;
+      z-index: 1;
+      padding: 0.6rem 1.8rem;
+      border: none;
+      background: none;
+      font-family: inherit;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--muted);
       cursor: pointer;
-      transition: color 0.2s;
+      border-radius: 50px;
+      transition: color 0.25s;
+      white-space: nowrap;
     }
-    .billing-toggle-label.active {
-      color: var(--dark);
+    .billing-pill-btn.active {
+      color: #fff;
     }
-    .billing-toggle-track {
-      position: relative;
-      width: 52px;
-      height: 28px;
-      background: #e5ddd4;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: background 0.25s;
-    }
-    .billing-toggle-track.yearly {
-      background: var(--pink);
-    }
-    .billing-toggle-knob {
+    .billing-pill-slider {
       position: absolute;
-      top: 3px;
-      right: 3px;
-      width: 22px;
-      height: 22px;
-      background: #fff;
-      border-radius: 50%;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
-      transition: right 0.25s, left 0.25s;
-    }
-    .billing-toggle-track.yearly .billing-toggle-knob {
-      right: auto;
-      left: 3px;
+      top: 4px;
+      height: calc(100% - 8px);
+      border-radius: 50px;
+      background: var(--pink);
+      transition: left 0.3s cubic-bezier(.4,0,.2,1), width 0.3s cubic-bezier(.4,0,.2,1);
+      z-index: 0;
+      box-shadow: 0 2px 8px rgba(255,150,212,0.3);
     }
     .billing-discount-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.3rem;
+      position: absolute;
+      top: -12px;
       background: #d8f5e8;
       color: #16a34a;
-      font-size: 0.75rem;
+      font-size: 0.7rem;
       font-weight: 800;
-      padding: 0.25rem 0.75rem;
+      padding: 0.2rem 0.65rem;
       border-radius: 50px;
       white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      box-shadow: 0 2px 6px rgba(22,163,74,0.15);
     }
     .yearly-price-note {
       font-size: 0.78rem;
@@ -1216,12 +1216,12 @@
 
       <!-- ── BILLING TOGGLE ── -->
       <div class="billing-toggle-wrap">
-        <span class="billing-toggle-label active" id="label-monthly">חודשי</span>
-        <div class="billing-toggle-track" id="billing-toggle">
-          <div class="billing-toggle-knob"></div>
+        <div class="billing-pill" id="billing-pill">
+          <div class="billing-pill-slider" id="pill-slider"></div>
+          <button class="billing-pill-btn active" id="btn-monthly" type="button">חודשי</button>
+          <button class="billing-pill-btn" id="btn-yearly" type="button">שנתי</button>
+          <span class="billing-discount-badge" id="discount-badge" style="opacity:0;transform:scale(0.8)">חיסכון 25%</span>
         </div>
-        <span class="billing-toggle-label" id="label-yearly">שנתי</span>
-        <span class="billing-discount-badge" id="discount-badge" style="opacity:0;transition:opacity 0.3s">חיסכון 25%</span>
       </div>
 
       <div class="pricing-grid">
@@ -1410,28 +1410,38 @@
     // Billing toggle logic
     (function() {
       var isYearly = false;
-      var toggle = document.getElementById('billing-toggle');
-      var labelM = document.getElementById('label-monthly');
-      var labelY = document.getElementById('label-yearly');
+      var btnM = document.getElementById('btn-monthly');
+      var btnY = document.getElementById('btn-yearly');
       var badge = document.getElementById('discount-badge');
+      var slider = document.getElementById('pill-slider');
       var prices = document.querySelectorAll('.price-value');
       var periods = document.querySelectorAll('.price-period-text');
       var notes = document.querySelectorAll('.price-note');
 
-      // Calculate discount: monthly=19.90, yearly=179.90, full year=19.90*12=238.80
       var monthlyPrice = 19.90;
       var yearlyPrice = 179.90;
       var fullYearPrice = monthlyPrice * 12;
       var discountPercent = Math.round((1 - yearlyPrice / fullYearPrice) * 100);
       if (badge) badge.textContent = 'חיסכון ' + discountPercent + '%';
 
+      function positionSlider() {
+        var activeBtn = isYearly ? btnY : btnM;
+        if (slider && activeBtn) {
+          slider.style.left = activeBtn.offsetLeft + 'px';
+          slider.style.width = activeBtn.offsetWidth + 'px';
+        }
+        // Position badge above yearly button
+        if (badge && btnY) {
+          var pillRect = document.getElementById('billing-pill');
+          badge.style.left = (btnY.offsetLeft + btnY.offsetWidth / 2) + 'px';
+          badge.style.transform = isYearly ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.8)';
+          badge.style.opacity = isYearly ? '1' : '0';
+        }
+      }
+
       function updatePrices() {
         prices.forEach(function(el) {
-          if (isYearly) {
-            el.textContent = yearlyPrice.toFixed(2);
-          } else {
-            el.textContent = monthlyPrice.toFixed(2);
-          }
+          el.textContent = isYearly ? yearlyPrice.toFixed(2) : monthlyPrice.toFixed(2);
         });
         periods.forEach(function(el) {
           el.textContent = isYearly ? '/ שנה' : '/ חודש';
@@ -1444,20 +1454,17 @@
             el.style.display = 'none';
           }
         });
-        if (labelM) labelM.classList.toggle('active', !isYearly);
-        if (labelY) labelY.classList.toggle('active', isYearly);
-        if (toggle) toggle.classList.toggle('yearly', isYearly);
-        if (badge) badge.style.opacity = isYearly ? '1' : '0';
+        if (btnM) btnM.classList.toggle('active', !isYearly);
+        if (btnY) btnY.classList.toggle('active', isYearly);
+        positionSlider();
       }
 
-      if (toggle) {
-        toggle.addEventListener('click', function() {
-          isYearly = !isYearly;
-          updatePrices();
-        });
-      }
-      if (labelM) labelM.addEventListener('click', function() { isYearly = false; updatePrices(); });
-      if (labelY) labelY.addEventListener('click', function() { isYearly = true; updatePrices(); });
+      if (btnM) btnM.addEventListener('click', function() { isYearly = false; updatePrices(); });
+      if (btnY) btnY.addEventListener('click', function() { isYearly = true; updatePrices(); });
+
+      // Initial position
+      setTimeout(positionSlider, 0);
+      window.addEventListener('resize', positionSlider);
     })();
 
     // FAQ accordion
