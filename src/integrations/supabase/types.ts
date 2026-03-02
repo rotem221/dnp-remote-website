@@ -2367,6 +2367,10 @@ export type Database = {
       bytea_to_text: { Args: { data: string }; Returns: string }
       check_email_verified: { Args: { user_email: string }; Returns: Json }
       check_expired_trials: { Args: never; Returns: undefined }
+      check_phone_exists: {
+        Args: { p_exclude_uid?: string; p_phone: string }
+        Returns: boolean
+      }
       check_rate_limit: {
         Args: {
           p_action: string
