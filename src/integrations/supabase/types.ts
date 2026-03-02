@@ -966,7 +966,7 @@ export type Database = {
           file_type: string | null
           file_uri: string | null
           id: string
-          is_deleted: boolean | null
+          is_deleted: boolean
           is_read: boolean | null
           read_at: string | null
           sender_id: string
@@ -983,7 +983,7 @@ export type Database = {
           file_type?: string | null
           file_uri?: string | null
           id?: string
-          is_deleted?: boolean | null
+          is_deleted?: boolean
           is_read?: boolean | null
           read_at?: string | null
           sender_id: string
@@ -1000,7 +1000,7 @@ export type Database = {
           file_type?: string | null
           file_uri?: string | null
           id?: string
-          is_deleted?: boolean | null
+          is_deleted?: boolean
           is_read?: boolean | null
           read_at?: string | null
           sender_id?: string
@@ -1022,6 +1022,7 @@ export type Database = {
         Row: {
           booking_id: string | null
           created_at: string | null
+          data: Json
           id: string
           is_read: boolean | null
           job_listing_id: string | null
@@ -1038,6 +1039,7 @@ export type Database = {
         Insert: {
           booking_id?: string | null
           created_at?: string | null
+          data?: Json
           id?: string
           is_read?: boolean | null
           job_listing_id?: string | null
@@ -1054,6 +1056,7 @@ export type Database = {
         Update: {
           booking_id?: string | null
           created_at?: string | null
+          data?: Json
           id?: string
           is_read?: boolean | null
           job_listing_id?: string | null
@@ -2626,6 +2629,17 @@ export type Database = {
       http_set_curlopt: {
         Args: { curlopt: string; value: string }
         Returns: boolean
+      }
+      insert_notification_compat: {
+        Args: {
+          p_data?: Json
+          p_message: string
+          p_title: string
+          p_type: string
+          p_user_id: string
+          p_user_kind: string
+        }
+        Returns: undefined
       }
       is_active_admin: { Args: never; Returns: boolean }
       is_admin: { Args: never; Returns: boolean }

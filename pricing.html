@@ -727,6 +727,76 @@
     }
     #a11y-fab, #a11y-panel, #a11y-panel * { font-size: 1rem !important; }
 
+    /* ── BILLING TOGGLE ── */
+    .billing-toggle-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+    }
+    .billing-toggle-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+    .billing-toggle-label.active {
+      color: var(--dark);
+    }
+    .billing-toggle-track {
+      position: relative;
+      width: 52px;
+      height: 28px;
+      background: #e5ddd4;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .billing-toggle-track.yearly {
+      background: var(--pink);
+    }
+    .billing-toggle-knob {
+      position: absolute;
+      top: 3px;
+      right: 3px;
+      width: 22px;
+      height: 22px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+      transition: right 0.25s, left 0.25s;
+    }
+    .billing-toggle-track.yearly .billing-toggle-knob {
+      right: auto;
+      left: 3px;
+    }
+    .billing-discount-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      background: #d8f5e8;
+      color: #16a34a;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.25rem 0.75rem;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+    .yearly-price-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+    .price-original {
+      font-size: 1.1rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-left: 0.4rem;
+      font-weight: 600;
+    }
+
     /* ── BACK TO TOP ── */
     #back-to-top {
       position: fixed;
@@ -1143,6 +1213,17 @@
     </div>
 
     <div class="pricing-inner">
+
+      <!-- ── BILLING TOGGLE ── -->
+      <div class="billing-toggle-wrap">
+        <span class="billing-toggle-label active" id="label-monthly">חודשי</span>
+        <div class="billing-toggle-track" id="billing-toggle">
+          <div class="billing-toggle-knob"></div>
+        </div>
+        <span class="billing-toggle-label" id="label-yearly">שנתי</span>
+        <span class="billing-discount-badge" id="discount-badge" style="opacity:0;transition:opacity 0.3s">חיסכון 25%</span>
+      </div>
+
       <div class="pricing-grid">
 
         <!-- ── PARENTS CARD ── -->
@@ -1153,9 +1234,10 @@
 
           <div class="pricing-card-price-wrap">
             <span class="price-currency">₪</span>
-            <span class="pricing-card-price" id="parent-price" style="min-width:60px;display:inline-block">―</span>
-            <span class="price-period">/ חודש</span>
+            <span class="pricing-card-price price-value" data-monthly="19.90" data-yearly="179.90">19.90</span>
+            <span class="price-period price-period-text">/ חודש</span>
           </div>
+          <p class="yearly-price-note price-note" style="display:none"></p>
           <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
 
           <ul class="features-list">
@@ -1186,9 +1268,10 @@
 
           <div class="pricing-card-price-wrap">
             <span class="price-currency">₪</span>
-            <span class="pricing-card-price" id="sitter-price" style="min-width:60px;display:inline-block">―</span>
-            <span class="price-period">/ חודש</span>
+            <span class="pricing-card-price price-value" data-monthly="19.90" data-yearly="179.90">19.90</span>
+            <span class="price-period price-period-text">/ חודש</span>
           </div>
+          <p class="yearly-price-note price-note" style="display:none"></p>
           <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
 
           <ul class="features-list">
@@ -1293,7 +1376,7 @@
             <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="faq-body" role="region">
-            <div class="faq-body-inner">חבילת הורים (₪29/חודש) מאפשרת לחפש בייביסיטרים, לתאם ולפרסם בקשות. חבילת הבייביסיטר (₪19/חודש) מאפשרת לפרסם זמינות, לקבל התראות על הורים, לצפות במועדפים ולנהל הכנסות. כל אחד רוכש את החבילה המתאימה לתפקידו.</div>
+            <div class="faq-body-inner">שתי החבילות — הורים ובייביסיטרים — עולות ₪19.90 לחודש או ₪179.90 לשנה (חיסכון של כ-25%). חבילת הורים מאפשרת לחפש בייביסיטרים, לתאם ולפרסם בקשות. חבילת הבייביסיטר מאפשרת לפרסם זמינות, לקבל התראות על הורים, לצפות במועדפים ולנהל הכנסות.</div>
           </div>
         </div>
 
@@ -1324,69 +1407,57 @@
   <div id="footer-root"></div>
   <script src="/_shared.js"></script>
   <script>
-    // Fetch prices from app_config (works both on direct load and SPA navigation)
+    // Billing toggle logic
     (function() {
-      var SUPABASE_URL = 'https://yvrceukiwbbswrqrakek.supabase.co';
-      var SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inl2cmNldWtpd2Jic3dycXJha2VrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjI2MjMzODgsImV4cCI6MjA3ODE5OTM4OH0.td2IX7WT5p9vTQjpDK_x45F-X_ihxLU7sSVcf8RZkvs';
+      var isYearly = false;
+      var toggle = document.getElementById('billing-toggle');
+      var labelM = document.getElementById('label-monthly');
+      var labelY = document.getElementById('label-yearly');
+      var badge = document.getElementById('discount-badge');
+      var prices = document.querySelectorAll('.price-value');
+      var periods = document.querySelectorAll('.price-period-text');
+      var notes = document.querySelectorAll('.price-note');
 
-      /* Add loading pulse animation to price elements */
-      var parentEl = document.getElementById('parent-price');
-      var sitterEl = document.getElementById('sitter-price');
-      if (parentEl) parentEl.style.cssText += 'animation:priceLoad 1.2s ease-in-out infinite;opacity:0.4';
-      if (sitterEl) sitterEl.style.cssText += 'animation:priceLoad 1.2s ease-in-out infinite;opacity:0.4';
+      // Calculate discount: monthly=19.90, yearly=179.90, full year=19.90*12=238.80
+      var monthlyPrice = 19.90;
+      var yearlyPrice = 179.90;
+      var fullYearPrice = monthlyPrice * 12;
+      var discountPercent = Math.round((1 - yearlyPrice / fullYearPrice) * 100);
+      if (badge) badge.textContent = 'חיסכון ' + discountPercent + '%';
 
-      if (!document.getElementById('price-load-anim')) {
-        var st = document.createElement('style');
-        st.id = 'price-load-anim';
-        st.textContent = '@keyframes priceLoad{0%,100%{opacity:0.3}50%{opacity:0.6}}';
-        document.head.appendChild(st);
+      function updatePrices() {
+        prices.forEach(function(el) {
+          if (isYearly) {
+            el.textContent = yearlyPrice.toFixed(2);
+          } else {
+            el.textContent = monthlyPrice.toFixed(2);
+          }
+        });
+        periods.forEach(function(el) {
+          el.textContent = isYearly ? '/ שנה' : '/ חודש';
+        });
+        notes.forEach(function(el) {
+          if (isYearly) {
+            el.style.display = 'block';
+            el.textContent = 'במקום ₪' + fullYearPrice.toFixed(2) + ' (₪' + (yearlyPrice / 12).toFixed(2) + ' לחודש)';
+          } else {
+            el.style.display = 'none';
+          }
+        });
+        if (labelM) labelM.classList.toggle('active', !isYearly);
+        if (labelY) labelY.classList.toggle('active', isYearly);
+        if (toggle) toggle.classList.toggle('yearly', isYearly);
+        if (badge) badge.style.opacity = isYearly ? '1' : '0';
       }
 
-      function fetchPrices() {
-        var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-        sb.from('app_config')
-          .select('key, value')
-          .in('key', ['parent_monthly_price', 'sitter_monthly_price'])
-          .then(function(res) {
-            if (res.data) {
-              res.data.forEach(function(row) {
-                var price = parseFloat(row.value);
-                var display = price % 1 === 0 ? String(Math.floor(price)) : price.toFixed(1);
-                if (row.key === 'parent_monthly_price') {
-                  var el = document.getElementById('parent-price');
-                  if (el) { el.textContent = display; el.style.animation = 'none'; el.style.opacity = '1'; }
-                } else if (row.key === 'sitter_monthly_price') {
-                  var el2 = document.getElementById('sitter-price');
-                  if (el2) { el2.textContent = display; el2.style.animation = 'none'; el2.style.opacity = '1'; }
-                }
-              });
-              var parentPrice = res.data.find(function(r) { return r.key === 'parent_monthly_price'; });
-              var sitterPrice = res.data.find(function(r) { return r.key === 'sitter_monthly_price'; });
-              if (parentPrice && sitterPrice) {
-                var pp = parseFloat(parentPrice.value);
-                var sp = parseFloat(sitterPrice.value);
-                var ppDisplay = pp % 1 === 0 ? Math.floor(pp) : pp.toFixed(1);
-                var spDisplay = sp % 1 === 0 ? Math.floor(sp) : sp.toFixed(1);
-                document.querySelectorAll('.faq-body-inner').forEach(function(el) {
-                  if (el.textContent.indexOf('₪29/חודש') !== -1 || el.textContent.indexOf('₪19/חודש') !== -1) {
-                    el.innerHTML = el.innerHTML
-                      .replace('₪29/חודש', '₪' + ppDisplay + '/חודש')
-                      .replace('₪19/חודש', '₪' + spDisplay + '/חודש');
-                  }
-                });
-              }
-            }
-          });
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          isYearly = !isYearly;
+          updatePrices();
+        });
       }
-
-      if (window.supabase && window.supabase.createClient) {
-        fetchPrices();
-      } else {
-        var script = document.createElement('script');
-        script.src = 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js';
-        script.onload = fetchPrices;
-        document.head.appendChild(script);
-      }
+      if (labelM) labelM.addEventListener('click', function() { isYearly = false; updatePrices(); });
+      if (labelY) labelY.addEventListener('click', function() { isYearly = true; updatePrices(); });
     })();
 
     // FAQ accordion
