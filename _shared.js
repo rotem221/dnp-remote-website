@@ -50,10 +50,19 @@
   function updateActiveNav() {
     var p = window.location.pathname.replace(/\/+$/, '').replace('.html', '') || '/';
     /* Reset */
+    var aboutLink = document.getElementById('nav-about');
+    var mobAbout = document.getElementById('mob-about');
     var pricingLink = document.getElementById('nav-pricing');
     var mobPricing = document.getElementById('mob-pricing');
+    if (aboutLink) aboutLink.classList.remove('active');
+    if (mobAbout) mobAbout.style.color = '';
     if (pricingLink) pricingLink.classList.remove('active');
     if (mobPricing) mobPricing.style.color = '';
+
+    if (p === '/about') {
+      if (aboutLink) aboutLink.classList.add('active');
+      if (mobAbout) mobAbout.style.color = 'var(--pink)';
+    }
 
     if (p === '/pricing') {
       if (pricingLink) pricingLink.classList.add('active');
