@@ -1440,6 +1440,61 @@
       var discountPercent = Math.round((1 - yearlyPrice / fullYearPrice) * 100);
       if (badge) badge.textContent = 'חיסכון ' + discountPercent + '%';
 
+      function formatPrice(num) {
+        return Number(num).toFixed(2);
+      }
+
+      function animatePriceValue(el, targetValue) {
+        if (!el) return;
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion) {
+          el.textContent = formatPrice(targetValue);
+          return;
+        }
+
+        if (el._priceAnimTimer) clearInterval(el._priceAnimTimer);
+
+        var finalText = formatPrice(targetValue);
+        var duration = 420;
+        var intervalMs = 42;
+        var totalSteps = Math.max(6, Math.round(duration / intervalMs));
+        var step = 0;
+        var totalDigits = finalText.replace('.', '').length;
+
+        el._priceAnimTimer = setInterval(function () {
+          step += 1;
+          var progress = Math.min(step / totalSteps, 1);
+          var revealDigits = Math.floor(progress * totalDigits);
+          var seenDigits = 0;
+          var display = '';
+
+          for (var i = 0; i < finalText.length; i++) {
+            var ch = finalText.charAt(i);
+            if (ch === '.') {
+              display += '.';
+              continue;
+            }
+
+            seenDigits += 1;
+            if (seenDigits <= revealDigits) {
+              display += ch;
+            } else {
+              display += String(Math.floor(Math.random() * 10));
+            }
+          }
+
+          el.textContent = display;
+          el.style.opacity = progress < 1 ? '0.86' : '1';
+
+          if (progress >= 1) {
+            clearInterval(el._priceAnimTimer);
+            el._priceAnimTimer = null;
+            el.textContent = finalText;
+            el.style.opacity = '1';
+          }
+        }, intervalMs);
+      }
+
       function positionSlider() {
         var activeBtn = isYearly ? btnY : btnM;
         if (slider && activeBtn) {
@@ -1455,7 +1510,7 @@
 
       function updatePrices() {
         prices.forEach(function(el) {
-          el.textContent = isYearly ? yearlyPrice.toFixed(2) : monthlyPrice.toFixed(2);
+          animatePriceValue(el, isYearly ? yearlyPrice : monthlyPrice);
         });
         periods.forEach(function(el) {
           el.textContent = isYearly ? '/ שנה' : '/ חודש';
