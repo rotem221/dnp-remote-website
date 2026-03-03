@@ -96,6 +96,10 @@
 
     var main = document.createElement('main');
     main.id = 'page-content';
+    main.style.opacity = '1';
+    main.style.transform = 'translateY(0)';
+    main.style.transition = 'opacity 280ms ease, transform 280ms ease';
+    main.style.willChange = 'opacity, transform';
     var sibling = navRoot.nextSibling;
     while (sibling && sibling !== footRoot) {
       var next = sibling.nextSibling;
@@ -103,6 +107,33 @@
       sibling = next;
     }
     footRoot.parentNode.insertBefore(main, footRoot);
+
+    /* Ensure header/footer are never affected by content transitions */
+    if (navbarEl) {
+      navbarEl.style.opacity = '1';
+      navbarEl.style.transform = 'none';
+      navbarEl.style.transition = 'none';
+    }
+    if (footerEl) {
+      footerEl.style.opacity = '1';
+      footerEl.style.transform = 'none';
+      footerEl.style.transition = 'none';
+    }
+  }
+
+  function ensureChromeOutsideContent() {
+    var content = document.getElementById('page-content');
+    var navRoot = document.getElementById('navbar-root');
+    var footRoot = document.getElementById('footer-root');
+    if (!content || !navRoot || !footRoot) return;
+
+    /* If footer/nav were accidentally moved into content, extract them back out */
+    if (content.contains(navRoot) && content.parentNode) {
+      content.parentNode.insertBefore(navRoot, content);
+    }
+    if (content.contains(footRoot) && content.parentNode) {
+      content.parentNode.insertBefore(footRoot, content.nextSibling);
+    }
   }
 
   /* ── SPA Navigation ── */
@@ -165,25 +196,32 @@
   var closeMenuGlobal = function () { };
 
   function navigateToPage(cleanPath, hash, isPopState) {
+    ensureChromeOutsideContent();
     var pageContent = document.getElementById('page-content');
     if (!pageContent) { window.location.href = cleanPath; return; }
+    pageContent.style.transition = 'opacity 280ms ease, transform 280ms ease';
 
-    /* Map clean path to actual HTML file */
-    var htmlPath;
+    /* Map clean path to possible static HTML outputs (dev + production) */
+    var candidates = [];
     if (cleanPath === '/' || cleanPath === '/newlanding') {
-      htmlPath = '/newlanding.html';
+      candidates = ['/newlanding/index.html', '/newlanding.html', '/index.html'];
     } else {
-      htmlPath = cleanPath + '.html';
+      candidates = [cleanPath + '/index.html', cleanPath + '.html'];
+    }
+
+    function fetchFirstAvailable(list, idx) {
+      if (idx >= list.length) throw new Error('Page not found');
+      return fetch(list[idx]).then(function (r) {
+        if (!r.ok) return fetchFirstAvailable(list, idx + 1);
+        return r.text();
+      });
     }
 
     /* Fade out */
     pageContent.style.opacity = '0';
+    pageContent.style.transform = 'translateY(6px)';
 
-    fetch(htmlPath)
-      .then(function (r) {
-        if (!r.ok) throw new Error('Page not found');
-        return r.text();
-      })
+    fetchFirstAvailable(candidates, 0)
       .then(function (html) {
         var parser = new DOMParser();
         var doc = parser.parseFromString(html, 'text/html');
@@ -192,7 +230,7 @@
         var newNav = doc.getElementById('navbar-root');
         var newFoot = doc.getElementById('footer-root');
         if (!newNav || !newFoot) {
-          window.location.href = htmlPath;
+          window.location.href = cleanPath;
           return;
         }
 
@@ -289,6 +327,7 @@
         requestAnimationFrame(function () {
           requestAnimationFrame(function () {
             pageContent.style.opacity = '1';
+            pageContent.style.transform = 'translateY(0)';
           });
         });
 
