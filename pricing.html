@@ -4,8 +4,49 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>מחירון – FindSiter</title>
+  <meta name="description" content="מחירון FindSiter: חבילות להורים ולבייביסיטרים, חיוב חודשי או שנתי, ניסיון חינם וחיסכון במסלול שנתי." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <meta name="geo.region" content="IL-M" />
+  <meta name="geo.placename" content="Rosh HaAyin" />
+  <meta name="geo.position" content="32.0956;34.9564" />
+  <meta name="ICBM" content="32.0956, 34.9564" />
+  <link rel="canonical" href="/pricing" />
+  <meta property="og:title" content="מחירון – FindSiter" />
+  <meta property="og:description" content="בחרו חבילה מתאימה ב‑FindSiter: להורים או לבייביסיטרים, במסלול חודשי או שנתי." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="he_IL" />
+  <meta property="og:url" content="/pricing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="מחירון – FindSiter" />
+  <meta name="twitter:description" content="חבילות FindSiter להורים ולבייביסיטרים, עם מסלולי חיוב גמישים." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "האם יש ניסיון חינם?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "כן, כל משתמש חדש מקבל חודש ראשון חינם."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "האם אפשר לבטל את המנוי בכל עת?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "כן, ניתן לבטל בכל עת דרך הגדרות החנות של המכשיר."
+          }
+        }
+      ]
+    }
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="/_shared.css" />
@@ -279,22 +320,24 @@
     }
 
     .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      align-items: start;
+      column-gap: 0.85rem;
       font-size: 0.9rem;
       color: var(--text);
       line-height: 1.55;
     }
 
-    .feature-icon {
-      margin-top: 0.18rem;
+    .feature-item > span:last-child {
+      min-width: 0;
     }
 
     .feature-icon {
       width: 22px;
       height: 22px;
       min-width: 22px;
+      margin-top: 0.12rem;
       border-radius: 50%;
       background: #ff96d4;
       border: none;
@@ -1440,6 +1483,61 @@
       var discountPercent = Math.round((1 - yearlyPrice / fullYearPrice) * 100);
       if (badge) badge.textContent = 'חיסכון ' + discountPercent + '%';
 
+      function formatPrice(num) {
+        return Number(num).toFixed(2);
+      }
+
+      function animatePriceValue(el, targetValue) {
+        if (!el) return;
+        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotion) {
+          el.textContent = formatPrice(targetValue);
+          return;
+        }
+
+        if (el._priceAnimTimer) clearInterval(el._priceAnimTimer);
+
+        var finalText = formatPrice(targetValue);
+        var duration = 420;
+        var intervalMs = 42;
+        var totalSteps = Math.max(6, Math.round(duration / intervalMs));
+        var step = 0;
+        var totalDigits = finalText.replace('.', '').length;
+
+        el._priceAnimTimer = setInterval(function () {
+          step += 1;
+          var progress = Math.min(step / totalSteps, 1);
+          var revealDigits = Math.floor(progress * totalDigits);
+          var seenDigits = 0;
+          var display = '';
+
+          for (var i = 0; i < finalText.length; i++) {
+            var ch = finalText.charAt(i);
+            if (ch === '.') {
+              display += '.';
+              continue;
+            }
+
+            seenDigits += 1;
+            if (seenDigits <= revealDigits) {
+              display += ch;
+            } else {
+              display += String(Math.floor(Math.random() * 10));
+            }
+          }
+
+          el.textContent = display;
+          el.style.opacity = progress < 1 ? '0.86' : '1';
+
+          if (progress >= 1) {
+            clearInterval(el._priceAnimTimer);
+            el._priceAnimTimer = null;
+            el.textContent = finalText;
+            el.style.opacity = '1';
+          }
+        }, intervalMs);
+      }
+
       function positionSlider() {
         var activeBtn = isYearly ? btnY : btnM;
         if (slider && activeBtn) {
@@ -1457,7 +1555,7 @@
 
       function updatePrices() {
         prices.forEach(function(el) {
-          el.textContent = isYearly ? yearlyPrice.toFixed(2) : monthlyPrice.toFixed(2);
+          animatePriceValue(el, isYearly ? yearlyPrice : monthlyPrice);
         });
         periods.forEach(function(el) {
           el.textContent = isYearly ? '/ שנה' : '/ חודש';
