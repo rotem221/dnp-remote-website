@@ -2,7 +2,9 @@
   'use strict';
 
   var path = window.location.pathname.replace(/\/+$/, '') || '/';
-  var isHome = (path === '/newlanding' || path === '/newlanding.html' || path === '/' || path === '/index.html');
+  var cleanPath = path.replace('.html', '').replace('/index', '') || '/';
+  var isHome = (cleanPath === '/newlanding' || cleanPath === '/');
+  var splashExcludedPaths = ['/privacy', '/terms', '/accessibility'];
 
   /* ── Load navbar + footer partials ── */
   var navbarEl = document.getElementById('navbar-root');
@@ -12,6 +14,7 @@
   var footLoaded = false;
 
   function runEntranceSplash() {
+    if (splashExcludedPaths.indexOf(cleanPath) !== -1) return;
     var STORAGE_KEY = 'fs-splash-shown';
     var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduceMotion) return;
