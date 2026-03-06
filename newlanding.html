@@ -694,7 +694,8 @@
       aspect-ratio: 9 / 19.5;
     }
 
-    .how-iphone-screen img {
+    .how-iphone-screen img,
+    .how-iphone-screen video {
       width: 100%;
       height: 100%;
       object-fit: cover;
@@ -1227,8 +1228,10 @@
             <div class="how-iphone-btn-vol down"></div>
             <div class="how-iphone-btn-power"></div>
             <div class="how-iphone-screen">
-              <div class="how-iphone-island"></div>
-              <img src="/demo.png" alt="FindSiter app screenshot" />
+              <video autoplay loop muted playsinline preload="metadata" aria-label="מציאת בייביסיטר באפליקציה">
+                <source src="/search.mp4" type="video/mp4" />
+                <source src="/search.mov" type="video/quicktime" />
+              </video>
             </div>
           </div>
         </div>
@@ -1356,12 +1359,12 @@
             <div class="gallery-phone">
               <div class="gallery-phone-frame">
                 <div class="gallery-phone-island"></div>
-                <img src="/demo2.png" alt="הודעות" loading="lazy" decoding="async" width="312" height="676" />
+                <img src="/demp2.png" alt="הוצאות" loading="lazy" decoding="async" width="312" height="676" />
               </div>
             </div>
           </div>
-          <h3>צ׳אט מאובטח</h3>
-          <p>תקשורת ישירה עם הבייביסיטר</p>
+          <h3>ניהול הוצאות</h3>
+          <p>מעקב חודשי אחרי תשלומים, הוצאות ובייביסיטרים מובילים</p>
         </div>
 
         <!-- Card 3 -->
@@ -1388,12 +1391,12 @@
             <div class="gallery-phone">
               <div class="gallery-phone-frame">
                 <div class="gallery-phone-island"></div>
-                <img src="/demo3.png" alt="שיחות" loading="lazy" decoding="async" width="312" height="676" />
+                <img src="/demo3.png" alt="פרטי תיאום" loading="lazy" decoding="async" width="312" height="676" />
               </div>
             </div>
           </div>
-          <h3>שיחות בזמן אמת</h3>
-          <p>הישארו בקשר לאורך כל הערב</p>
+          <h3>פרטי תיאום מלאים</h3>
+          <p>כל פרטי ההזמנה, השעות, המחיר והילדים במקום אחד</p>
         </div>
 
         <!-- Card 4 -->
@@ -1421,12 +1424,12 @@
             <div class="gallery-phone">
               <div class="gallery-phone-frame">
                 <div class="gallery-phone-island"></div>
-                <img src="/demo4.png" alt="פרופיל" loading="lazy" decoding="async" width="312" height="676" />
+                <img src="/demo4.png" alt="פרופיל בייביסיטר" loading="lazy" decoding="async" width="312" height="676" />
               </div>
             </div>
           </div>
-          <h3>פרופיל אישי</h3>
-          <p>הגדרות, אבטחה ופרטיות במקום אחד</p>
+          <h3>פרופיל בייביסיטר</h3>
+          <p>כישורים, זמינות, מידע נוסף ודירוג ביקורות לפני בחירה</p>
         </div>
 
         <!-- Card 5 -->
@@ -1453,9 +1456,7 @@
             <div class="gallery-phone">
               <div class="gallery-phone-frame">
                 <div class="gallery-phone-island"></div>
-                <video autoplay loop muted playsinline preload="metadata" aria-label="חיפוש בייביסיטר על מפה">
-                  <source src="/search.mov" type="video/quicktime" />
-                </video>
+                <img src="/demo.png" alt="חיפוש על מפה" />
               </div>
             </div>
           </div>
@@ -1488,12 +1489,12 @@
             <div class="gallery-phone">
               <div class="gallery-phone-frame">
                 <div class="gallery-phone-island"></div>
-                <img src="/demo5.png" alt="דירוגים וביקורות" loading="lazy" decoding="async" width="312" height="676" />
+                <img src="/demo5.png" alt="סיכום ודירוג" loading="lazy" decoding="async" width="312" height="676" />
               </div>
             </div>
           </div>
-          <h3>דירוגים וביקורות</h3>
-          <p>קראו חוות דעת מהורים אחרים</p>
+          <h3>סיכום ודירוג בסיום</h3>
+          <p>צפו בסיכום ההזמנה, בתשלום ובצעו דירוג לבייביסיטר</p>
         </div>
 
       </div>
