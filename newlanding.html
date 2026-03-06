@@ -560,6 +560,7 @@
     }
 
     .gallery-phone-frame img,
+    .gallery-phone-frame video,
     .gallery-phone-frame .gallery-placeholder-screen {
       display: block;
       width: 100%;
@@ -1452,7 +1453,9 @@
             <div class="gallery-phone">
               <div class="gallery-phone-frame">
                 <div class="gallery-phone-island"></div>
-                <img src="/demo.png" alt="חיפוש על מפה" />
+                <video autoplay loop muted playsinline preload="metadata" aria-label="חיפוש בייביסיטר על מפה">
+                  <source src="/search.mov" type="video/quicktime" />
+                </video>
               </div>
             </div>
           </div>
