@@ -1,19 +1,17 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>אודות – FindSiter</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="/src/assets/favicon.ico" />
+  <title>About – DNP Remote</title>
+  <link rel="icon" type="image/x-icon" href="/faviconblack.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
   <link rel="stylesheet" href="/_shared.css" />
   <style>
 
     /* ── ABOUT HERO ── */
     .about-hero {
-      background: #f7f1ec;
+      background: transparent;
       padding: 5rem 2.5rem 1rem;
       text-align: center;
       position: relative;
@@ -29,7 +27,7 @@
 
     .about-hero h1 {
       font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900;
+      font-weight: 700;
       color: var(--dark);
       line-height: 1.15;
       margin-bottom: 1.1rem;
@@ -60,12 +58,11 @@
     }
 
     /* ══════════════════════════════════════
-       FOUNDER SECTION — same style as main page about
+       FOUNDER SECTION - same style as main page about
     ══════════════════════════════════════ */
     .about-section {
-      background: #f7f1ec;
+      background: transparent;
       padding: 3rem 2.5rem 6rem;
-      direction: rtl;
       position: relative;
       overflow: hidden;
     }
@@ -73,7 +70,7 @@
     .about-inner {
       max-width: 1100px;
       margin: 0 auto;
-      background: #ffffff;
+      background: #f4f4f4;
       border-radius: 32px;
       padding: 3.5rem 4rem;
       display: flex;
@@ -90,7 +87,7 @@
 
     .about-title {
       font-size: clamp(1.8rem, 3vw, 2.4rem);
-      font-weight: 900;
+      font-weight: 400;
       color: var(--dark);
       margin-bottom: 1.5rem;
       line-height: 1.2;
@@ -121,7 +118,7 @@
     }
 
     .tech-chip {
-      background: #f7f1ec;
+      background: transparent;
       border: 1.5px solid #e8dfd6;
       color: var(--dark);
       font-size: 0.78rem;
@@ -201,7 +198,7 @@
        THANKS SECTION
     ══════════════════════════════════════ */
     .thanks-section {
-      background: #f7f1ec;
+      background: transparent;
       padding: 4rem 2.5rem;
       position: relative;
       overflow: hidden;
@@ -230,7 +227,7 @@
 
     .thanks-header h2 {
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 900;
+      font-weight: 700;
       color: var(--dark);
       line-height: 1.2;
       margin-bottom: 0.75rem;
@@ -255,7 +252,7 @@
       gap: 1.5rem;
     }
 
-    /* last row: 2 cards — center them */
+    /* last row: 2 cards - center them */
     .thanks-grid > .thanks-card:nth-child(4) {
       grid-column: 1;
     }
@@ -266,8 +263,8 @@
 
 
     .thanks-card {
-      background: #fff;
-      border: 1.5px solid #f0ebe4;
+      background: #f4f4f4;
+      border: 1.5px solid #ece6f8;
       border-radius: 24px;
       padding: 2rem 1.75rem;
       display: flex;
@@ -291,8 +288,8 @@
       border-radius: 50%;
       overflow: hidden;
       flex-shrink: 0;
-      border: 3px solid #f0ebe4;
-      background: #f7f1ec;
+      border: 3px solid #ece6f8;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -334,7 +331,7 @@
        LINKS & CONTACT SECTION
     ══════════════════════════════════════ */
     .links-section {
-      background: #f7f1ec;
+      background: transparent;
       padding: 4rem 2.5rem 6rem;
       position: relative;
       overflow: hidden;
@@ -363,7 +360,7 @@
 
     .links-header h2 {
       font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-      font-weight: 900;
+      font-weight: 700;
       color: var(--dark);
       line-height: 1.2;
       margin-bottom: 0.75rem;
@@ -389,7 +386,7 @@
     }
 
     .link-card {
-      background: #fff;
+      background: #f4f4f4;
       border-radius: 24px;
       padding: 0;
       display: flex;
@@ -406,7 +403,7 @@
       transform: translateY(-4px);
     }
 
-    /* DNP card — preview image at top */
+    /* DNP card - preview image at top */
     .link-card-preview {
       width: 100%;
       height: 140px;
@@ -425,7 +422,7 @@
       object-position: top;
     }
 
-    /* DNP preview placeholder — dark gradient with site name */
+    /* DNP preview placeholder - dark gradient with site name */
     .dnp-preview-placeholder {
       width: 100%;
       height: 100%;
@@ -440,7 +437,7 @@
 
     .dnp-preview-placeholder .dnp-preview-logo {
       font-size: 1.8rem;
-      font-weight: 900;
+      font-weight: 400;
       letter-spacing: 0.08em;
     }
 
@@ -498,7 +495,7 @@
 
     .link-card-title {
       font-size: 1rem;
-      font-weight: 900;
+      font-weight: 400;
       color: var(--dark);
     }
 
@@ -646,12 +643,12 @@
     </div>
 
     <div class="about-hero-inner">
-      <h1>אודות <em>FindSiter</em></h1>
-      <p>הסיפור מאחורי האפליקציה, מי אני, ולמה בניתי אותה</p>
+      <h1>About <em>DNP Remote</em></h1>
+      <p>The story behind the app, who I am, and why I built it</p>
     </div>
   </section>
 
-  <!-- ══ FOUNDER — same style as main landing ══ -->
+  <!-- ══ FOUNDER - same style as main landing ══ -->
   <section class="about-section" id="about">
 
     <div class="decorative-bg" aria-hidden="true">
@@ -668,44 +665,44 @@
 
     <div class="about-inner">
 
-      <!-- Text side (right in RTL) -->
+      <!-- Text side -->
       <div class="about-text">
-        <h2 class="about-title">היי, אני רותם דדון 👋</h2>
+        <h2 class="about-title">Hi, I'm Rotem Dadon</h2>
 
         <p>
-          בניתי את FindSiter כי ראיתי מקרוב כמה קשה להורים למצוא בייביסיטר אמין ומהיר — ורציתי לשנות את זה.
+          I built DNP Remote because I was tired of being stuck at my desk every time I wanted to work with an AI coding agent.
+          I wanted to be able to send a prompt, check on my build, or browse files - from the couch, the kitchen, or anywhere.
         </p>
         <p>
-          אני בן 31 מראש העין, נשוי ואב לשניים, ומפתח תוכנה עם ניסיון של <strong>10 שנים</strong> באפליקציות, אתרים ומערכות AI.
-          מתמחה ב-React, Node.js, Python ובניית מוצרים דיגיטליים מקצה לקצה.
+          I'm a software developer with <strong>10+ years of experience</strong> building iOS apps, web platforms, and AI-powered products.
+          I specialize in Swift, React, Node.js, and end-to-end product development.
         </p>
         <p>
-          רציתי ליצור חוויה שמרגישה <strong>פשוטה, מהירה ובטוחה</strong> —
-          כי כהורים, אתם לא צריכים לבזבז שעות על חיפוש. אתם צריכים פתרון שעובד.
+          DNP Remote was designed to feel <strong>fast, native, and friction-free</strong> -
+          because when you're in a coding flow, every second of friction matters.
         </p>
-
 
         <div class="about-profiles">
           <a class="about-profile" href="https://www.linkedin.com/in/rotem-dadon-5424a71a3" target="_blank"
             rel="noopener">
             <div class="about-avatar" style="padding:0;overflow:hidden;">
-              <img src="/about.png" alt="רותם דדון"
+              <img src="/about.png" alt="Rotem Dadon"
                 style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;border-radius:50%;" />
             </div>
             <div>
-              <div class="about-profile-name">רותם דדון</div>
-              <div class="about-profile-role">מייסד ומפתח FindSiter</div>
+              <div class="about-profile-name">Rotem Dadon</div>
+              <div class="about-profile-role">Founder &amp; Developer, DNP Remote</div>
             </div>
           </a>
-          <a class="about-profile" href="https://apps.apple.com/il/app/findsiter/id6758737943" target="_blank"
+          <a class="about-profile" href="https://apps.apple.com/app/dnp-remote/id6745970856" target="_blank"
             rel="noopener">
-            <div class="about-avatar" style="background:#f7f1ec;padding:0;overflow:hidden;">
-              <img src="/newico.png" alt="FindSiter"
+            <div class="about-avatar" style="background:#fff;padding:0;overflow:hidden;">
+              <img src="/newico.png" alt="DNP Remote"
                 style="width:78%;height:78%;object-fit:contain;display:block;margin:auto;padding-top:11%;" />
             </div>
             <div>
-              <div class="about-profile-name">FindSiter</div>
-              <div class="about-profile-role">האפליקציה שנולדה מהצורך האמיתי</div>
+              <div class="about-profile-name">DNP Remote</div>
+              <div class="about-profile-role">The app built from a real developer need</div>
             </div>
           </a>
         </div>
@@ -714,8 +711,8 @@
       <!-- Image block -->
       <div class="about-images">
         <div class="about-img-rounded">
-          <img src="/about.png" alt="רותם דדון" />
-          <h2 class="about-title about-title-mobile">היי, אני רותם דדון 👋</h2>
+          <img src="/about.png" alt="Rotem Dadon" />
+          <h2 class="about-title about-title-mobile">Hi, I'm Rotem Dadon</h2>
         </div>
       </div>
 
@@ -741,19 +738,19 @@
 
     <div class="thanks-inner">
       <div class="thanks-header">
-        <h2>תודות <em>מיוחדות</em></h2>
-        <p>האנשים שהאמינו, תמכו ועזרו להפוך רעיון לאפליקציה אמיתית</p>
+        <h2>Special <em>Thanks</em></h2>
+        <p>The people who believed, supported, and helped turn an idea into a real app</p>
       </div>
 
       <div class="thanks-grid">
 
         <a class="thanks-card" href="https://www.linkedin.com/in/rotem-dadon-5424a71a3" target="_blank" rel="noopener">
-          <div class="thanks-avatar" style="background:#f7f1ec;">
-            <img src="/about.png" alt="רותם דדון" />
+          <div class="thanks-avatar" style="background:#fff;">
+            <img src="/about.png" alt="Rotem Dadon" />
           </div>
-          <div class="thanks-card-name">רותם דדון</div>
+          <div class="thanks-card-name">Rotem Dadon</div>
           <div class="thanks-card-desc">
-            על החזון, ההתמדה והאמונה שפרויקט אחד יכול לשנות את חייהם של אלפי הורים בישראל.
+            For the vision, persistence, and belief that one app can meaningfully improve how developers work with AI agents.
           </div>
           <div class="thanks-card-linkedin">
             <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -762,12 +759,12 @@
         </a>
 
         <a class="thanks-card" href="https://www.linkedin.com/in/amit-dadon-a98628244/" target="_blank" rel="noopener">
-          <div class="thanks-avatar" style="background:linear-gradient(135deg,#ffd6ea,#ff96d4);font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;">
-            עד
+          <div class="thanks-avatar" style="background:linear-gradient(135deg,#e8ddf9,#9f7aea);font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;">
+            AD
           </div>
-          <div class="thanks-card-name">עמית דדון</div>
+          <div class="thanks-card-name">Amit Dadon</div>
           <div class="thanks-card-desc">
-            על הייעוץ הגרפי המקצועי והסיוע במיתוג האפליקציה — הזהות הוויזואלית של FindSiter היא גם בזכותך.
+            For the professional design advice and branding support - the visual identity of DNP Remote is partly thanks to you.
           </div>
           <div class="thanks-card-linkedin">
             <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -777,11 +774,11 @@
 
         <a class="thanks-card" href="https://www.linkedin.com/in/chen-sasson-caspi/" target="_blank" rel="noopener">
           <div class="thanks-avatar" style="background:linear-gradient(135deg,#dbeafe,#60a5fa);font-size:1.5rem;font-weight:900;letter-spacing:-0.02em;">
-            חכ
+            CC
           </div>
-          <div class="thanks-card-name">חן כספי</div>
+          <div class="thanks-card-name">Chen Caspi</div>
           <div class="thanks-card-desc">
-            על הסיוע בתוכנית העסקית, הליווי לאורך כל הדרך וכל הרעיונות המבריקים לחווית המשתמש של האפליקציה.
+            For help with the business plan, ongoing guidance, and all the brilliant UX ideas that shaped the app experience.
           </div>
           <div class="thanks-card-linkedin">
             <svg viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
@@ -807,8 +804,8 @@
 
     <div class="links-inner">
       <div class="links-header">
-        <h2>קישורים נוספים <em>ויצירת קשר</em></h2>
-        <p>כל הדרכים ליצור קשר עם רותם ועם DNP</p>
+        <h2>Links &amp; <em>Contact</em></h2>
+        <p>All the ways to reach Rotem and learn more about DNP</p>
       </div>
 
       <div class="links-grid">
@@ -818,7 +815,7 @@
           <div class="link-card-preview">
             <div class="dnp-preview-placeholder">
               <div class="dnp-preview-logo">DNP</div>
-              <div class="dnp-preview-tagline">פתרונות דיגיטליים ובינה מלאכותית</div>
+              <div class="dnp-preview-tagline">Digital solutions &amp; AI products</div>
               <div class="dnp-preview-dots">
                 <span></span><span></span><span></span>
               </div>
@@ -829,14 +826,14 @@
               <div class="link-card-icon icon-dark">
                 <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm-1 17.93V18a1 1 0 00-1-1H8v-2a1 1 0 00-1-1H4.07A8.03 8.03 0 014 12c0-.68.085-1.34.245-1.97A1 1 0 015.217 10H7a1 1 0 001-1V7a1 1 0 011-1h2a1 1 0 001 1v1a1 1 0 001 1h1a1 1 0 011 1v3a1 1 0 01-1 1h-2a1 1 0 00-1 1v4.93z"/></svg>
               </div>
-              <div class="link-card-title">DNP — האתר הרשמי</div>
+              <div class="link-card-title">DNP - Official Website</div>
             </div>
             <div class="link-card-desc">
-              פיתוח אפליקציות, אתרים ומערכות AI — הפורטפוליו הרשמי של רותם דדון.
+              App development, websites, and AI systems - Rotem Dadon's official portfolio.
             </div>
             <div class="link-card-cta">
-              לאתר DNP
-              <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M10 8H6m0 0l2-2m-2 2l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Visit DNP
+              <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M6 8h4m0 0l-2-2m2 2l-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
         </a>
@@ -854,14 +851,14 @@
               <div class="link-card-icon icon-blue">
                 <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
               </div>
-              <div class="link-card-title">Facebook — DNP</div>
+              <div class="link-card-title">Facebook - DNP</div>
             </div>
             <div class="link-card-desc">
-              הדף העסקי של DNP בפייסבוק — עדכונים, פרויקטים ויצירת קשר.
+              DNP's official Facebook page - updates, projects, and direct contact.
             </div>
             <div class="link-card-cta">
-              לדף הפייסבוק
-              <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M10 8H6m0 0l2-2m-2 2l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Visit Facebook
+              <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M6 8h4m0 0l-2-2m2 2l-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
         </a>
@@ -879,14 +876,14 @@
               <div class="link-card-icon icon-grad">
                 <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
               </div>
-              <div class="link-card-title">Instagram — DNP</div>
+              <div class="link-card-title">Instagram - DNP</div>
             </div>
             <div class="link-card-desc">
-              הדף העסקי של DNP באינסטגרם — עדכונים, תכנים ויצירת קשר ישיר.
+              DNP's official Instagram - updates, content, and direct contact.
             </div>
             <div class="link-card-cta">
-              לדף האינסטגרם
-              <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M10 8H6m0 0l2-2m-2 2l2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Visit Instagram
+              <svg viewBox="0 0 16 16" fill="none" width="13" height="13"><path d="M6 8h4m0 0l-2-2m2 2l-2 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
           </div>
         </a>

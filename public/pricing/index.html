@@ -1,18 +1,52 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>מחירון – FindSiter</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="/faviconblack.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
+  <title>Pricing – DNP Remote</title>
+  <meta name="description" content="DNP Remote pricing: free to download on the App Store. Connect your iPhone to your Mac and control Claude Code, Cursor, VS Code, and more." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="/pricing" />
+  <meta property="og:title" content="Pricing – DNP Remote" />
+  <meta property="og:description" content="DNP Remote is free to download. Connect your iPhone to your Mac and control AI coding agents from anywhere." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="/pricing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pricing – DNP Remote" />
+  <meta name="twitter:description" content="DNP Remote is free to download on the App Store. Pair your iPhone with your Mac and start coding remotely." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is DNP Remote free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, DNP Remote is free to download on the App Store. All core features are included at no charge."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a Mac Bridge server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DNP Remote connects to the Mac Bridge companion server, which runs on your Mac. The Mac Bridge is also free and lets your iPhone talk to Claude Code, Cursor, VS Code, and more."
+          }
+        }
+      ]
+    }
+  </script>
 
   <link rel="stylesheet" href="/_shared.css" />
   <style>
     /* ── PRICING HERO ── */
     .pricing-hero {
-      background: #f7f1ec;
+      background: transparent;
       padding: 5rem 2.5rem 3rem;
       text-align: center;
       position: relative;
@@ -30,7 +64,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
-      background: #ffd6ea;
+      background: #e8ddf9;
       color: var(--pink-dark);
       font-size: 0.8rem;
       font-weight: 700;
@@ -41,7 +75,7 @@
 
     .pricing-hero h1 {
       font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 900;
+      font-weight: 400;
       color: var(--dark);
       line-height: 1.15;
       margin-bottom: 1.1rem;
@@ -62,7 +96,7 @@
 
     /* ── PRICING SECTION ── */
     .pricing-section {
-      background: #f7f1ec;
+      background: transparent;
       padding: 3rem 2.5rem 2.5rem;
       position: relative;
       overflow: hidden;
@@ -84,7 +118,7 @@
 
     /* ── CARD ── */
     .pricing-card {
-      background: #fff;
+      background: #f4f4f4;
       border-radius: 28px;
       padding: 2.5rem 2.25rem;
       position: relative;
@@ -97,7 +131,7 @@
 
     /* featured card */
     .pricing-card.featured {
-      background: #fff;
+      background: #f4f4f4;
       color: var(--dark);
     }
 
@@ -118,7 +152,7 @@
     }
 
     .pricing-card.featured .pricing-divider {
-      background: #f0ebe4;
+      background: #fff;
     }
 
     .pricing-card.featured .pricing-cta-btn {
@@ -159,7 +193,7 @@
     }
 
     .pricing-card-icon.parents-icon {
-      background: #ffd6ea;
+      background: #e8ddf9;
     }
 
     .pricing-card-icon.sitter-icon {
@@ -182,7 +216,7 @@
 
     .pricing-card-title {
       font-size: 1.55rem;
-      font-weight: 900;
+      font-weight: 400;
       color: var(--dark);
       margin-bottom: 0.5rem;
       line-height: 1.2;
@@ -205,7 +239,7 @@
 
     .pricing-card-price {
       font-size: 2.8rem;
-      font-weight: 900;
+      font-weight: 400;
       color: var(--dark);
       line-height: 1;
       letter-spacing: -0.03em;
@@ -250,7 +284,7 @@
       border-radius: 14px;
       font-size: 0.97rem;
       font-weight: 800;
-      background: #f0ebe4;
+      background: #fff;
       color: #312f37;
       transition: background 0.2s, transform 0.15s;
       margin-bottom: 2rem;
@@ -260,14 +294,14 @@
     }
 
     .pricing-cta-btn:hover {
-      background: #e5ddd4;
+      background: #dbd5ed;
       transform: scale(1.015);
     }
 
     /* divider */
     .pricing-divider {
       height: 1px;
-      background: #f0ebe4;
+      background: #fff;
       margin-bottom: 1.75rem;
     }
 
@@ -279,24 +313,26 @@
     }
 
     .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.85rem;
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      align-items: start;
+      column-gap: 0.85rem;
       font-size: 0.9rem;
       color: var(--text);
       line-height: 1.55;
     }
 
-    .feature-icon {
-      margin-top: 0.18rem;
+    .feature-item > span:last-child {
+      min-width: 0;
     }
 
     .feature-icon {
       width: 22px;
       height: 22px;
       min-width: 22px;
+      margin-top: 0.12rem;
       border-radius: 50%;
-      background: #ff96d4;
+      background: #9f7aea;
       border: none;
       color: #fff;
       display: flex;
@@ -313,19 +349,19 @@
     }
 
     .feature-icon.green {
-      background: #ff96d4;
+      background: #9f7aea;
     }
 
     .pricing-card.featured .feature-icon,
     .pricing-card.featured .feature-icon.green {
-      background: #ff96d4;
+      background: #9f7aea;
       color: #fff;
       border: none;
     }
 
     /* ── BOTTOM CTA STRIP ── */
     .pricing-cta-strip {
-      background: #f7f1ec;
+      background: transparent;
       padding: 0 2.5rem 5rem;
       text-align: center;
       position: relative;
@@ -335,7 +371,7 @@
     .pricing-cta-strip-inner {
       max-width: 1000px;
       margin: 0 auto;
-      background: #fff;
+      background: transparent;
       border-radius: 24px;
       padding: 3rem 3.5rem;
       position: relative;
@@ -344,7 +380,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 2rem;
-      text-align: right;
+      text-align: left;
     }
 
     .pricing-cta-strip-text {
@@ -352,18 +388,18 @@
     }
 
     .pricing-cta-strip-text h2 {
-      text-align: right;
+      text-align: left;
       margin-bottom: 0.5rem;
     }
 
     .pricing-cta-strip-text p {
-      text-align: right;
+      text-align: left;
       margin-bottom: 0;
     }
 
     .pricing-cta-strip h2 {
       font-size: clamp(1.4rem, 2.5vw, 1.9rem);
-      font-weight: 900;
+      font-weight: 400;
       color: var(--dark);
       margin-bottom: 0.55rem;
       line-height: 1.25;
@@ -415,8 +451,7 @@
 
     /* ── FOOTER ── */
     .footer {
-      background: #f3c860;
-      direction: rtl;
+      background: #7d37eb;
       padding: 3.5rem 2.5rem 1.5rem;
       border-radius: 32px 32px 0 0;
       position: relative;
@@ -455,7 +490,7 @@
 
     .footer-tagline {
       font-size: 0.78rem;
-      color: #312f37;
+      color: #fff;
       line-height: 1.7;
       opacity: 0.65;
       max-width: 260px;
@@ -469,7 +504,7 @@
       font-weight: 800;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: #312f37;
+      color: #fff;
       opacity: 0.55;
       margin-bottom: 1rem;
     }
@@ -485,7 +520,7 @@
       text-decoration: none;
       font-size: 0.9rem;
       font-weight: 500;
-      color: #312f37;
+      color: #fff;
       opacity: 0.8;
       transition: opacity 0.2s;
     }
@@ -496,7 +531,7 @@
 
     .footer-social-text {
       font-size: 0.82rem;
-      color: #312f37;
+      color: #fff;
       opacity: 0.7;
       line-height: 1.6;
       margin-bottom: 1rem;
@@ -511,20 +546,20 @@
       width: 40px;
       height: 40px;
       border-radius: 12px;
-      background: rgba(49, 47, 55, 0.12);
+      background: rgba(255, 255, 255, 0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #312f37;
+      color: #fff;
       text-decoration: none;
       transition: background 0.2s;
     }
 
-    .footer-socials a:hover { background: rgba(49, 47, 55, 0.22); }
+    .footer-socials a:hover { background: rgba(255, 255, 255, 0.25); }
 
     .footer-divider {
       height: 1px;
-      background: rgba(49, 47, 55, 0.15);
+      background: rgba(255, 255, 255, 0.2);
       margin: 2.5rem 0 1.25rem;
     }
 
@@ -533,7 +568,7 @@
       justify-content: space-between;
       align-items: center;
       font-size: 0.78rem;
-      color: #312f37;
+      color: #fff;
       opacity: 0.6;
       flex-wrap: wrap;
       gap: 0.5rem;
@@ -541,15 +576,15 @@
 
     .footer-a11y-link {
       display: none;
-      background: rgba(49,47,55,0.1);
+      background: rgba(255,255,255,0.15);
       border: none; border-radius: 20px;
       padding: 0.3rem 0.85rem;
       font-size: 0.78rem; font-weight: 700;
-      color: #312f37; cursor: pointer;
+      color: #fff; cursor: pointer;
       font-family: inherit;
       transition: background 0.15s;
     }
-    .footer-a11y-link:hover { background: rgba(49,47,55,0.18); }
+    .footer-a11y-link:hover { background: rgba(255,255,255,0.25); }
     @media (max-width: 768px) {
       .footer-a11y-link { display: inline-flex; align-items: center; gap: 0.3rem; }
     }
@@ -557,7 +592,7 @@
     .footer-mobile-links { display: none; }
     .footer-mobile-links a {
       text-decoration: none;
-      color: #312f37;
+      color: #fff;
       opacity: 0.65;
       font-size: 0.72rem;
       font-weight: 500;
@@ -588,7 +623,7 @@
     #a11y-fab {
       position: fixed; left: 0; top: 50%; transform: translateY(-50%);
       width: 48px; height: 56px;
-      background: #312f37; color: #f7f1ec;
+      background: #312f37; color: #fff;
       border: none; border-radius: 0 14px 14px 0;
       display: flex; align-items: center; justify-content: center;
       cursor: pointer; z-index: 9999;
@@ -617,8 +652,8 @@
     #a11y-panel {
       position: fixed; top: 0; left: 0; bottom: 0;
       width: 100%; max-width: 420px;
-      background: #fff; z-index: 10001;
-      display: flex; flex-direction: column; direction: rtl;
+      background: transparent; z-index: 10001;
+      display: flex; flex-direction: column;
       transform: translateX(-100%);
       transition: transform 0.3s cubic-bezier(.4,0,.2,1);
       box-shadow: 4px 0 40px rgba(49,47,55,0.18);
@@ -626,16 +661,16 @@
     #a11y-panel.open { transform: translateX(0); }
 
     .a11y-header {
-      flex-shrink: 0; background: #312f37; color: #f7f1ec;
+      flex-shrink: 0; background: #312f37; color: #fff;
       padding: 1.1rem 1.25rem;
       display: flex; align-items: center; justify-content: space-between;
     }
     .a11y-header-info { display: flex; align-items: center; gap: 0.75rem; }
-    .a11y-header h2 { font-size: 1.05rem; font-weight: 800; margin: 0; color: #f7f1ec; }
-    .a11y-header p  { font-size: 0.78rem; opacity: 0.75; margin: 0.1rem 0 0; color: #f7f1ec; }
+    .a11y-header h2 { font-size: 1.05rem; font-weight: 800; margin: 0; color: #fff; }
+    .a11y-header p  { font-size: 0.78rem; opacity: 0.75; margin: 0.1rem 0 0; color: #fff; }
     .a11y-close-btn {
       width: 38px; height: 38px; background: rgba(255,255,255,0.12);
-      border: none; border-radius: 50%; color: #f7f1ec;
+      border: none; border-radius: 50%; color: #fff;
       cursor: pointer; display: flex; align-items: center; justify-content: center;
       font-size: 1.3rem; transition: background 0.15s;
     }
@@ -644,7 +679,7 @@
     .a11y-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.65rem; }
 
     .a11y-font-card {
-      background: #f7f4f1; border-radius: 14px; border: 1.5px solid #e8e0d8; padding: 1rem;
+      background: #fff; border-radius: 14px; border: 1.5px solid #e4dff2; padding: 1rem;
     }
     .a11y-font-card-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
     .a11y-icon-box {
@@ -658,18 +693,18 @@
     .a11y-font-btns { display: flex; gap: 0.4rem; }
     .a11y-font-btns button {
       flex: 1; padding: 0.55rem 0.2rem;
-      background: #e8e0d8; border: none; border-radius: 9px;
+      background: #eeebf7; border: none; border-radius: 9px;
       color: #312f37; font-weight: 700; cursor: pointer;
       transition: background 0.15s, color 0.15s; font-family: inherit;
     }
     .a11y-font-btns button.fs-active,
-    .a11y-font-btns button:hover:not(:disabled) { background: #312f37; color: #f7f1ec; }
+    .a11y-font-btns button:hover:not(:disabled) { background: #312f37; color: #fff; }
     .a11y-font-btns button:disabled { opacity: 0.35; cursor: not-allowed; }
 
     .a11y-toggle {
       width: 100%; display: flex; align-items: center; gap: 0.85rem;
-      padding: 0.85rem 1rem; background: #f7f4f1; border-radius: 14px;
-      border: 1.5px solid #e8e0d8; cursor: pointer; text-align: right;
+      padding: 0.85rem 1rem; background: #fff; border-radius: 14px;
+      border: 1.5px solid #e4dff2; cursor: pointer; text-align: left;
       transition: border-color 0.15s, background 0.15s;
     }
     .a11y-toggle.on { background: rgba(49,47,55,0.05); border-color: #312f37; }
@@ -686,23 +721,23 @@
     .a11y-switch.on { background: #312f37; }
     .a11y-switch-knob {
       position: absolute; top: 3px; width: 20px; height: 20px;
-      border-radius: 50%; background: #fff;
+      border-radius: 50%; background: transparent;
       box-shadow: 0 1px 4px rgba(0,0,0,0.15); transition: left 0.2s;
       left: calc(100% - 23px);
     }
     .a11y-switch.on .a11y-switch-knob { left: 3px; }
 
     .a11y-reset-btn {
-      width: 100%; padding: 0.75rem; background: #f0ebe4;
+      width: 100%; padding: 0.75rem; background: #fff;
       border: none; border-radius: 12px;
       font-size: 0.85rem; font-weight: 700; color: #312f37;
       cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
       transition: background 0.15s; font-family: inherit; margin-top: 0.25rem;
     }
-    .a11y-reset-btn:hover { background: #e5ddd4; }
+    .a11y-reset-btn:hover { background: #dbd5ed; }
 
     .a11y-statement {
-      padding: 1rem; background: #f7f4f1; border-radius: 12px; text-align: center;
+      padding: 1rem; background: #fff; border-radius: 12px; text-align: center;
     }
     .a11y-statement p { font-size: 0.76rem; color: #6b7280; margin: 0 0 0.3rem; line-height: 1.6; }
     .a11y-statement small { font-size: 0.7rem; color: #9ca3af; }
@@ -741,7 +776,7 @@
     }
     .billing-pill {
       display: flex;
-      background: #e8e0d8;
+      background: #eeebf7;
       border-radius: 50px;
       padding: 4px;
       position: relative;
@@ -809,7 +844,7 @@
       width: 46px;
       height: 46px;
       background: #312f37;
-      color: #f7f1ec;
+      color: #fff;
       border: none;
       border-radius: 50%;
       display: flex;
@@ -886,7 +921,7 @@
       top: 0; right: 0;
       width: 78vw; max-width: 320px;
       height: 100%;
-      background: #fff;
+      background: transparent;
       box-shadow: -8px 0 40px rgba(49,47,55,0.18);
       display: flex; flex-direction: column;
       transform: translateX(100%);
@@ -927,7 +962,7 @@
     .mobile-menu-dl {
       margin: 1rem 1.25rem;
       padding: 0.9rem 1.5rem;
-      background: #312f37; color: #f7f1ec !important;
+      background: #312f37; color: #fff !important;
       border-radius: 14px; text-align: center;
       font-weight: 700; font-size: 0.95rem;
       text-decoration: none; display: block;
@@ -979,7 +1014,7 @@
         right: auto; top: auto; bottom: auto; left: auto;
         width: 100%; max-width: 100%; height: auto;
         margin-top: 64px;
-        background: rgba(247,241,236,0.90);
+        background: rgba(255,255,255,0.90);
         backdrop-filter: blur(16px);
         -webkit-backdrop-filter: blur(16px);
         border-radius: 0 0 22px 22px;
@@ -1065,7 +1100,7 @@
 
     /* ── FAQ SECTION ── */
     .faq-section {
-      background: #f7f1ec;
+      background: transparent;
       padding: 0 2.5rem 6rem;
       position: relative;
     }
@@ -1077,7 +1112,7 @@
 
     .faq-heading {
       font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 900;
+      font-weight: 400;
       color: var(--dark);
       text-align: center;
       margin-bottom: 0.5rem;
@@ -1102,9 +1137,18 @@
     }
 
     .faq-item {
-      background: #fff;
+      background: #f4f4f4;
       border-radius: 16px;
       overflow: hidden;
+      transition: background 0.18s;
+    }
+
+    .faq-item:hover {
+      background: #ededed;
+    }
+
+    .faq-item.open {
+      background: #f4f4f4;
     }
 
     .faq-trigger {
@@ -1121,12 +1165,12 @@
       font-size: 0.97rem;
       font-weight: 700;
       color: var(--dark);
-      text-align: right;
+      text-align: left;
       transition: background 0.15s;
     }
 
     .faq-trigger:hover {
-      background: rgba(255, 150, 212, 0.06);
+      background: #ededed;
     }
 
     .faq-arrow {
@@ -1134,7 +1178,7 @@
       height: 28px;
       min-width: 28px;
       border-radius: 50%;
-      background: #f7f1ec;
+      background: transparent;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1150,7 +1194,7 @@
 
     .faq-item.open .faq-arrow {
       transform: rotate(180deg);
-      background: #ff96d4;
+      background: #9f7aea;
     }
 
     .faq-item.open .faq-arrow svg path {
@@ -1172,7 +1216,7 @@
       font-size: 0.9rem;
       color: var(--muted);
       line-height: 1.75;
-      border-top: 1px solid #f0ebe4;
+      border-top: 1px solid #ece6f8;
       padding-top: 1rem;
     }
   </style>
@@ -1198,8 +1242,8 @@
     </div>
 
     <div class="pricing-hero-inner">
-      <h1>מחירון <em>פשוט</em> ושקוף</h1>
-      <p>שתי חבילות — אחת להורים ואחת לבייביסיטרים. ללא הפתעות, ללא עמלות נסתרות.</p>
+      <h1>Simple, <em>transparent</em> pricing</h1>
+      <p>DNP Remote is free to download. No subscriptions, no hidden fees, no surprises.</p>
     </div>
   </section>
 
@@ -1218,98 +1262,88 @@
 
     <div class="pricing-inner">
 
-      <!-- ── BILLING TOGGLE ── -->
-      <div class="billing-toggle-wrap">
-        <div class="billing-pill" id="billing-pill">
-          <div class="billing-pill-slider" id="pill-slider"></div>
-          <button class="billing-pill-btn active" id="btn-monthly" type="button">חודשי</button>
-          <button class="billing-pill-btn" id="btn-yearly" type="button">שנתי</button>
-          <span class="billing-discount-badge" id="discount-badge" style="opacity:0;transform:scale(0.8)">חיסכון 25%</span>
-        </div>
-      </div>
+      <div class="pricing-grid" style="grid-template-columns: 1fr 1fr; max-width: 860px; margin: 0 auto;">
 
-      <div class="pricing-grid">
-
-        <!-- ── PARENTS CARD ── -->
+        <!-- ── FREE CARD ── -->
         <div class="pricing-card">
-          <div class="pricing-card-label">להורים</div>
-          <h2 class="pricing-card-title">חבילת הורים</h2>
-          <p class="pricing-card-muted">כל מה שצריך כדי למצוא את הבייביסיטר המושלם — בקלות ובמהירות.</p>
+          <div class="pricing-card-label">iOS App</div>
+          <h2 class="pricing-card-title">DNP Remote</h2>
+          <p class="pricing-card-muted">Everything you need to control your AI coding agent from your iPhone - no subscription required.</p>
 
           <div class="pricing-card-price-wrap">
-            <span class="price-currency">₪</span>
-            <span class="pricing-card-price price-value" data-monthly="19.90" data-yearly="179.90">19.90</span>
-            <span class="price-period price-period-text">/ חודש</span>
+            <span class="pricing-card-price">Free</span>
           </div>
-          <p class="yearly-price-note price-note" style="display:none"></p>
-          <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
+          <p class="pricing-trial">Available on the App Store</p>
 
+          <a href="https://apps.apple.com/app/dnp-remote/id6745970856" class="pricing-cta-btn" target="_blank" rel="noopener">Download on the App Store</a>
+
+          <div class="pricing-divider"></div>
           <ul class="features-list">
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>תיאומים ללא הגבלה עם בייביסיטרים</span>
+              <span>Chat with Claude Code, Cursor, VS Code &amp; OpenAI Codex</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>קבלת התראות על בייביסיטר חדש שנרשם באזור שלכם</span>
+              <span>Connect via local network or Tailscale VPN</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>התראות על בייביסיטר שזמין באזורכם לפי הגדרה אישית</span>
+              <span>QR code pairing - instant setup, no manual IP entry</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>פרסום חיפוש בייביסיטר — התראה נשלחת אוטומטית לבייביסיטרים בסביבה</span>
+              <span>File browser - browse and view your Mac's project files</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>סנכרון מלא בין היומן לתיאומים — כל תיאום מתעדכן אוטומטית ביומן שלכם</span>
+              <span>Screen mirror - live simulator or Mac screen on your iPhone</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>ניהול הוצאות וסטטיסטיקות — מעקב אחר הוצאות השמרטפות וסיכומים חודשיים</span>
+              <span>Full session history with token usage tracking</span>
             </li>
           </ul>
         </div>
 
-        <!-- ── BABYSITTER CARD (featured) ── -->
+        <!-- ── MAC BRIDGE CARD ── -->
         <div class="pricing-card featured">
-          <div class="pricing-card-label">לבייביסיטרים</div>
-          <h2 class="pricing-card-title">חבילת בייביסיטר</h2>
-          <p class="pricing-card-muted">כלים מקצועיים לניהול ההכנסות, הזמינות והלקוחות שלכם.</p>
+          <div class="pricing-card-label">Mac Companion</div>
+          <h2 class="pricing-card-title">Mac Bridge</h2>
+          <p class="pricing-card-muted">The server that runs on your Mac and bridges DNP Remote to your AI coding tools.</p>
 
           <div class="pricing-card-price-wrap">
-            <span class="price-currency">₪</span>
-            <span class="pricing-card-price price-value" data-monthly="19.90" data-yearly="179.90">19.90</span>
-            <span class="price-period price-period-text">/ חודש</span>
+            <span class="pricing-card-price">Free</span>
           </div>
-          <p class="yearly-price-note price-note" style="display:none"></p>
-          <p class="pricing-trial">ניסיון חינם לחודש הראשון</p>
+          <p class="pricing-trial">Runs on your Mac in the background</p>
 
+          <a href="https://dnp.co.il" class="pricing-cta-btn" target="_blank" rel="noopener">Get Mac Bridge</a>
+
+          <div class="pricing-divider"></div>
           <ul class="features-list">
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>תיאומים ללא הגבלה עם הורים</span>
+              <span>Bridges your iPhone to Claude Code, Cursor, VS Code &amp; more</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>קבלת התראות על הורים המחפשים בייביסיטר באזורכם</span>
+              <span>Streams agent responses and tool activity in real time</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>פרסום זמינות מיידית — התראה תיפול ישירות להורים בסביבה</span>
+              <span>Exposes file tree, build status &amp; simulator screen</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>צפייה במי שמר אתכם כמועדפים</span>
+              <span>Secure WebSocket connection - data stays on your local network</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>נתוני הכנסות מפורטים — כולל הורדת סיכום כ-PDF או CSV לנוחיותכם</span>
+              <span>Shared session history across paired devices</span>
             </li>
             <li class="feature-item">
               <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span>סנכרון מלא בין היומן לתיאומים — כל תיאום מתעדכן אוטומטית ביומן שלכם</span>
+              <span>QR code generation for instant iPhone pairing</span>
             </li>
           </ul>
         </div>
@@ -1332,17 +1366,13 @@
 
     <div class="pricing-cta-strip-inner">
       <div class="pricing-cta-strip-text">
-        <h2>מוכנים להתחיל?<br /><em>הורידו את האפליקציה</em></h2>
-        <p>זמין עכשיו ב-App Store ולאנדרואיד — 14 ימי ניסיון ללא התחייבות וללא צורך בכרטיס אשראי.</p>
+        <h2>Ready to get started?<br /><em>Download the app</em></h2>
+        <p>Free on the App Store. Pair with the Mac Bridge and start controlling your AI coding agents from anywhere.</p>
       </div>
       <div class="pricing-store-btns">
-        <a href="https://apps.apple.com/il/app/findsiter/id6758737943" class="btn-store" target="_blank" rel="noopener">
+        <a href="https://apps.apple.com/app/dnp-remote/id6745970856" class="btn-store" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
-          <span class="store-name">הורדה לאייפון</span>
-        </a>
-        <a href="https://drive.google.com/file/d/1yVwcP7g4gWueD8OH_wwTQVb0d2nCGYUf/view?usp=sharing" class="btn-store" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="white" width="20" height="20"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.036.612-.016.906-.183l13.324-7.54-3.23-3.21z"/></svg>
-          <span class="store-name">הורדה לאנדרואיד</span>
+          <span class="store-name">Download on iPhone</span>
         </a>
       </div>
     </div>
@@ -1351,68 +1381,68 @@
   <!-- ══ FAQ ══ -->
   <section class="faq-section">
     <div class="faq-inner">
-      <h2 class="faq-heading">שאלות <em>נפוצות</em></h2>
-      <p class="faq-sub">כל מה שרציתם לדעת על המחירים ואופן הפעולה</p>
+      <h2 class="faq-heading">Frequently asked <em>questions</em></h2>
+      <p class="faq-sub">Everything you need to know about DNP Remote</p>
 
       <div class="faq-list">
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span>האם יש ניסיון חינם?</span>
+            <span>Is DNP Remote really free?</span>
             <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="faq-body" role="region">
-            <div class="faq-body-inner">כן! כל משתמש חדש — הן הורה והן בייביסיטר — מקבל 14 ימי ניסיון ללא התחייבות וללא צורך בכרטיס אשראי. אחרי תקופת הניסיון תוכלו לבחור אם להמשיך עם המנוי.</div>
+            <div class="faq-body-inner">Yes - DNP Remote is completely free to download on the App Store. There are no subscriptions, no in-app purchases, and no hidden fees. All features are included at no charge.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span>איך עובד התשלום?</span>
+            <span>Do I need to install anything on my Mac?</span>
             <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="faq-body" role="region">
-            <div class="faq-body-inner">התשלום מתבצע חודשי ישירות דרך ה-App Store (אייפון) או ב-Google Play (אנדרואיד). החיוב מתבצע באופן אוטומטי בכל חודש ולא כולל הפתעות — המחיר קבוע וידוע מראש.</div>
+            <div class="faq-body-inner">Yes. DNP Remote connects to the Mac Bridge, a lightweight companion server that runs on your Mac. The Mac Bridge is also free, and it handles the WebSocket connection that lets your iPhone talk to Claude Code, Cursor, VS Code, and other AI coding tools.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span>האם אפשר לבטל את המנוי בכל עת?</span>
+            <span>Which AI coding tools are supported?</span>
             <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="faq-body" role="region">
-            <div class="faq-body-inner">כן, אפשר לבטל בכל עת דרך הגדרות ה-App Store או Google Play. לאחר הביטול תוכלו להמשיך להשתמש באפליקציה עד סוף תקופת המנוי ששילמתם עליה.</div>
+            <div class="faq-body-inner">DNP Remote currently supports Claude Code, Cursor, VS Code, and OpenAI Codex. You can switch between agents within the app, and more tools will be added as the platform grows.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span>מה ההבדל בין חבילת הורים לחבילת בייביסיטר?</span>
+            <span>How does the connection between iPhone and Mac work?</span>
             <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="faq-body" role="region">
-            <div class="faq-body-inner">שתי החבילות — הורים ובייביסיטרים — עולות ₪19.90 לחודש או ₪179.90 לשנה (חיסכון של כ-25%). חבילת הורים מאפשרת לחפש בייביסיטרים, לתאם ולפרסם בקשות. חבילת הבייביסיטר מאפשרת לפרסם זמינות, לקבל התראות על הורים, לצפות במועדפים ולנהל הכנסות.</div>
+            <div class="faq-body-inner">When on the same Wi-Fi network, the app auto-discovers your Mac via Bonjour - just scan the QR code shown by the Mac Bridge and you're connected. For remote access from outside your home network, DNP Remote supports Tailscale VPN so you can reach your Mac from anywhere.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span>האם האפליקציה זמינה לאנדרואיד?</span>
+            <span>Is my code or data sent to any external server?</span>
             <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="faq-body" role="region">
-            <div class="faq-body-inner">כן! FindSiter זמינה גם לאנדרואיד להורדה ישירה. האפליקציה תעלה בקרוב גם ל-Google Play Store הרשמי. כרגע ניתן להוריד את גרסת האנדרואיד דרך הלינק המצוין בעמוד.</div>
+            <div class="faq-body-inner">No. All communication is direct between your iPhone and your Mac via a secure WebSocket connection. Your code, chat messages, and file contents never pass through any third-party server - everything stays on your local network or your Tailscale private network.</div>
           </div>
         </div>
 
         <div class="faq-item">
           <button class="faq-trigger" aria-expanded="false">
-            <span>האם יש עמלה על תיאומים או תשלומים?</span>
+            <span>Can I use DNP Remote over cellular (outside my home Wi-Fi)?</span>
             <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
           </button>
           <div class="faq-body" role="region">
-            <div class="faq-body-inner">לא. FindSiter גובה רק את דמי המנוי החודשי הקבועים — ללא עמלות על תיאומים, ללא אחוזים מהתשלום לבייביסיטר, וללא עלויות נסתרות. מה שרואים זה מה שמשלמים.</div>
+            <div class="faq-body-inner">Yes. With Tailscale installed on both your iPhone and your Mac, DNP Remote works over any internet connection - cellular, hotel Wi-Fi, a coffee shop, wherever you are. Tailscale is free for personal use and creates an encrypted peer-to-peer tunnel between your devices.</div>
           </div>
         </div>
 
@@ -1423,118 +1453,6 @@
   <div id="footer-root"></div>
   <script src="/_shared.js"></script>
   <script>
-    // Billing toggle logic
-    (function() {
-      var isYearly = false;
-      var btnM = document.getElementById('btn-monthly');
-      var btnY = document.getElementById('btn-yearly');
-      var badge = document.getElementById('discount-badge');
-      var slider = document.getElementById('pill-slider');
-      var prices = document.querySelectorAll('.price-value');
-      var periods = document.querySelectorAll('.price-period-text');
-      var notes = document.querySelectorAll('.price-note');
-
-      var monthlyPrice = 19.90;
-      var yearlyPrice = 179.90;
-      var fullYearPrice = monthlyPrice * 12;
-      var discountPercent = Math.round((1 - yearlyPrice / fullYearPrice) * 100);
-      if (badge) badge.textContent = 'חיסכון ' + discountPercent + '%';
-
-      function formatPrice(num) {
-        return Number(num).toFixed(2);
-      }
-
-      function animatePriceValue(el, targetValue) {
-        if (!el) return;
-        var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-        if (reducedMotion) {
-          el.textContent = formatPrice(targetValue);
-          return;
-        }
-
-        if (el._priceAnimTimer) clearInterval(el._priceAnimTimer);
-
-        var finalText = formatPrice(targetValue);
-        var duration = 420;
-        var intervalMs = 42;
-        var totalSteps = Math.max(6, Math.round(duration / intervalMs));
-        var step = 0;
-        var totalDigits = finalText.replace('.', '').length;
-
-        el._priceAnimTimer = setInterval(function () {
-          step += 1;
-          var progress = Math.min(step / totalSteps, 1);
-          var revealDigits = Math.floor(progress * totalDigits);
-          var seenDigits = 0;
-          var display = '';
-
-          for (var i = 0; i < finalText.length; i++) {
-            var ch = finalText.charAt(i);
-            if (ch === '.') {
-              display += '.';
-              continue;
-            }
-
-            seenDigits += 1;
-            if (seenDigits <= revealDigits) {
-              display += ch;
-            } else {
-              display += String(Math.floor(Math.random() * 10));
-            }
-          }
-
-          el.textContent = display;
-          el.style.opacity = progress < 1 ? '0.86' : '1';
-
-          if (progress >= 1) {
-            clearInterval(el._priceAnimTimer);
-            el._priceAnimTimer = null;
-            el.textContent = finalText;
-            el.style.opacity = '1';
-          }
-        }, intervalMs);
-      }
-
-      function positionSlider() {
-        var activeBtn = isYearly ? btnY : btnM;
-        if (slider && activeBtn) {
-          slider.style.left = activeBtn.offsetLeft + 'px';
-          slider.style.width = activeBtn.offsetWidth + 'px';
-        }
-        if (badge && btnY) {
-          badge.style.left = (btnY.offsetLeft + btnY.offsetWidth / 2) + 'px';
-          badge.style.transform = isYearly ? 'translateX(-50%) scale(1)' : 'translateX(-50%) scale(0.8)';
-          badge.style.opacity = isYearly ? '1' : '0';
-        }
-      }
-
-      function updatePrices() {
-        prices.forEach(function(el) {
-          animatePriceValue(el, isYearly ? yearlyPrice : monthlyPrice);
-        });
-        periods.forEach(function(el) {
-          el.textContent = isYearly ? '/ שנה' : '/ חודש';
-        });
-        notes.forEach(function(el) {
-          if (isYearly) {
-            el.style.display = 'block';
-            el.textContent = 'במקום ₪' + fullYearPrice.toFixed(2) + ' (₪' + (yearlyPrice / 12).toFixed(2) + ' לחודש)';
-          } else {
-            el.style.display = 'none';
-          }
-        });
-        if (btnM) btnM.classList.toggle('active', !isYearly);
-        if (btnY) btnY.classList.toggle('active', isYearly);
-        positionSlider();
-      }
-
-      if (btnM) btnM.addEventListener('click', function() { isYearly = false; updatePrices(); });
-      if (btnY) btnY.addEventListener('click', function() { isYearly = true; updatePrices(); });
-
-      setTimeout(positionSlider, 0);
-      window.addEventListener('resize', positionSlider);
-    })();
-
     // FAQ accordion
     document.querySelectorAll('.faq-trigger').forEach(function(btn) {
       btn.addEventListener('click', function() {

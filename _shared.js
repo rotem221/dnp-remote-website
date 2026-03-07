@@ -24,11 +24,12 @@
 
     var splash = document.createElement('div');
     splash.id = 'fs-splash';
-    splash.innerHTML = '' +
-      '<div class="fs-splash-pink" id="fs-splash-pink">' +
-      '  <div class="fs-splash-eyes">' +
-      '    <div class="fs-eye"><div class="fs-iris"><div class="fs-highlight"></div></div></div>' +
-      '    <div class="fs-eye"><div class="fs-iris"><div class="fs-highlight"></div></div></div>' +
+    splash.innerHTML =
+      '<div class="dnp-splash-bg">' +
+      '  <div class="dnp-splash-radial"></div>' +
+      '  <div class="dnp-splash-logo-wrap">' +
+      '    <img class="dnp-splash-n" src="/splash_n.png" alt="" draggable="false" />' +
+      '    <img class="dnp-splash-dot" src="/splash_dot.png" alt="" draggable="false" />' +
       '  </div>' +
       '</div>';
     document.body.appendChild(splash);
@@ -38,40 +39,73 @@
     style.id = 'fs-splash-style';
     style.textContent = [
       '#fs-splash{position:fixed;inset:0;z-index:2147483647;pointer-events:auto;overflow:hidden;}',
-      '#fs-splash .fs-splash-pink{position:absolute;inset:0;background:#ff95d6;clip-path:circle(150vmax at 50% 50%);transition:clip-path .65s ease-in;}',
-      '#fs-splash .fs-splash-eyes{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:min(10vw,54px);}',
-      '#fs-splash .fs-eye{width:min(22vw,120px);height:min(23vw,126px);background:#fff;border-radius:50% / 48%;display:flex;align-items:center;justify-content:center;}',
-      '#fs-splash .fs-iris{position:relative;width:58%;height:58%;border-radius:50%;background:radial-gradient(circle at 40% 35%, #3a3a40 0%, #1e1e23 65%);transform:translateX(0);transition:transform .32s ease-in-out;}',
-      '#fs-splash .fs-highlight{position:absolute;right:18%;top:16%;width:16%;height:16%;border-radius:50%;background:rgba(255,255,255,.92);}',
-      '#fs-splash.fs-closed .fs-splash-pink{clip-path:circle(0px at 50% 50%);}',
-      '#fs-splash.fs-out{opacity:0;transform:scale(1.04);transition:opacity .3s ease,transform .3s ease;}'
-    ].join('');
+      '.dnp-splash-bg{position:absolute;inset:0;background:#fff;display:flex;align-items:center;justify-content:center;}',
+      '.dnp-splash-bg::before{content:"";position:absolute;top:0;left:0;right:0;height:260px;background:linear-gradient(to bottom,rgba(232,222,247,0.75),transparent);pointer-events:none;z-index:0;}',
+      '.dnp-splash-bg::after{content:"";position:absolute;bottom:0;left:0;right:0;height:260px;background:linear-gradient(to top,rgba(222,209,242,0.70),transparent);pointer-events:none;z-index:0;}',
+      '.dnp-splash-radial{position:absolute;bottom:0;right:0;width:560px;height:560px;background:radial-gradient(circle at center,rgba(242,224,235,0.40),transparent 70%);pointer-events:none;z-index:0;}',
+      '.dnp-splash-logo-wrap{position:relative;width:200px;height:200px;z-index:1;opacity:0;transform:scale(0.85);}',
+      '.dnp-splash-n{position:absolute;inset:0;width:100%;height:100%;filter:brightness(0);-webkit-user-select:none;user-select:none;}',
+      '.dnp-splash-dot{position:absolute;width:32px;height:32px;top:-40px;right:1px;opacity:0;transform:scale(0.3);-webkit-user-select:none;user-select:none;}',
+      '@keyframes dnpDotBounce{0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-18px) scale(1);}}',
+      '#fs-splash.fs-out{opacity:0;transition:opacity .5s ease-in-out;}'
+    ].join('\n');
     document.head.appendChild(style);
 
-    var irises = splash.querySelectorAll('.fs-iris');
-    function look(px) {
-      irises.forEach(function (el) {
-        el.style.transform = 'translateX(' + px + 'px)';
-      });
-    }
+    var logoWrap = splash.querySelector('.dnp-splash-logo-wrap');
+    var dot = splash.querySelector('.dnp-splash-dot');
 
-    setTimeout(function () { look(-18); }, 300);
-    setTimeout(function () { look(18); }, 1000);
-    setTimeout(function () { look(0); }, 1750);
-    setTimeout(function () { splash.classList.add('fs-closed'); }, 2300);
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        logoWrap.style.transition = 'opacity .5s ease-out, transform .5s ease-out';
+        logoWrap.style.opacity = '1';
+        logoWrap.style.transform = 'scale(1)';
+      });
+    });
+
+    setTimeout(function () {
+      dot.style.transition = 'opacity .3s ease, transform .45s cubic-bezier(0.34,1.56,0.64,1)';
+      dot.style.opacity = '1';
+      dot.style.transform = 'scale(1)';
+    }, 350);
+
+    setTimeout(function () {
+      dot.style.transition = 'none';
+      dot.style.animation = 'dnpDotBounce .9s ease-in-out infinite';
+    }, 900);
+
     setTimeout(function () {
       splash.classList.add('fs-out');
       document.body.style.overflow = '';
-    }, 3050);
+    }, 2500);
+
     setTimeout(function () {
       if (splash && splash.parentNode) splash.parentNode.removeChild(splash);
       if (style && style.parentNode) style.parentNode.removeChild(style);
       try { sessionStorage.setItem(STORAGE_KEY, '1'); } catch (e) { }
-    }, 3400);
+    }, 3000);
   }
 
   function onBothLoaded() {
     if (!navLoaded || !footLoaded) return;
+
+    /* ── Navbar: transparent at top, fades to black as you scroll ── */
+    var navbarRoot = document.getElementById('navbar-root');
+    function updateNavbarScroll() {
+      if (!navbarRoot) return;
+      var scrollY = window.scrollY;
+      var alpha = Math.min(scrollY / 80, 1);
+      if (alpha > 0) {
+        navbarRoot.classList.add('scrolled');
+        navbarRoot.style.background = 'rgba(0, 0, 0, ' + alpha.toFixed(3) + ')';
+        navbarRoot.style.boxShadow = alpha > 0.4 ? '0 2px 16px rgba(0,0,0,0.3)' : 'none';
+      } else {
+        navbarRoot.classList.remove('scrolled');
+        navbarRoot.style.background = '';
+        navbarRoot.style.boxShadow = '';
+      }
+    }
+    window.addEventListener('scroll', updateNavbarScroll, { passive: true });
+    updateNavbarScroll();
 
     /* On home page: make logo scroll to top instead of navigating */
     var logo = document.getElementById('logo-link');
