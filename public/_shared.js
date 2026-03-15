@@ -559,6 +559,18 @@
       }
     }
 
+    /* ── "Coming Soon" on download button ── */
+    var dlBtn = document.querySelector('.btn-download');
+    if (dlBtn) {
+      dlBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        if (dlBtn.classList.contains('show-coming-soon')) return;
+        dlBtn.classList.add('show-coming-soon');
+        setTimeout(function () { dlBtn.classList.remove('show-coming-soon'); }, 2800);
+      });
+    }
+
     /* ══ Accessibility Widget ══ */
     var STORAGE_KEY = 'accessibility-settings';
     var fontSizes = ['', '118%', '136%'];

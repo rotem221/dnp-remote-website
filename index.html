@@ -142,6 +142,8 @@
       line-height: 0;
       text-decoration: none;
       transition: transform 0.2s, opacity 0.2s;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn-appstore:hover {
@@ -152,6 +154,42 @@
     .btn-appstore svg {
       height: 52px;
       width: auto;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .btn-appstore .coming-soon-msg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: 0.02em;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.45s ease, transform 0.45s ease;
+      pointer-events: none;
+      white-space: nowrap;
+      line-height: 1;
+      background: rgba(49, 47, 55, 0.92);
+      border-radius: 10px;
+    }
+
+    .btn-appstore.show-coming-soon svg {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .btn-appstore.show-coming-soon .coming-soon-msg {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .btn-appstore.show-coming-soon:hover {
+      transform: none;
+      opacity: 1;
     }
 
     .store-sub-caption {
@@ -1282,6 +1320,7 @@
                   <path d="M104.76125,13.48193a1.828,1.828,0,0,1-1.95117,1.30273A2.04531,2.04531,0,0,1,100.73,12.46045a2.07685,2.07685,0,0,1,2.07617-2.35254c1.25293,0,2.00879.856,2.00879,2.27V12.688h-3.17969v.0498a1.1902,1.1902,0,0,0,1.19922,1.29,1.07934,1.07934,0,0,0,1.07129-.5459Zm-3.126-1.45117h2.27441a1.08647,1.08647,0,0,0-1.1084-1.1665A1.15162,1.15162,0,0,0,101.63527,12.03076Z" style="fill:#fff"/>
                 </g></g></g>
               </svg>
+              <span class="coming-soon-msg">Coming Soon</span>
             </a>
             <span class="store-sub-caption">iPhone &amp; iPad support</span>
           </div>
@@ -1328,6 +1367,7 @@
                   <path d="M104.76125,13.48193a1.828,1.828,0,0,1-1.95117,1.30273A2.04531,2.04531,0,0,1,100.73,12.46045a2.07685,2.07685,0,0,1,2.07617-2.35254c1.25293,0,2.00879.856,2.00879,2.27V12.688h-3.17969v.0498a1.1902,1.1902,0,0,0,1.19922,1.29,1.07934,1.07934,0,0,0,1.07129-.5459Zm-3.126-1.45117h2.27441a1.08647,1.08647,0,0,0-1.1084-1.1665A1.15162,1.15162,0,0,0,101.63527,12.03076Z" style="fill:#fff"/>
                 </g></g></g>
               </svg>
+              <span class="coming-soon-msg">Coming Soon</span>
             </a>
             <span class="store-sub-caption">Mac Bridge companion</span>
           </div>
@@ -1760,6 +1800,18 @@
         if (!document.webkitFullscreenElement) { heroVideo.muted = true; heroVideo.play().catch(() => {}); }
       });
     }
+
+    /* ── "Coming Soon" on App Store buttons ── */
+    document.querySelectorAll('.btn-appstore').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (btn.classList.contains('show-coming-soon')) return;
+        btn.classList.add('show-coming-soon');
+        setTimeout(() => {
+          btn.classList.remove('show-coming-soon');
+        }, 2800);
+      });
+    });
   </script>
 
 </body>

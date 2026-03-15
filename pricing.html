@@ -298,6 +298,47 @@
       transform: scale(1.015);
     }
 
+    .pricing-cta-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-cta-btn .btn-label,
+    .pricing-cta-btn .coming-soon-msg {
+      display: block;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .pricing-cta-btn .coming-soon-msg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+    }
+
+    .pricing-cta-btn.show-coming-soon .btn-label {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .pricing-cta-btn.show-coming-soon .coming-soon-msg {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pricing-cta-btn.show-coming-soon:hover {
+      transform: none;
+      background: #fff;
+    }
+
+    .pricing-card.featured .pricing-cta-btn.show-coming-soon:hover {
+      background: var(--pink);
+    }
+
     /* divider */
     .pricing-divider {
       height: 1px;
@@ -1274,7 +1315,7 @@
     </div>
 
     <div class="pricing-hero-inner">
-      <h1>Simple, <em>transparent</em> pricing</h1>
+      <h1>No cost, it's <em>Free</em></h1>
       <p>DNP Remote is free to download. No subscriptions, no hidden fees, no surprises.</p>
     </div>
   </section>
@@ -1307,7 +1348,7 @@
           </div>
           <p class="pricing-trial">Available on the App Store</p>
 
-          <a href="https://apps.apple.com/app/dnp-remote/id6745970856" class="pricing-cta-btn" target="_blank" rel="noopener">Download on the App Store</a>
+          <a href="https://apps.apple.com/app/dnp-remote/id6745970856" class="pricing-cta-btn" target="_blank" rel="noopener"><span class="btn-label">Download on the App Store</span><span class="coming-soon-msg">Coming Soon</span></a>
 
           <div class="pricing-divider"></div>
           <ul class="features-list">
@@ -1349,7 +1390,7 @@
           </div>
           <p class="pricing-trial">Runs on your Mac in the background</p>
 
-          <a href="https://dnp.co.il" class="pricing-cta-btn" target="_blank" rel="noopener">Get Mac Bridge</a>
+          <a href="https://dnp.co.il" class="pricing-cta-btn" target="_blank" rel="noopener"><span class="btn-label">Get Mac Bridge</span><span class="coming-soon-msg">Coming Soon</span></a>
 
           <div class="pricing-divider"></div>
           <ul class="features-list">
@@ -1469,6 +1510,18 @@
   <div id="footer-root"></div>
   <script src="/_shared.js"></script>
   <script>
+    /* ── "Coming Soon" on download buttons ── */
+    document.querySelectorAll('.pricing-cta-btn').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        if (btn.classList.contains('show-coming-soon')) return;
+        btn.classList.add('show-coming-soon');
+        setTimeout(function() {
+          btn.classList.remove('show-coming-soon');
+        }, 2800);
+      });
+    });
+
     // FAQ accordion
     document.querySelectorAll('.faq-trigger').forEach(function(btn) {
       btn.addEventListener('click', function() {
