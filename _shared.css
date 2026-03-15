@@ -348,6 +348,25 @@ body::before {
   background: rgba(255,255,255,0.35);
 }
 
+.footer-coffee-btn {
+  color: #fff;
+}
+.footer-coffee-btn img {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.footer-coffee-inline {
+  color: #fff;
+  opacity: 0.95;
+  text-decoration: none;
+}
+.footer-coffee-inline:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
 .footer-divider {
   height: 1px;
   background: rgba(255,255,255,0.25);
