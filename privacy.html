@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/faviconblack.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
+  <title>Privacy Policy – DNP Remote</title>
+  <link rel="stylesheet" href="/_shared.css" />
+  <style>
+    /* ── LEGAL CONTENT ── */
+    .legal-date { font-size: 0.82rem; color: var(--muted); }
+
+    .legal-section { background: transparent; padding: 3.5rem 2.5rem 6rem; position: relative; overflow: hidden; }
+    .legal-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--pink); }
+    .breadcrumb-sep { color: var(--muted); font-size: 0.8rem; opacity: 0.5; }
+    .breadcrumb-current { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+
+    .page-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 2px solid #e4dff2; }
+    .page-header h1 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--dark); line-height: 1.2; margin-bottom: 0.5rem; }
+    .page-header .legal-date { font-size: 0.82rem; color: var(--muted); }
+
+    .legal-content { direction: ltr; }
+    .legal-content h2 { font-size: 1.15rem; font-weight: 800; color: var(--dark); margin-bottom: 0.85rem; margin-top: 0; }
+    .legal-content p { font-size: 0.93rem; color: #4b5563; line-height: 1.85; margin-bottom: 0.85rem; }
+    .legal-content strong { color: var(--dark); }
+    .legal-content ul, .legal-content ol { margin: 0.5rem 0 0.85rem 0; padding-left: 1.4rem; }
+    .legal-content li { font-size: 0.93rem; color: #4b5563; line-height: 1.8; margin-bottom: 0.3rem; }
+    .legal-block { background: #fff; border: 1.5px solid #e4dff2; border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 0.85rem; }
+    .legal-block p { margin: 0; }
+    .legal-block p + p { margin-top: 0.5rem; }
+    .section-divider { height: 1px; background: #eee; margin: 2.25rem 0; }
+
+    @media (max-width: 768px) {
+      .legal-section { padding: 2rem 1.25rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-root"></div>
+
+  <!-- CONTENT -->
+  <section class="legal-section">
+    <div class="legal-inner">
+      <nav class="breadcrumb" aria-label="Page navigation">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Privacy Policy</span>
+      </nav>
+      <div class="page-header">
+        <h1>Privacy Policy</h1>
+        <p class="legal-date">Last updated: March 2026</p>
+      </div>
+
+      <div class="legal-content">
+
+        <h2>1. Introduction</h2>
+        <p>DNP Remote ("we", "us", or "our") is an iOS application developed by Rotem Dadon. This Privacy Policy explains what information DNP Remote collects, how it is used, and how it is protected.</p>
+        <p>By downloading or using DNP Remote, you agree to the practices described in this policy. If you do not agree, please do not use the app.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>2. Information We Collect</h2>
+        <p><strong>2.1 No account required</strong></p>
+        <p>DNP Remote does not require you to create an account. We do not collect your name, email address, or any personally identifying information.</p>
+        <p><strong>2.2 Connection data</strong></p>
+        <p>To establish a WebSocket connection between your iPhone and your Mac, the app exchanges local network addresses (IP/port). This data is used only in-memory for the duration of your session and is never transmitted to our servers.</p>
+        <p><strong>2.3 Session data</strong></p>
+        <p>Chat messages, file contents, and agent responses exchanged during a session are stored locally on your iPhone (and optionally in iCloud via standard iOS data sync). We do not have access to this data.</p>
+        <p><strong>2.4 Analytics</strong></p>
+        <p>DNP Remote may use Apple's built-in App Store analytics (aggregate, anonymised data such as app launches and crash reports). We do not use any third-party analytics SDK.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>3. How We Use Your Information</h2>
+        <p>The minimal data collected is used solely to:</p>
+        <ul>
+          <li>Establish and maintain the WebSocket connection between your devices</li>
+          <li>Store session history locally on your device</li>
+          <li>Diagnose crashes and improve app stability via Apple's anonymised crash reporting</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>4. Data Sharing with Third Parties</h2>
+        <p>We do not sell, rent, or share your personal data with any third parties. The only external service involved is:</p>
+        <ul>
+          <li><strong>Apple App Store</strong> - for app distribution, payments (if any future in-app purchases are added), and aggregate analytics</li>
+          <li><strong>Tailscale</strong> - if you choose to use Tailscale for remote connectivity, your device traffic is routed through Tailscale's encrypted peer-to-peer network. Please refer to Tailscale's own Privacy Policy for details</li>
+        </ul>
+        <p>All communication between your iPhone and your Mac travels directly over your local network or your Tailscale VPN - it never passes through our servers.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>5. Security</h2>
+        <p>DNP Remote is designed with privacy-first principles:</p>
+        <ul>
+          <li>All data is transferred between your iPhone and your Mac via a secure WebSocket connection on your local network or Tailscale VPN</li>
+          <li>No data is stored on external servers - your code and messages stay on your devices</li>
+          <li>Session history is stored in iOS standard app storage, protected by iOS device encryption</li>
+        </ul>
+        <p>While we take reasonable precautions, no method of electronic transmission or storage is 100% secure.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>6. Data Retention</h2>
+        <p>Session history is retained on your device until you choose to delete it within the app. Uninstalling the app removes all locally stored data. We do not retain any data on our own servers.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>7. Your Rights</h2>
+        <p>Because we do not collect or store personal data on our servers, there is no personal data held by us to access, correct, or delete. All locally stored session data can be cleared from within the app at any time.</p>
+        <p>If you have questions about data held by Apple in connection with App Store purchases, please refer to Apple's Privacy Policy.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>8. Children's Privacy</h2>
+        <p>DNP Remote is intended for developers aged 17 and older (consistent with its App Store rating). We do not knowingly collect personal information from children under the age of 13.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>9. Changes to This Policy</h2>
+        <p>We may update this Privacy Policy from time to time. Material changes will be noted in the App Store release notes and on this page. Continued use of the app after changes are published constitutes acceptance of the updated policy.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>10. Contact</h2>
+        <p>For questions or concerns about this Privacy Policy, please contact us:</p>
+        <div class="legal-block">
+          <p><strong>Email:</strong> <a href="mailto:rotem222291@gmail.com">rotem222291@gmail.com</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-root"></div>
+  <script src="/_shared.js"></script>
+
+</body>
+</html>
