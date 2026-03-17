@@ -1293,107 +1293,6 @@
       padding-top: 1rem;
     }
 
-    /* ── TESTFLIGHT DIALOG ── */
-    .tf-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 10000;
-      background: rgba(0,0,0,0.55);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s, visibility 0.3s;
-      padding: 1rem;
-    }
-    .tf-overlay.open {
-      opacity: 1;
-      visibility: visible;
-    }
-    .tf-dialog {
-      background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
-      max-width: 380px;
-      width: 100%;
-      padding: 2.5rem 2rem 2rem;
-      text-align: center;
-      position: relative;
-      transform: scale(0.92) translateY(20px);
-      transition: transform 0.3s ease;
-    }
-    .tf-overlay.open .tf-dialog {
-      transform: scale(1) translateY(0);
-    }
-    .tf-close {
-      position: absolute;
-      top: 0.75rem;
-      right: 0.85rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #999;
-      line-height: 1;
-      padding: 0.25rem;
-      transition: color 0.2s;
-    }
-    .tf-close:hover { color: #312f37; }
-    .tf-icon {
-      width: 80px;
-      height: 80px;
-      border-radius: 18px;
-      margin: 0 auto 1.25rem;
-      display: block;
-    }
-    .tf-title {
-      font-size: 1.15rem;
-      font-weight: 700;
-      color: #312f37;
-      margin-bottom: 0.5rem;
-    }
-    .tf-subtitle {
-      font-size: 0.9rem;
-      color: #666;
-      line-height: 1.5;
-      margin-bottom: 1.5rem;
-    }
-    .tf-download-btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      background: #007AFF;
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.85rem 2rem;
-      border-radius: 14px;
-      width: 100%;
-      transition: background 0.2s, transform 0.2s;
-    }
-    .tf-download-btn:hover {
-      background: #0066DD;
-      transform: scale(1.03);
-    }
-    .tf-download-btn svg {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 400px) {
-      .tf-dialog {
-        padding: 2rem 1.25rem 1.5rem;
-      }
-      .tf-icon {
-        width: 64px;
-        height: 64px;
-        border-radius: 14px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -1615,44 +1514,9 @@
 
   <div id="footer-root"></div>
 
-  <!-- TestFlight Dialog -->
-  <div class="tf-overlay" id="tf-overlay">
-    <div class="tf-dialog" role="dialog" aria-modal="true" aria-label="Download via TestFlight">
-      <button class="tf-close" id="tf-close" aria-label="Close">&times;</button>
-      <img src="/testflight-icon.webp" alt="TestFlight" class="tf-icon" />
-      <div class="tf-title">TestFlight Beta</div>
-      <p class="tf-subtitle">DNP Remote is currently available as a TestFlight beta. Tap below to join the beta and download the app.</p>
-      <a href="https://testflight.apple.com/join/tmsGDAW9" class="tf-download-btn" target="_blank" rel="noopener">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        Download via TestFlight
-      </a>
-    </div>
-  </div>
 
   <script src="/_shared.js"></script>
   <script>
-    /* ── Mac download buttons work directly; iOS buttons open TestFlight dialog ── */
-    (function() {
-      var overlay = document.getElementById('tf-overlay');
-      var closeBtn = document.getElementById('tf-close');
-      function openTF(e) {
-        e.preventDefault();
-        overlay.classList.add('open');
-      }
-      function closeTF() {
-        overlay.classList.remove('open');
-      }
-      document.addEventListener('click', function(e) {
-        var btn = e.target.closest('.btn-ios-testflight');
-        if (btn) return openTF(e);
-        if (e.target === overlay) closeTF();
-      });
-      closeBtn.addEventListener('click', closeTF);
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') closeTF();
-      });
-    })();
-
     // FAQ accordion
     document.querySelectorAll('.faq-trigger').forEach(function(btn) {
       btn.addEventListener('click', function() {

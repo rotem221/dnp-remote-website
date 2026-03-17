@@ -162,6 +162,44 @@
       if (pricingLink) pricingLink.classList.add('active');
       if (mobPricing) mobPricing.style.color = 'var(--pink)';
     }
+
+    /* ── TestFlight dialog (injected once, works on every page) ── */
+    if (!document.getElementById('tf-overlay')) {
+      var tfDiv = document.createElement('div');
+      tfDiv.innerHTML =
+        '<div class="tf-overlay" id="tf-overlay">' +
+          '<div class="tf-dialog" role="dialog" aria-modal="true" aria-label="Download via TestFlight">' +
+            '<button class="tf-close" id="tf-close" aria-label="Close">&times;</button>' +
+            '<img src="/testflight.webp" alt="TestFlight" class="tf-icon" />' +
+            '<div class="tf-title">TestFlight Beta</div>' +
+            '<p class="tf-subtitle">DNP Remote is currently available as a TestFlight beta. Tap below to join the beta and download the app.</p>' +
+            '<a href="https://testflight.apple.com/join/tmsGDAW9" class="tf-download-btn" target="_blank" rel="noopener">' +
+              '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
+              'Download via TestFlight' +
+            '</a>' +
+          '</div>' +
+        '</div>';
+      document.body.appendChild(tfDiv.firstChild);
+    }
+
+    var tfOverlay = document.getElementById('tf-overlay');
+    var tfCloseBtn = document.getElementById('tf-close');
+    function openTF(e) {
+      e.preventDefault();
+      tfOverlay.classList.add('open');
+    }
+    function closeTF() {
+      tfOverlay.classList.remove('open');
+    }
+    document.addEventListener('click', function(e) {
+      var btn = e.target.closest('.btn-ios-testflight');
+      if (btn) return openTF(e);
+      if (e.target === tfOverlay) closeTF();
+    });
+    if (tfCloseBtn) tfCloseBtn.addEventListener('click', closeTF);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeTF();
+    });
   }
 
   if (navbarEl) {
@@ -559,17 +597,6 @@
       }
     }
 
-    /* ── "Coming Soon" on download button ── */
-    var dlBtn = document.querySelector('.btn-download');
-    if (dlBtn) {
-      dlBtn.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-        if (dlBtn.classList.contains('show-coming-soon')) return;
-        dlBtn.classList.add('show-coming-soon');
-        setTimeout(function () { dlBtn.classList.remove('show-coming-soon'); }, 2800);
-      });
-    }
 
     /* ══ Accessibility Widget ══ */
     var STORAGE_KEY = 'accessibility-settings';
