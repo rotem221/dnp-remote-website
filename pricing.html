@@ -303,40 +303,9 @@
       overflow: hidden;
     }
 
-    .pricing-cta-btn .btn-label,
-    .pricing-cta-btn .coming-soon-msg {
+    .pricing-cta-btn .btn-label {
       display: block;
       transition: opacity 0.45s ease, transform 0.45s ease;
-    }
-
-    .pricing-cta-btn .coming-soon-msg {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transform: translateY(10px);
-      pointer-events: none;
-    }
-
-    .pricing-cta-btn.show-coming-soon .btn-label {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-
-    .pricing-cta-btn.show-coming-soon .coming-soon-msg {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .pricing-cta-btn.show-coming-soon:hover {
-      transform: none;
-      background: #fff;
-    }
-
-    .pricing-card.featured .pricing-cta-btn.show-coming-soon:hover {
-      background: var(--pink);
     }
 
     /* divider */

@@ -233,37 +233,8 @@ body::before {
   background: #6a2bc9 !important;
 }
 
-.btn-download .btn-dl-label,
-.btn-download .coming-soon-msg {
+.btn-download .btn-dl-label {
   transition: opacity 0.45s ease, transform 0.45s ease;
-}
-
-.btn-download .coming-soon-msg {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  transform: translateY(10px);
-  pointer-events: none;
-  font-size: 0.9rem;
-  font-weight: 700;
-  white-space: nowrap;
-}
-
-.btn-download.show-coming-soon .btn-dl-label {
-  opacity: 0;
-  transform: translateY(-10px);
-}
-
-.btn-download.show-coming-soon .coming-soon-msg {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.btn-download.show-coming-soon:hover {
-  background: #7d37eb !important;
 }
 
 /* ── FOOTER ── */
