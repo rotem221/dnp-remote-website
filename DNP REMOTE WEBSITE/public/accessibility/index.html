@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accessibility – DNP Remote</title>
+  <link rel="stylesheet" href="/_shared.css" />
+  <style>
+    /* ── LEGAL CONTENT ── */
+    .legal-date { font-size: 0.82rem; color: var(--muted); }
+
+    .legal-section { background: transparent; padding: 3.5rem 2.5rem 6rem; position: relative; overflow: hidden; }
+    .legal-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--pink); }
+    .breadcrumb-sep { color: var(--muted); font-size: 0.8rem; opacity: 0.5; }
+    .breadcrumb-current { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+
+    .page-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 2px solid #e4dff2; }
+    .page-header h1 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--dark); line-height: 1.2; margin-bottom: 0.5rem; }
+    .page-header .legal-date { font-size: 0.82rem; color: var(--muted); }
+
+    .legal-content { direction: ltr; }
+    .legal-content h2 { font-size: 1.15rem; font-weight: 800; color: var(--dark); margin-bottom: 0.85rem; margin-top: 0; }
+    .legal-content p { font-size: 0.93rem; color: #4b5563; line-height: 1.85; margin-bottom: 0.85rem; }
+    .legal-content strong { color: var(--dark); }
+    .legal-content ul, .legal-content ol { margin: 0.5rem 0 0.85rem 0; padding-left: 1.4rem; }
+    .legal-content li { font-size: 0.93rem; color: #4b5563; line-height: 1.8; margin-bottom: 0.3rem; }
+    .legal-block { background: #fff; border: 1.5px solid #e4dff2; border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 0.85rem; }
+    .legal-block p { margin: 0; }
+    .legal-block p + p { margin-top: 0.5rem; }
+    .section-divider { height: 1px; background: #eee; margin: 2.25rem 0; }
+
+    @media (max-width: 768px) {
+      .legal-section { padding: 2rem 1.25rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-root"></div>
+
+  <!-- CONTENT -->
+  <section class="legal-section">
+    <div class="legal-inner">
+      <nav class="breadcrumb" aria-label="Page navigation">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Accessibility</span>
+      </nav>
+      <div class="page-header">
+        <h1>Accessibility Statement</h1>
+        <p class="legal-date">Last updated: March 2026</p>
+      </div>
+
+      <div class="legal-content">
+
+        <h2>1. Our Commitment</h2>
+        <p>DNP Remote is committed to making its website accessible to everyone, including people with disabilities. We strive to meet the Web Content Accessibility Guidelines (WCAG) 2.1 Level AA standard.</p>
+        <p>We believe that every developer deserves equal access to digital tools, and we continuously work to improve the accessibility of this website.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>2. Accessibility Standards</h2>
+        <p>This website is built and maintained in accordance with:</p>
+        <ul>
+          <li><strong>WCAG 2.1 Level AA</strong> - Web Content Accessibility Guidelines published by the W3C</li>
+        </ul>
+        <p>We follow the four core principles of accessibility:</p>
+        <ul>
+          <li><strong>Perceivable</strong> - content is presented in ways that can be perceived by all users</li>
+          <li><strong>Operable</strong> - navigation and interactions are possible via multiple input methods</li>
+          <li><strong>Understandable</strong> - content and UI are clear and predictable</li>
+          <li><strong>Robust</strong> - content works reliably with current and future assistive technologies</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>3. Accessibility Features on This Website</h2>
+        <p><strong>3.1 Navigation and structure</strong></p>
+        <ul>
+          <li>Clear heading hierarchy (H1–H6) for quick page navigation</li>
+          <li>Full keyboard navigation support throughout all pages</li>
+          <li>Logical and consistent tab order</li>
+          <li>Navigation landmarks and ARIA labels on interactive elements</li>
+          <li>Descriptive link text with clear purpose</li>
+        </ul>
+        <p><strong>3.2 Content and presentation</strong></p>
+        <ul>
+          <li>Alt text on all meaningful images</li>
+          <li>Color contrast ratio of at least 4.5:1 for body text (WCAG AA)</li>
+          <li>Text can be resized up to 200% without loss of content or functionality</li>
+          <li>Readable fonts at all screen sizes</li>
+          <li>Color is not the sole means of conveying information</li>
+        </ul>
+        <p><strong>3.3 Assistive technology support</strong></p>
+        <ul>
+          <li>Compatible with VoiceOver (iOS / macOS) and NVDA / JAWS (Windows)</li>
+          <li>ARIA roles and labels on dynamic elements</li>
+          <li>Support for high-contrast OS mode</li>
+          <li>Support for screen magnification</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>4. Built-in Accessibility Widget</h2>
+        <p>Every page on this website includes a built-in accessibility panel, accessible via the accessibility icon on the left side of the screen. It offers:</p>
+        <ul>
+          <li>Text size adjustment (three levels)</li>
+          <li>High contrast mode</li>
+          <li>Grayscale mode</li>
+          <li>Link highlighting</li>
+          <li>Readable font (dyslexia-friendly typeface)</li>
+          <li>Increased text spacing</li>
+          <li>Pause animations</li>
+          <li>Large cursor</li>
+          <li>Reading guide line</li>
+        </ul>
+        <p>Your preferences are saved automatically and will be applied on future visits.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>5. Known Limitations</h2>
+        <p>Despite our best efforts, some areas may not yet be fully accessible:</p>
+        <ul>
+          <li><strong>Third-party embeds:</strong> Content from external services (e.g., App Store badges) may not fully comply with WCAG standards</li>
+          <li><strong>Older content:</strong> Some older marketing assets are being progressively updated</li>
+        </ul>
+        <p>We prioritise fixes based on user impact and update this statement as improvements are made.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>6. Accessibility Testing</h2>
+        <p>We conduct ongoing accessibility testing including:</p>
+        <ul>
+          <li><strong>Automated checks:</strong> Using Axe, WAVE, and Google Lighthouse</li>
+          <li><strong>Manual reviews:</strong> Keyboard-only navigation, screen reader testing with VoiceOver and NVDA</li>
+          <li><strong>Periodic audits:</strong> Reviewed with each major site update</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>7. Contact Us</h2>
+        <p>If you encounter an accessibility barrier or have feedback on how we can improve, please reach out:</p>
+        <div class="legal-block">
+          <p><strong>Accessibility contact:</strong> Rotem Dadon</p>
+          <p><strong>Email:</strong> <a href="mailto:rotem222291@gmail.com">rotem222291@gmail.com</a></p>
+        </div>
+        <p>We aim to respond to accessibility enquiries within 5 business days.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>8. Statement Details</h2>
+        <div class="legal-block">
+          <p><strong>Statement date:</strong> March 2026</p>
+          <p><strong>Standard:</strong> WCAG 2.1 Level AA</p>
+          <p><strong>Testing tools:</strong> Axe DevTools, WAVE, Google Lighthouse, VoiceOver, NVDA</p>
+          <p><strong>Last reviewed:</strong> March 2026</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-root"></div>
+  <script src="/_shared.js"></script>
+
+</body>
+</html>

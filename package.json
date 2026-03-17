@@ -1,0 +1,13 @@
+{
+  "name": "dnp-remote-website-root",
+  "private": true,
+  "scripts": {
+    "dev": "cd \"DNP REMOTE WEBSITE\" && npm run dev",
+    "build": "cd \"DNP REMOTE WEBSITE\" && npm run build",
+    "build:dev": "cd \"DNP REMOTE WEBSITE\" && npm run build:dev",
+    "lint": "cd \"DNP REMOTE WEBSITE\" && npm run lint",
+    "preview": "cd \"DNP REMOTE WEBSITE\" && npm run preview",
+    "test": "cd \"DNP REMOTE WEBSITE\" && npm run test",
+    "test:watch": "cd \"DNP REMOTE WEBSITE\" && npm run test:watch"
+  }
+}

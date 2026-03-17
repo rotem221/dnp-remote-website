@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/faviconblack.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
+  <title>Terms of Service – DNP Remote</title>
+  <link rel="stylesheet" href="/_shared.css" />
+  <style>
+    /* ── LEGAL CONTENT ── */
+    .legal-date { font-size: 0.82rem; color: var(--muted); }
+
+    .legal-section { background: transparent; padding: 3.5rem 2.5rem 6rem; position: relative; overflow: hidden; }
+    .legal-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+
+    .breadcrumb { display: flex; align-items: center; gap: 0.5rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .breadcrumb a { text-decoration: none; color: var(--muted); font-size: 0.85rem; font-weight: 500; transition: color 0.2s; }
+    .breadcrumb a:hover { color: var(--pink); }
+    .breadcrumb-sep { color: var(--muted); font-size: 0.8rem; opacity: 0.5; }
+    .breadcrumb-current { font-size: 0.85rem; font-weight: 700; color: var(--dark); }
+
+    .page-header { margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 2px solid #e4dff2; }
+    .page-header h1 { font-size: clamp(1.9rem, 3.5vw, 2.8rem); font-weight: 400; color: var(--dark); line-height: 1.2; margin-bottom: 0.5rem; }
+    .page-header .legal-date { font-size: 0.82rem; color: var(--muted); }
+
+    .legal-content { direction: ltr; }
+    .legal-content h2 { font-size: 1.15rem; font-weight: 800; color: var(--dark); margin-bottom: 0.85rem; margin-top: 0; }
+    .legal-content p { font-size: 0.93rem; color: #4b5563; line-height: 1.85; margin-bottom: 0.85rem; }
+    .legal-content strong { color: var(--dark); }
+    .legal-content ul, .legal-content ol { margin: 0.5rem 0 0.85rem 0; padding-left: 1.4rem; }
+    .legal-content li { font-size: 0.93rem; color: #4b5563; line-height: 1.8; margin-bottom: 0.3rem; }
+    .legal-block { background: #fff; border: 1.5px solid #e4dff2; border-radius: 14px; padding: 1.25rem 1.5rem; margin-bottom: 0.85rem; }
+    .legal-block p { margin: 0; }
+    .legal-block p + p { margin-top: 0.5rem; }
+    .section-divider { height: 1px; background: #eee; margin: 2.25rem 0; }
+
+    @media (max-width: 768px) {
+      .legal-section { padding: 2rem 1.25rem 5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-root"></div>
+
+  <!-- CONTENT -->
+  <section class="legal-section">
+    <div class="legal-inner">
+      <nav class="breadcrumb" aria-label="Page navigation">
+        <a href="/">Home</a>
+        <span class="breadcrumb-sep">›</span>
+        <span class="breadcrumb-current">Terms of Service</span>
+      </nav>
+      <div class="page-header">
+        <h1>Terms of Service</h1>
+        <p class="legal-date">Last updated: March 2026</p>
+      </div>
+
+      <div class="legal-content">
+
+        <h2>1. Introduction</h2>
+        <p>Welcome to DNP Remote (the "App"), developed and operated by Rotem Dadon ("we", "us", or "our"). These Terms of Service ("Terms") govern your use of the DNP Remote iOS application and the companion Mac Bridge server.</p>
+        <p><strong>By downloading or using DNP Remote, you confirm that you have read, understood, and agree to these Terms.</strong> If you do not agree, please do not use the App.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>2. Description of the Service</h2>
+        <p>DNP Remote is an iOS application that connects your iPhone to a Mac running the Mac Bridge companion server, allowing you to remotely control AI coding agents such as Claude Code, Cursor, VS Code, and OpenAI Codex. Features include:</p>
+        <ul>
+          <li>Chat interface with streaming AI agent responses</li>
+          <li>File browser - browse and view project files on your Mac</li>
+          <li>Screen mirroring - view your simulator or Mac screen from your iPhone</li>
+          <li>Session history with token usage tracking</li>
+          <li>Connection via local network (Bonjour auto-discovery) or Tailscale VPN</li>
+          <li>QR code pairing for instant setup</li>
+        </ul>
+
+        <div class="section-divider"></div>
+
+        <h2>3. Eligibility</h2>
+        <p>You must be at least 17 years old to use DNP Remote (consistent with its App Store age rating). By using the App you confirm that you meet this requirement.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>4. Your Responsibilities</h2>
+        <p><strong>4.1 General obligations</strong></p>
+        <ul>
+          <li>Use the App only for lawful purposes</li>
+          <li>Do not attempt to reverse-engineer, decompile, or tamper with the App or Mac Bridge</li>
+          <li>Do not use the App to access systems or data you are not authorised to access</li>
+          <li>Keep your Mac Bridge installation and your AI tool API keys secure</li>
+        </ul>
+        <p><strong>4.2 Third-party AI tools</strong></p>
+        <p>DNP Remote interfaces with third-party AI coding tools (Claude Code, Cursor, VS Code, OpenAI Codex, etc.). You are solely responsible for complying with the terms of service of those tools and for any costs incurred through their use (e.g., API usage fees).</p>
+        <p><strong>4.3 Network security</strong></p>
+        <p>You are responsible for the security of the network over which DNP Remote operates. We strongly recommend using Tailscale or another private VPN when connecting outside your home or office network.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>5. Pricing and Payments</h2>
+        <p>DNP Remote and the Mac Bridge are currently free to download and use. There are no subscriptions or in-app purchases at this time. We reserve the right to introduce optional paid features in the future; any such changes will be clearly communicated in advance.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>6. Intellectual Property</h2>
+        <p>All rights in the App, including its code, design, logo, and branding, are owned by Rotem Dadon or used under licence. You may not copy, reproduce, distribute, or make commercial use of any part of the App without prior written permission.</p>
+        <p>Your code, chat messages, and project files remain entirely yours. We make no claim over the content you work with through DNP Remote.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>7. Disclaimer of Warranties</h2>
+        <p>DNP Remote is provided "as is" and "as available" without any warranties, express or implied. We do not warrant that the App will be uninterrupted, error-free, or compatible with every Mac configuration or AI coding tool.</p>
+        <p>Your use of DNP Remote is at your own risk. We are not responsible for any data loss, code changes, or system modifications made by AI agents you control through the App.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>To the maximum extent permitted by law, Rotem Dadon shall not be liable for any indirect, incidental, special, consequential, or punitive damages arising from your use of DNP Remote, including but not limited to loss of data, lost profits, or system damage.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>9. Termination</h2>
+        <p>You may stop using DNP Remote at any time by deleting the app. We reserve the right to discontinue the service or update these Terms at any time.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>10. Changes to These Terms</h2>
+        <p>We may update these Terms periodically. Material changes will be noted in App Store release notes and on this page. Continued use of the App after changes are published constitutes your acceptance of the updated Terms.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>11. Governing Law</h2>
+        <p>These Terms are governed by and construed in accordance with the laws of Israel, without regard to its conflict of law provisions.</p>
+
+        <div class="section-divider"></div>
+
+        <h2>12. Contact</h2>
+        <p>For questions about these Terms, please contact us:</p>
+        <div class="legal-block">
+          <p><strong>Email:</strong> <a href="mailto:rotem222291@gmail.com">rotem222291@gmail.com</a></p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div id="footer-root"></div>
+  <script src="/_shared.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1674 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/x-icon" href="/faviconblack.ico" media="(prefers-color-scheme: light)" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" media="(prefers-color-scheme: dark)" />
+  <title>Pricing – DNP Remote</title>
+  <meta name="description" content="DNP Remote pricing: free to download on the App Store. Connect your iPhone to your Mac and control Claude Code, Cursor, VS Code, and more." />
+  <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1" />
+  <link rel="canonical" href="/pricing" />
+  <meta property="og:title" content="Pricing – DNP Remote" />
+  <meta property="og:description" content="DNP Remote is free to download. Connect your iPhone to your Mac and control AI coding agents from anywhere." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="/pricing" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Pricing – DNP Remote" />
+  <meta name="twitter:description" content="DNP Remote is free to download on the App Store. Pair your iPhone with your Mac and start coding remotely." />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is DNP Remote free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, DNP Remote is free to download on the App Store. All core features are included at no charge."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need a Mac Bridge server?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. DNP Remote connects to the Mac Bridge companion server, which runs on your Mac. The Mac Bridge is also free and lets your iPhone talk to Claude Code, Cursor, VS Code, and more."
+          }
+        }
+      ]
+    }
+  </script>
+
+  <link rel="stylesheet" href="/_shared.css" />
+  <style>
+    /* ── PRICING HERO ── */
+    .pricing-hero {
+      background: transparent;
+      padding: 5rem 2.5rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-hero-inner {
+      max-width: 700px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: #e8ddf9;
+      color: var(--pink-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.35rem 1rem;
+      border-radius: 50px;
+      margin-bottom: 1.5rem;
+    }
+
+    .pricing-hero h1 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1.15;
+      margin-bottom: 1.1rem;
+    }
+
+    .pricing-hero h1 em {
+      font-style: normal;
+      color: var(--pink);
+    }
+
+    .pricing-hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      line-height: 1.75;
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    /* ── PRICING SECTION ── */
+    .pricing-section {
+      background: transparent;
+      padding: 3rem 2.5rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: stretch;
+    }
+
+    /* ── CARD ── */
+    .pricing-card {
+      background: #f4f4f4;
+      border-radius: 28px;
+      padding: 2.5rem 2.25rem;
+      position: relative;
+      transition: transform 0.25s ease;
+    }
+
+    .pricing-card:hover {
+      transform: none;
+    }
+
+    /* featured card */
+    .pricing-card.featured {
+      background: #f4f4f4;
+      color: var(--dark);
+    }
+
+    .pricing-card.featured .pricing-card-muted {
+      color: var(--muted);
+    }
+
+    .pricing-card.featured .pricing-card-title {
+      color: var(--dark);
+    }
+
+    .pricing-card.featured .pricing-card-price {
+      color: var(--dark);
+    }
+
+    .pricing-card.featured .feature-item {
+      color: var(--text);
+    }
+
+    .pricing-card.featured .pricing-divider {
+      background: #fff;
+    }
+
+    .pricing-card.featured .pricing-cta-btn {
+      background: var(--pink);
+      color: #fff;
+    }
+
+    .pricing-card.featured .pricing-cta-btn:hover {
+      background: var(--pink-dark);
+    }
+
+    /* popular badge */
+    .popular-badge {
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--pink);
+      color: #fff;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.3rem 1rem;
+      border-radius: 50px;
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+    }
+
+    /* card type icon */
+    .pricing-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .pricing-card-icon.parents-icon {
+      background: #e8ddf9;
+    }
+
+    .pricing-card-icon.sitter-icon {
+      background: #d8f5e8;
+    }
+
+    .pricing-card.featured .pricing-card-icon.sitter-icon {
+      background: rgba(106,212,164,0.18);
+    }
+
+    /* card header */
+    .pricing-card-label {
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--pink);
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-card-title {
+      font-size: 1.55rem;
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.5rem;
+      line-height: 1.2;
+    }
+
+    .pricing-card-muted {
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 1.75rem;
+    }
+
+    /* price */
+    .pricing-card-price-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 0.3rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .pricing-card-price {
+      font-size: 2.8rem;
+      font-weight: 400;
+      color: var(--dark);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .price-currency {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--muted);
+      align-self: flex-start;
+      padding-top: 0.35rem;
+    }
+
+    .price-period {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 500;
+    }
+
+    .pricing-card.featured .price-currency,
+    .pricing-card.featured .price-period {
+      color: var(--muted);
+    }
+
+    .pricing-trial {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .pricing-card.featured .pricing-trial {
+      color: var(--muted);
+    }
+
+    /* CTA button */
+    .pricing-cta-btn {
+      display: block;
+      width: 100%;
+      text-align: center;
+      text-decoration: none;
+      padding: 0.85rem 1.5rem;
+      border-radius: 14px;
+      font-size: 0.97rem;
+      font-weight: 800;
+      background: #fff;
+      color: #312f37;
+      transition: background 0.2s, transform 0.15s;
+      margin-bottom: 2rem;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    .pricing-cta-btn:hover {
+      background: #dbd5ed;
+      transform: scale(1.015);
+    }
+
+    .pricing-cta-btn {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-cta-btn .btn-label,
+    .pricing-cta-btn .coming-soon-msg {
+      display: block;
+      transition: opacity 0.45s ease, transform 0.45s ease;
+    }
+
+    .pricing-cta-btn .coming-soon-msg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+    }
+
+    .pricing-cta-btn.show-coming-soon .btn-label {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+
+    .pricing-cta-btn.show-coming-soon .coming-soon-msg {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .pricing-cta-btn.show-coming-soon:hover {
+      transform: none;
+      background: #fff;
+    }
+
+    .pricing-card.featured .pricing-cta-btn.show-coming-soon:hover {
+      background: var(--pink);
+    }
+
+    /* divider */
+    .pricing-divider {
+      height: 1px;
+      background: #fff;
+      margin-bottom: 1.75rem;
+    }
+
+    /* features list */
+    .features-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .feature-item {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      align-items: start;
+      column-gap: 0.85rem;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .feature-item > span:last-child {
+      min-width: 0;
+    }
+
+    .feature-icon {
+      width: 22px;
+      height: 22px;
+      min-width: 22px;
+      margin-top: 0.12rem;
+      border-radius: 50%;
+      background: #9f7aea;
+      border: none;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon svg {
+      width: 11px;
+      height: 11px;
+      flex-shrink: 0;
+      display: block;
+    }
+
+    .feature-icon.green {
+      background: #9f7aea;
+    }
+
+    .pricing-card.featured .feature-icon,
+    .pricing-card.featured .feature-icon.green {
+      background: #9f7aea;
+      color: #fff;
+      border: none;
+    }
+
+    /* ── BOTTOM CTA STRIP ── */
+    .pricing-cta-strip {
+      background: transparent;
+      padding: 0 2.5rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .pricing-cta-strip-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      background: transparent;
+      border-radius: 24px;
+      padding: 3rem 3.5rem;
+      position: relative;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .pricing-cta-strip-text {
+      flex: 1;
+    }
+
+    .pricing-cta-strip-text h2 {
+      text-align: left;
+      margin-bottom: 0.5rem;
+    }
+
+    .pricing-cta-strip-text p {
+      text-align: left;
+      margin-bottom: 0;
+    }
+
+    .pricing-cta-strip h2 {
+      font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+      font-weight: 400;
+      color: var(--dark);
+      margin-bottom: 0.55rem;
+      line-height: 1.25;
+    }
+
+    .pricing-cta-strip h2 em {
+      font-style: normal;
+      color: var(--pink);
+    }
+
+    .pricing-cta-strip p {
+      font-size: 0.93rem;
+      color: var(--muted);
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    .pricing-store-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-store {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background: #312f37;
+      color: #fff;
+      text-decoration: none;
+      padding: 0.9rem 1.75rem;
+      border-radius: 50px;
+      width: 210px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-store:hover {
+      background: #3f3c48;
+      transform: scale(1.04);
+    }
+
+    /* ── Support / Buy Me a Coffee ── */
+    .pricing-support-strip {
+      text-align: center;
+      padding: 2rem 2.5rem 3rem;
+      position: relative;
+    }
+    .pricing-support-strip-inner {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .pricing-support-strip p {
+      margin: 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .btn-coffee {
+      display: inline-block;
+      line-height: 0;
+      text-decoration: none;
+      transition: transform 0.2s ease;
+    }
+    .btn-coffee:hover {
+      transform: scale(1.06);
+    }
+    .btn-coffee img {
+      display: block;
+      height: auto;
+      max-height: 50px;
+      width: auto;
+    }
+
+    .store-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      background: #7d37eb;
+      padding: 3.5rem 2.5rem 1.5rem;
+      border-radius: 32px 32px 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-mascot {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: -4%;
+      width: 420px;
+      opacity: 0.2;
+      pointer-events: none;
+      user-select: none;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .footer-top {
+      display: flex;
+      gap: 4rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      height: 52px;
+      width: auto;
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: #fff;
+      line-height: 1.7;
+      opacity: 0.65;
+      max-width: 260px;
+    }
+
+    .footer-brand { flex: 1; min-width: 180px; }
+    .footer-col { min-width: 120px; }
+
+    .footer-col-label {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      opacity: 0.55;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .footer-col a {
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: #fff;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover { opacity: 1; }
+
+    .footer-social-col { min-width: 200px; }
+
+    .footer-social-text {
+      font-size: 0.82rem;
+      color: #fff;
+      opacity: 0.7;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-socials {
+      display: flex;
+      gap: 0.65rem;
+    }
+
+    .footer-socials a {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .footer-socials a:hover { background: rgba(255, 255, 255, 0.25); }
+
+    .footer-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 2.5rem 0 1.25rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.78rem;
+      color: #fff;
+      opacity: 0.6;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-a11y-link {
+      display: none;
+      background: rgba(255,255,255,0.15);
+      border: none; border-radius: 20px;
+      padding: 0.3rem 0.85rem;
+      font-size: 0.78rem; font-weight: 700;
+      color: #fff; cursor: pointer;
+      font-family: inherit;
+      transition: background 0.15s;
+    }
+    .footer-a11y-link:hover { background: rgba(255,255,255,0.25); }
+    @media (max-width: 768px) {
+      .footer-a11y-link { display: inline-flex; align-items: center; gap: 0.3rem; }
+    }
+
+    .footer-mobile-links { display: none; }
+    .footer-mobile-links a {
+      text-decoration: none;
+      color: #fff;
+      opacity: 0.65;
+      font-size: 0.72rem;
+      font-weight: 500;
+      transition: opacity 0.2s;
+    }
+    .footer-mobile-links a:hover { opacity: 1; }
+    .footer-mobile-sep { opacity: 0.35; font-size: 0.72rem; }
+
+    /* ── DECORATIVE BG ── */
+    .decorative-bg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .decorative-bg svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    /* ── ACCESSIBILITY WIDGET ── */
+    #a11y-fab {
+      position: fixed; left: 0; top: 50%; transform: translateY(-50%);
+      width: 48px; height: 56px;
+      background: #312f37; color: #fff;
+      border: none; border-radius: 0 14px 14px 0;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 9999;
+      box-shadow: 2px 4px 20px rgba(49,47,55,0.22);
+      transition: background 0.2s, width 0.25s ease; overflow: hidden;
+    }
+    #a11y-fab:hover { background: #1a1820; }
+    #a11y-fab.collapsed { width: 20px; }
+    #a11y-fab .a11y-arrow { display: none; font-size: 0.9rem; }
+    #a11y-fab.collapsed .a11y-arrow { display: flex; }
+    #a11y-fab.collapsed .a11y-icon  { display: none; }
+    #a11y-fab .a11y-dot {
+      position: absolute; top: 7px; right: 7px;
+      width: 10px; height: 10px; background: #4ade80;
+      border-radius: 50%; border: 2px solid #312f37; display: none;
+    }
+    #a11y-fab .a11y-dot.show { display: block; }
+
+    #a11y-backdrop {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 10000; opacity: 0; pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    #a11y-backdrop.show { opacity: 1; pointer-events: auto; }
+
+    #a11y-panel {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: 100%; max-width: 420px;
+      background: transparent; z-index: 10001;
+      display: flex; flex-direction: column;
+      transform: translateX(-100%);
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+      box-shadow: 4px 0 40px rgba(49,47,55,0.18);
+    }
+    #a11y-panel.open { transform: translateX(0); }
+
+    .a11y-header {
+      flex-shrink: 0; background: #312f37; color: #fff;
+      padding: 1.1rem 1.25rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .a11y-header-info { display: flex; align-items: center; gap: 0.75rem; }
+    .a11y-header h2 { font-size: 1.05rem; font-weight: 800; margin: 0; color: #fff; }
+    .a11y-header p  { font-size: 0.78rem; opacity: 0.75; margin: 0.1rem 0 0; color: #fff; }
+    .a11y-close-btn {
+      width: 38px; height: 38px; background: rgba(255,255,255,0.12);
+      border: none; border-radius: 50%; color: #fff;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; transition: background 0.15s;
+    }
+    .a11y-close-btn:hover { background: rgba(255,255,255,0.25); }
+
+    .a11y-body { flex: 1; overflow-y: auto; padding: 1rem; display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .a11y-font-card {
+      background: #fff; border-radius: 14px; border: 1.5px solid #e4dff2; padding: 1rem;
+    }
+    .a11y-font-card-top { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.85rem; }
+    .a11y-icon-box {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(49,47,55,0.08);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 1.1rem;
+    }
+    .a11y-font-card h3 { font-size: 0.9rem; font-weight: 700; color: #312f37; margin: 0; }
+    .a11y-font-card .sub { font-size: 0.75rem; color: #6b7280; margin: 0.1rem 0 0; }
+    .a11y-font-btns { display: flex; gap: 0.4rem; }
+    .a11y-font-btns button {
+      flex: 1; padding: 0.55rem 0.2rem;
+      background: #eeebf7; border: none; border-radius: 9px;
+      color: #312f37; font-weight: 700; cursor: pointer;
+      transition: background 0.15s, color 0.15s; font-family: inherit;
+    }
+    .a11y-font-btns button.fs-active,
+    .a11y-font-btns button:hover:not(:disabled) { background: #312f37; color: #fff; }
+    .a11y-font-btns button:disabled { opacity: 0.35; cursor: not-allowed; }
+
+    .a11y-toggle {
+      width: 100%; display: flex; align-items: center; gap: 0.85rem;
+      padding: 0.85rem 1rem; background: #fff; border-radius: 14px;
+      border: 1.5px solid #e4dff2; cursor: pointer; text-align: left;
+      transition: border-color 0.15s, background 0.15s;
+    }
+    .a11y-toggle.on { background: rgba(49,47,55,0.05); border-color: #312f37; }
+    .a11y-toggle:hover { border-color: rgba(49,47,55,0.4); }
+    .a11y-toggle-icon { width: 40px; height: 40px; border-radius: 10px; background: rgba(49,47,55,0.08); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1.1rem; }
+    .a11y-toggle.on .a11y-toggle-icon { background: #312f37; }
+    .a11y-toggle-text { flex: 1; }
+    .a11y-toggle-text h3 { font-size: 0.88rem; font-weight: 700; color: #312f37; margin: 0; }
+    .a11y-toggle-text p  { font-size: 0.74rem; color: #6b7280; margin: 0.1rem 0 0; }
+    .a11y-switch {
+      position: relative; width: 46px; height: 26px; border-radius: 999px;
+      flex-shrink: 0; background: #d1c9bf; transition: background 0.2s;
+    }
+    .a11y-switch.on { background: #312f37; }
+    .a11y-switch-knob {
+      position: absolute; top: 3px; width: 20px; height: 20px;
+      border-radius: 50%; background: transparent;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.15); transition: left 0.2s;
+      left: calc(100% - 23px);
+    }
+    .a11y-switch.on .a11y-switch-knob { left: 3px; }
+
+    .a11y-reset-btn {
+      width: 100%; padding: 0.75rem; background: #fff;
+      border: none; border-radius: 12px;
+      font-size: 0.85rem; font-weight: 700; color: #312f37;
+      cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      transition: background 0.15s; font-family: inherit; margin-top: 0.25rem;
+    }
+    .a11y-reset-btn:hover { background: #dbd5ed; }
+
+    .a11y-statement {
+      padding: 1rem; background: #fff; border-radius: 12px; text-align: center;
+    }
+    .a11y-statement p { font-size: 0.76rem; color: #6b7280; margin: 0 0 0.3rem; line-height: 1.6; }
+    .a11y-statement small { font-size: 0.7rem; color: #9ca3af; }
+
+    #a11y-reading-guide {
+      position: fixed; left: 0; right: 0; height: 48px; pointer-events: none;
+      z-index: 9998; border-top: 2px solid rgba(49,47,55,0.2);
+      border-bottom: 2px solid rgba(49,47,55,0.2); background: rgba(49,47,55,0.04); display: none;
+    }
+    #a11y-reading-guide.show { display: block; }
+
+    .accessibility-high-contrast       { filter: contrast(1.4) !important; }
+    .accessibility-high-contrast *     { border-color: currentColor !important; }
+    .accessibility-grayscale           { filter: grayscale(100%) !important; }
+    .accessibility-high-contrast.accessibility-grayscale { filter: contrast(1.4) grayscale(100%) !important; }
+    .accessibility-highlight-links a   { background: yellow !important; color: #000 !important; text-decoration: underline !important; padding: 2px 4px !important; }
+    .accessibility-readable-font,
+    .accessibility-readable-font *     { font-family: Arial, Helvetica, sans-serif !important; letter-spacing: 0.02em !important; }
+    .accessibility-text-spacing        { letter-spacing: 0.12em !important; word-spacing: 0.32em !important; }
+    .accessibility-text-spacing p, .accessibility-text-spacing li,
+    .accessibility-text-spacing span, .accessibility-text-spacing div { line-height: 2 !important; }
+    .accessibility-stop-animations *, .accessibility-stop-animations *::before,
+    .accessibility-stop-animations *::after { animation: none !important; transition: none !important; }
+    .accessibility-large-cursor, .accessibility-large-cursor * {
+      cursor: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"><path fill="black" stroke="white" stroke-width="1" d="M5.5 3.21V20.8l4.86-4.86h8.43L5.5 3.21z"/></svg>') 0 0, auto !important;
+    }
+    #a11y-fab, #a11y-panel, #a11y-panel * { font-size: 1rem !important; }
+
+    /* ── BILLING TOGGLE ── */
+    .billing-toggle-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+    .billing-pill {
+      display: flex;
+      background: #eeebf7;
+      border-radius: 50px;
+      padding: 4px;
+      position: relative;
+    }
+    .billing-pill-btn {
+      position: relative;
+      z-index: 1;
+      padding: 0.6rem 1.8rem;
+      border: none;
+      background: none;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--muted);
+      cursor: pointer;
+      border-radius: 50px;
+      transition: color 0.25s;
+      white-space: nowrap;
+    }
+    .billing-pill-btn.active {
+      color: #fff;
+    }
+    .billing-pill-slider {
+      position: absolute;
+      top: 4px;
+      height: calc(100% - 8px);
+      border-radius: 50px;
+      background: var(--pink);
+      transition: left 0.3s cubic-bezier(.4,0,.2,1), width 0.3s cubic-bezier(.4,0,.2,1);
+      z-index: 0;
+      box-shadow: 0 2px 8px rgba(255,150,212,0.3);
+    }
+    .billing-discount-badge {
+      position: absolute;
+      top: -12px;
+      background: #d8f5e8;
+      color: #16a34a;
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 0.2rem 0.65rem;
+      border-radius: 50px;
+      white-space: nowrap;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      box-shadow: 0 2px 6px rgba(22,163,74,0.15);
+    }
+    .yearly-price-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+    .price-original {
+      font-size: 1.1rem;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-left: 0.4rem;
+      font-weight: 600;
+    }
+
+    /* ── BACK TO TOP ── */
+    #back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 46px;
+      height: 46px;
+      background: #312f37;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, bottom 0.3s ease;
+      z-index: 999;
+      box-shadow: 0 4px 16px rgba(49,47,55,0.18);
+    }
+
+    #back-to-top.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    #back-to-top:hover {
+      background: #1a1820;
+      transform: translateY(-3px);
+    }
+
+    #back-to-top.lift-for-footer {
+      bottom: 5.5rem;
+    }
+
+    /* ── HAMBURGER ── */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      width: 40px; height: 40px;
+      background: none; border: none; cursor: pointer;
+      padding: 6px; border-radius: 10px;
+      transition: background 0.15s; flex-shrink: 0;
+    }
+    .hamburger:hover { background: rgba(49,47,55,0.07); }
+    .hamburger span {
+      display: block; width: 22px; height: 2px;
+      background: #312f37; border-radius: 2px;
+      transition: transform 0.28s cubic-bezier(.4,0,.2,1), opacity 0.2s;
+      transform-origin: center;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 200;
+      visibility: hidden;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.28s, visibility 0.28s;
+    }
+    .mobile-menu.open {
+      visibility: visible;
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .mobile-menu-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(49,47,55,0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+    }
+    .mobile-menu-panel {
+      position: absolute;
+      top: 0; right: 0;
+      width: 78vw; max-width: 320px;
+      height: 100%;
+      background: transparent;
+      box-shadow: -8px 0 40px rgba(49,47,55,0.18);
+      display: flex; flex-direction: column;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1);
+      overflow-y: auto;
+    }
+    .mobile-menu.open .mobile-menu-panel { transform: translateX(0); }
+    .mobile-menu-head {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.1rem 1.25rem;
+      border-bottom: 1px solid rgba(49,47,55,0.08);
+    }
+    .mobile-menu-head img { height: 44px; width: auto; }
+    .mobile-menu-close {
+      width: 36px; height: 36px;
+      background: rgba(49,47,55,0.06); border: none;
+      border-radius: 50%; cursor: pointer; font-size: 1.1rem;
+      color: #312f37; display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .mobile-menu-close:hover { background: rgba(49,47,55,0.12); }
+
+    .mobile-links-list {
+      display: flex; flex-direction: column; padding: 0.75rem 0;
+      flex: 1;
+    }
+    .mobile-link {
+      padding: 1rem 1.5rem;
+      font-size: 1.05rem; font-weight: 600;
+      color: #312f37; text-decoration: none;
+      border-bottom: 1px solid rgba(49,47,55,0.06);
+      transition: background 0.15s, color 0.15s;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .mobile-link:last-of-type { border-bottom: none; }
+    .mobile-link:hover { background: rgba(49,47,55,0.04); color: var(--pink); }
+    .mobile-link::after { content: '‹'; color: rgba(49,47,55,0.25); font-size: 1.2rem; }
+    .mobile-menu-dl {
+      margin: 1rem 1.25rem;
+      padding: 0.9rem 1.5rem;
+      background: #312f37; color: #fff !important;
+      border-radius: 14px; text-align: center;
+      font-weight: 700; font-size: 0.95rem;
+      text-decoration: none; display: block;
+      transition: background 0.2s;
+    }
+    .mobile-menu-dl:hover { background: #1a1820; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .hamburger    { display: flex; }
+      .navbar-links { display: none; }
+      .navbar       { overflow: visible; }
+      .navbar-inner {
+        position: relative;
+        display: flex;
+        align-items: center;
+        padding: 0.6rem 1rem;
+        min-height: 64px;
+      }
+      .navbar-logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+      .navbar-logo img { top: 0; height: 50px; }
+      .hamburger { position: relative; z-index: 1; }
+      #navbar-root { z-index: 300; }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: auto;
+        z-index: 200;
+        pointer-events: none; opacity: 1;
+      }
+      .mobile-menu.open { pointer-events: auto; }
+
+      .mobile-menu-backdrop {
+        position: fixed;
+        top: 64px; left: 0; right: 0; bottom: 0;
+        background: rgba(49,47,55,0.18);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+        opacity: 0; transition: opacity 0.25s;
+      }
+      .mobile-menu.open .mobile-menu-backdrop { opacity: 1; }
+
+      .mobile-menu-panel {
+        position: relative;
+        right: auto; top: auto; bottom: auto; left: auto;
+        width: 100%; max-width: 100%; height: auto;
+        margin-top: 64px;
+        background: rgba(255,255,255,0.90);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border-radius: 0 0 22px 22px;
+        max-height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transform: translateY(-12px) !important;
+        transition: max-height 0.36s cubic-bezier(.4,0,.2,1),
+                    opacity 0.28s ease,
+                    transform 0.3s cubic-bezier(.4,0,.2,1);
+        box-shadow: 0 10px 30px rgba(49,47,55,0.13);
+      }
+      .mobile-menu.open .mobile-menu-panel {
+        max-height: 500px;
+        opacity: 1;
+        transform: translateY(0) !important;
+      }
+
+      .mobile-menu-head { display: none; }
+
+      .pricing-grid { grid-template-columns: 1fr; }
+      .pricing-hero { padding: 3.5rem 1.5rem 2rem; }
+      .pricing-section { padding: 2rem 1.5rem 5rem; }
+      .pricing-cta-strip { padding: 0 1.5rem 4rem; }
+      .pricing-cta-strip-inner { padding: 2rem 1.5rem; }
+
+      .footer { padding: 3rem 2rem 1.5rem; }
+      .footer-mascot { display: none; }
+      .footer-brand  { display: none; }
+      .footer-col    { display: none; }
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem 1.5rem;
+      }
+      .footer-social-col { grid-column: 1 / -1; text-align: center; }
+      .footer-col-label  { text-align: center; }
+      .footer-social-text { text-align: center; }
+      .footer-socials { gap: 0.5rem; justify-content: center; }
+      .footer-bottom { flex-direction: column; text-align: center; gap: 0.3rem; font-size: 0.72rem; align-items: center; }
+      .footer-mobile-links {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        gap: 0.3rem 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .footer-mobile-links .footer-a11y-link {
+        background: none;
+        border-radius: 0;
+        padding: 0;
+        font-size: 0.72rem;
+        font-weight: 500;
+        color: #312f37;
+        opacity: 0.65;
+        transition: opacity 0.2s;
+      }
+      .footer-mobile-links .footer-a11y-link:hover { background: none; opacity: 1; }
+      .footer-made-by { display: none; }
+      .footer-a11y-desktop { display: none !important; }
+
+      #a11y-fab { display: none; }
+
+      .pricing-store-btns { flex-direction: column; align-items: center; }
+      .btn-store { width: 260px; }
+
+      .pricing-cta-strip-inner {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      .pricing-cta-strip-text h2,
+      .pricing-cta-strip-text p { text-align: center; }
+
+      .faq-section { padding: 0 1.5rem 4rem; }
+    }
+
+    @media (max-width: 560px) {
+      .pricing-card { padding: 2rem 1.5rem; }
+      .footer { padding: 2.5rem 1rem 1.5rem; border-radius: 20px 20px 0 0; }
+    }
+
+    /* ── FAQ SECTION ── */
+    .faq-section {
+      background: transparent;
+      padding: 0 2.5rem 6rem;
+      position: relative;
+    }
+
+    .faq-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .faq-heading {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      font-weight: 400;
+      color: var(--dark);
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+
+    .faq-heading em {
+      font-style: normal;
+      color: var(--pink);
+    }
+
+    .faq-sub {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.93rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .faq-item {
+      background: #f4f4f4;
+      border-radius: 16px;
+      overflow: hidden;
+      transition: background 0.18s;
+    }
+
+    .faq-item:hover {
+      background: #ededed;
+    }
+
+    .faq-item.open {
+      background: #f4f4f4;
+    }
+
+    .faq-trigger {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1.2rem 1.5rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.97rem;
+      font-weight: 700;
+      color: var(--dark);
+      text-align: left;
+      transition: background 0.15s;
+    }
+
+    .faq-trigger:hover {
+      background: #ededed;
+    }
+
+    .faq-arrow {
+      width: 28px;
+      height: 28px;
+      min-width: 28px;
+      border-radius: 50%;
+      background: transparent;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.3s cubic-bezier(.4,0,.2,1), background 0.2s;
+      flex-shrink: 0;
+    }
+
+    .faq-arrow svg {
+      width: 14px;
+      height: 14px;
+      transition: stroke 0.2s;
+    }
+
+    .faq-item.open .faq-arrow {
+      transform: rotate(180deg);
+      background: #9f7aea;
+    }
+
+    .faq-item.open .faq-arrow svg path {
+      stroke: #fff;
+    }
+
+    .faq-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.35s cubic-bezier(.4,0,.2,1), padding 0.25s ease;
+    }
+
+    .faq-item.open .faq-body {
+      max-height: 300px;
+    }
+
+    .faq-body-inner {
+      padding: 0 1.5rem 1.4rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.75;
+      border-top: 1px solid #ece6f8;
+      padding-top: 1rem;
+    }
+
+    /* ── TESTFLIGHT DIALOG ── */
+    .tf-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+      padding: 1rem;
+    }
+    .tf-overlay.open {
+      opacity: 1;
+      visibility: visible;
+    }
+    .tf-dialog {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.22);
+      max-width: 380px;
+      width: 100%;
+      padding: 2.5rem 2rem 2rem;
+      text-align: center;
+      position: relative;
+      transform: scale(0.92) translateY(20px);
+      transition: transform 0.3s ease;
+    }
+    .tf-overlay.open .tf-dialog {
+      transform: scale(1) translateY(0);
+    }
+    .tf-close {
+      position: absolute;
+      top: 0.75rem;
+      right: 0.85rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #999;
+      line-height: 1;
+      padding: 0.25rem;
+      transition: color 0.2s;
+    }
+    .tf-close:hover { color: #312f37; }
+    .tf-icon {
+      width: 80px;
+      height: 80px;
+      border-radius: 18px;
+      margin: 0 auto 1.25rem;
+      display: block;
+    }
+    .tf-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #312f37;
+      margin-bottom: 0.5rem;
+    }
+    .tf-subtitle {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+    .tf-download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: #007AFF;
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      padding: 0.85rem 2rem;
+      border-radius: 14px;
+      width: 100%;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .tf-download-btn:hover {
+      background: #0066DD;
+      transform: scale(1.03);
+    }
+    .tf-download-btn svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 400px) {
+      .tf-dialog {
+        padding: 2rem 1.25rem 1.5rem;
+      }
+      .tf-icon {
+        width: 64px;
+        height: 64px;
+        border-radius: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div id="navbar-root"></div>
+
+    <!-- ══ PRICING HERO ══ -->
+  <section class="pricing-hero">
+    <div class="decorative-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 500" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 150 0 C 80 140, 350 240, 600 300 S 920 380, 1050 500"
+              fill="none" stroke="#312f37" stroke-opacity="0.13" stroke-width="1.8"
+              stroke-linecap="round" stroke-dasharray="10 14"/>
+        <path d="M 1100 0 C 1050 130, 820 240, 600 300 S 320 400, 200 500"
+              fill="none" stroke="#312f37" stroke-opacity="0.08" stroke-width="1.4"
+              stroke-linecap="round" stroke-dasharray="6 16"/>
+        <circle cx="600" cy="300" r="2.5" fill="#312f37" opacity="0.12"/>
+        <circle cx="300" cy="180" r="2"   fill="#312f37" opacity="0.09"/>
+        <circle cx="900" cy="360" r="2"   fill="#312f37" opacity="0.09"/>
+      </svg>
+    </div>
+
+    <div class="pricing-hero-inner">
+      <h1>No cost, it's <em>Free</em></h1>
+      <p>DNP Remote is free to download. No subscriptions, no hidden fees, no surprises.</p>
+    </div>
+  </section>
+
+  <!-- ══ PRICING CARDS ══ -->
+  <section class="pricing-section">
+
+    <div class="decorative-bg" aria-hidden="true">
+      <svg viewBox="0 0 1200 800" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M 1050 0 C 1100 200, 850 360, 600 450 S 310 580, 200 800"
+              fill="none" stroke="#312f37" stroke-opacity="0.08" stroke-width="1.4"
+              stroke-linecap="round" stroke-dasharray="6 16"/>
+        <circle cx="850" cy="210" r="2" fill="#312f37" opacity="0.09"/>
+        <circle cx="350" cy="560" r="2" fill="#312f37" opacity="0.09"/>
+      </svg>
+    </div>
+
+    <div class="pricing-inner">
+
+      <div class="pricing-grid" style="grid-template-columns: 1fr 1fr; max-width: 860px; margin: 0 auto;">
+
+        <!-- ── FREE CARD ── -->
+        <div class="pricing-card">
+          <div class="pricing-card-label">iOS App</div>
+          <h2 class="pricing-card-title">DNP Remote</h2>
+          <p class="pricing-card-muted">Everything you need to control your AI coding agent from your iPhone - no subscription required.</p>
+
+          <div class="pricing-card-price-wrap">
+            <span class="pricing-card-price">Free</span>
+          </div>
+          <p class="pricing-trial">Available on the App Store</p>
+
+          <a href="#" class="pricing-cta-btn btn-ios-testflight" rel="noopener">Download on the App Store</a>
+
+          <div class="pricing-divider"></div>
+          <ul class="features-list">
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Chat with Claude Code, Cursor, VS Code &amp; OpenAI Codex</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Connect via local network or Tailscale VPN</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>End-to-end TLS encryption - your data never leaves your network</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>QR code pairing - instant setup, no manual IP entry</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>File browser - browse and view your Mac's project files</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Screen mirror - live simulator or Mac screen on your iPhone</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Full session history with token usage tracking</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ── MAC BRIDGE CARD ── -->
+        <div class="pricing-card featured">
+          <div class="pricing-card-label">Mac Companion</div>
+          <h2 class="pricing-card-title">Mac Bridge</h2>
+          <p class="pricing-card-muted">The server that runs on your Mac and bridges DNP Remote to your AI coding tools.</p>
+
+          <div class="pricing-card-price-wrap">
+            <span class="pricing-card-price">Free</span>
+          </div>
+          <p class="pricing-trial">Runs on your Mac in the background</p>
+
+          <a href="https://github.com/rotem221/dnp-remote-vibe-coding/releases/download/v1.0/DNP-Mac-Bridge-v1.0.dmg" class="pricing-cta-btn btn-mac-download" target="_blank" rel="noopener"><span class="btn-label">Get Mac Bridge</span></a>
+
+          <div class="pricing-divider"></div>
+          <ul class="features-list">
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Bridges your iPhone to Claude Code, Cursor, VS Code &amp; more</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Streams agent responses and tool activity in real time</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Exposes file tree, build status &amp; simulator screen</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>End-to-end TLS encrypted connection - data stays on your network</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>Shared session history across paired devices</span>
+            </li>
+            <li class="feature-item">
+              <span class="feature-icon"><svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 6.5L4.8 9.5L10 3" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span>QR code generation for instant iPhone pairing</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ SUPPORT / BUY ME A COFFEE ══ -->
+  <section class="pricing-support-strip">
+    <div class="pricing-support-strip-inner">
+      <p>Enjoying DNP Remote?</p>
+      <a href="https://buymeacoffee.com/Rotemdadon" class="btn-coffee" target="_blank" rel="noopener" aria-label="Support the developer on Buy Me a Coffee">
+        <img src="/buymeacoffiebutton.png" alt="Buy me a coffee" />
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <h2 class="faq-heading">Frequently asked <em>questions</em></h2>
+      <p class="faq-sub">Everything you need to know about DNP Remote</p>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Is DNP Remote really free?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">Yes - DNP Remote is completely free to download on the App Store. There are no subscriptions, no in-app purchases, and no hidden fees. All features are included at no charge.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Do I need to install anything on my Mac?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">Yes. DNP Remote connects to the Mac Bridge, a lightweight companion server that runs on your Mac. The Mac Bridge is also free, and it handles the WebSocket connection that lets your iPhone talk to Claude Code, Cursor, VS Code, and other AI coding tools.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Which AI coding tools are supported?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">DNP Remote currently supports Claude Code, Cursor, VS Code, and OpenAI Codex. You can switch between agents within the app, and more tools will be added as the platform grows.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>How does the connection between iPhone and Mac work?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">When on the same Wi-Fi network, the app auto-discovers your Mac via Bonjour - just scan the QR code shown by the Mac Bridge and you're connected. For remote access from outside your home network, DNP Remote supports Tailscale VPN so you can reach your Mac from anywhere.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Is my code or data sent to any external server?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">No. All communication is direct between your iPhone and your Mac via a TLS-encrypted WebSocket connection. Your code, chat messages, and file contents never pass through any third-party server - everything stays end-to-end encrypted on your local network or your Tailscale private network.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-trigger" aria-expanded="false">
+            <span>Can I use DNP Remote over cellular (outside my home Wi-Fi)?</span>
+            <span class="faq-arrow"><svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6L8 10L12 6" stroke="#312f37" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          </button>
+          <div class="faq-body" role="region">
+            <div class="faq-body-inner">Yes. With Tailscale installed on both your iPhone and your Mac, DNP Remote works over any internet connection - cellular, hotel Wi-Fi, a coffee shop, wherever you are. Tailscale is free for personal use and creates an encrypted peer-to-peer tunnel between your devices.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-root"></div>
+
+  <!-- TestFlight Dialog -->
+  <div class="tf-overlay" id="tf-overlay">
+    <div class="tf-dialog" role="dialog" aria-modal="true" aria-label="Download via TestFlight">
+      <button class="tf-close" id="tf-close" aria-label="Close">&times;</button>
+      <img src="/testflight-icon.webp" alt="TestFlight" class="tf-icon" />
+      <div class="tf-title">TestFlight Beta</div>
+      <p class="tf-subtitle">DNP Remote is currently available as a TestFlight beta. Tap below to join the beta and download the app.</p>
+      <a href="https://testflight.apple.com/join/tmsGDAW9" class="tf-download-btn" target="_blank" rel="noopener">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download via TestFlight
+      </a>
+    </div>
+  </div>
+
+  <script src="/_shared.js"></script>
+  <script>
+    /* ── Mac download buttons work directly; iOS buttons open TestFlight dialog ── */
+    (function() {
+      var overlay = document.getElementById('tf-overlay');
+      var closeBtn = document.getElementById('tf-close');
+      function openTF(e) {
+        e.preventDefault();
+        overlay.classList.add('open');
+      }
+      function closeTF() {
+        overlay.classList.remove('open');
+      }
+      document.addEventListener('click', function(e) {
+        var btn = e.target.closest('.btn-ios-testflight');
+        if (btn) return openTF(e);
+        if (e.target === overlay) closeTF();
+      });
+      closeBtn.addEventListener('click', closeTF);
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') closeTF();
+      });
+    })();
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var item = this.closest('.faq-item');
+        var isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item.open').forEach(function(el) {
+          el.classList.remove('open');
+          el.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
+        });
+        if (!isOpen) {
+          item.classList.add('open');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
