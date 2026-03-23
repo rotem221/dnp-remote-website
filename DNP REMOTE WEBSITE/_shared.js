@@ -163,19 +163,19 @@
       if (mobPricing) mobPricing.style.color = 'var(--pink)';
     }
 
-    /* ── TestFlight dialog (injected once, works on every page) ── */
+    /* ── App Store dialog (injected once, works on every page) ── */
     if (!document.getElementById('tf-overlay')) {
       var tfDiv = document.createElement('div');
       tfDiv.innerHTML =
         '<div class="tf-overlay" id="tf-overlay">' +
-          '<div class="tf-dialog" role="dialog" aria-modal="true" aria-label="Download via TestFlight">' +
+          '<div class="tf-dialog" role="dialog" aria-modal="true" aria-label="Download on the App Store">' +
             '<button class="tf-close" id="tf-close" aria-label="Close">&times;</button>' +
-            '<img src="/testflight.webp" alt="TestFlight" class="tf-icon" />' +
-            '<div class="tf-title">TestFlight Beta</div>' +
-            '<p class="tf-subtitle">DNP Remote is currently available as a TestFlight beta. Tap below to join the beta and download the app.</p>' +
-            '<a href="https://testflight.apple.com/join/tmsGDAW9" class="tf-download-btn" target="_blank" rel="noopener">' +
+            '<img src="/testflight.webp" alt="DNP Remote" class="tf-icon" />' +
+            '<div class="tf-title">DNP Remote</div>' +
+            '<p class="tf-subtitle">DNP Remote is available on the App Store. Tap below to download the app.</p>' +
+            '<a href="https://apps.apple.com/us/app/dnp-remote/id6760618642" class="tf-download-btn" target="_blank" rel="noopener">' +
               '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
-              'Download via TestFlight' +
+              'Download on the App Store' +
             '</a>' +
           '</div>' +
         '</div>';
